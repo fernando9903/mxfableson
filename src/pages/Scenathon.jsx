@@ -24,7 +24,7 @@ import GreenHouseOne from '../pages/GreenHouseOne'
 import FreshWaterTwo from '../pages/FreshWaterTwo'
 
 
-
+import FableMapCountries from '../componentes/FableMapCountries'
 
  
 
@@ -163,7 +163,7 @@ class Scenathon extends Component {
                 
 
                
-
+            <FableMapCountries/>                
           
                
 
