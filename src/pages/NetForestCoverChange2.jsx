@@ -12,39 +12,28 @@ const drawNfch2 = (props) => {
 
   switch(GraficaType){
     
-    case 'group':
-      switch(Iteration){
-        case 'iteration_3':
-          var dataAux= convertir(Scenario === "Sustainaible" ? data.combination_2 : data.combination_4);
-          break;
-        case 'iteration_4':
-          var dataAux= convertir(Scenario === "Sustainaible" ? data.combination_1 : data.combination_3);
-          
-          
-          break
-      }
-      break;
     case 'regions':
       switch(Iteration){
         case 'iteration_3':
-          var dataAux= convertir(Scenario === "Sustainaible" ? data.combination_6 : data.combination_8);
+          var dataAux= convertir(Scenario === "Sustainaible" ? data.combination_3 : data.combination_4);
           break;
         case 'iteration_4':
-          var dataAux= convertir(Scenario === "Sustainaible" ? data.combination_5 : data.combination_7);
+          var dataAux= convertir(Scenario === "Sustainaible" ? data.combination_1 : data.combination_2);
           break
       }
       break;
     case 'countries':
       switch(Iteration){
       case 'iteration_3':
-        var dataAux= convertir(Scenario === "Sustainaible" ? data.combination_10 : data.combination_12);
+        var dataAux= convertir(Scenario === "Sustainaible" ? data.combination_6 : data.combination_8);
         break;
       case 'iteration_4':
-        var dataAux= convertir(Scenario === "Sustainaible" ? data.combination_9 : data.combination_11);
+        var dataAux= convertir(Scenario === "Sustainaible" ? data.combination_5 : data.combination_7);
 
         break
     }
     break;
+    default: var dataAux= convertir(data.combination_1); break;
   }
   
   
