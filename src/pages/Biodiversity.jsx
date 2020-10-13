@@ -2,7 +2,8 @@ import React from "react";
 import BarChart from "../componentes/BarChart";
 import data from '../data/Biodiversity.json';
 //nfch=NetForestCoverChange
-const drawBiodiversity = (props) => {
+const drawBiodiversity = (props) => 
+{
  
  
   
@@ -34,7 +35,7 @@ const drawBiodiversity = (props) => {
     case 'countries':
       switch(Iteration){
       case 'iteration_3':
-        var dataAux= convertir(Scenario === "Sustainaible" ? data.combinacion_dies : data.combinacion_doce);
+        var dataAux= convertir(Scenario === "Sustainaible" ? data.combinacion_diez : data.combinacion_doce);
         break;
       case 'iteration_4':
         var dataAux= convertir(Scenario === "Sustainaible" ? data.combinacion_nueve : data.combinacion_once);
@@ -49,8 +50,12 @@ const drawBiodiversity = (props) => {
 return <BarChart data={dataAux}/> 
 }
 
+                                                          
 
-const convertir=(props)=> {
+
+const convertir=(props)=> 
+
+{
   var labels=[];
    var Protected_land_Mexico=[]; 
    var Protected_land_Colombia=[]; 
@@ -66,6 +71,7 @@ const convertir=(props)=> {
    var Protected_land_Rest_of_European_Union=[];
    var Protected_land_Sweden=[];
    var Protected_land_USA=[];
+   var Protected_land_Rest_of_Europe_non_EU28=[];
 
    var Protected_land_Rest_of_Central_and_South_America=[];
    var Rest_of_North_Africa_Middle_East_and_central_Asia=[];
@@ -139,6 +145,9 @@ const convertir=(props)=> {
     }else if(item.c_country_t==="Rest of Sub-Saharan Africa")
     {
        Rest_of_Sub_Saharan_Africa.push(item.Protected_land*100); 
+    }else if(item.c_country_t==="Rest of Europe non EU28")
+    {
+       Protected_land_Rest_of_Europe_non_EU28.push(item.Protected_land*100); 
     }else if(item.c_country_t==="otros")
     {
        Protected_land_Otros.push(item.Protected_land*100); 
@@ -405,6 +414,18 @@ const convertir=(props)=> {
             pointBackgroundColor: '#EC932F',
             pointHoverBackgroundColor: '#EC932F',
             pointHoverBorderColor: '#EC932F',
+            yAxisID: 'y-axis-1'
+          },{
+            type: 'bar',
+            label: 'Rest of Europe non EU28',
+            data: Protected_land_Rest_of_Europe_non_EU28,
+            fill: false,
+            borderColor: 'pink',
+            backgroundColor: 'pink',
+            pointBorderColor: 'pink',
+            pointBackgroundColor: 'pink',
+            pointHoverBackgroundColor: 'pink',
+            pointHoverBorderColor: 'pink',
             yAxisID: 'y-axis-1'
           }
           

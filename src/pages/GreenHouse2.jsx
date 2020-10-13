@@ -5,7 +5,9 @@ import data from '../data/Greenhouse2.json';
 const greenHouse = (props) => {
  
  
-   
+   var dataGraphOne;
+   var dataGraphTwo;
+
  
 
   const { GraficaType, Iteration, Scenario } = props.combinacion.select;
@@ -14,40 +16,104 @@ const greenHouse = (props) => {
     case 'group':
       switch(Iteration){
         case 'iteration_3':
-          var dataAux= convertir(Scenario === "Sustainaible" ? data.Greengraph_One__combination_Two : data.Greengraph_One__combination_Four);
+          if(Scenario === "Sustainaible")
+          {
+            dataGraphOne= data.Greengraph_One__combination_Two
+            dataGraphTwo=data.Greengraph_Two__combination_Two
+          }else{
+            dataGraphOne=data.Greengraph_One__combination_Four
+            dataGraphTwo=data.Greengraph_Two__combination_Four
+          }
+          var dataGraphOneAux= convertir(dataGraphOne);
+          var dataGraphTwoAux= convertir(dataGraphTwo);
+          
           break;
         case 'iteration_4':
-          var dataAux= convertir(Scenario === "Sustainaible" ? data.Greengraph_One__combination_One : data.Greengraph_One__combination_Three);
-          break
+          if(Scenario === "Sustainaible")
+          {
+            dataGraphOne= data.Greengraph_One__combination_One
+            dataGraphTwo=data.Greengraph_Two__combination_One
+            console.log(dataGraphTwo)
+            
+          }else{
+            dataGraphOne= data.Greengraph_One__combination_Three
+            dataGraphTwo=data.Greengraph_Two__combination_Three
+          }
+          var dataGraphOneAux= convertir(dataGraphOne);
+          var dataGraphTwoAux= convertir(dataGraphTwo);
+          console.log(dataGraphTwoAux)
+          break;
       }
       break;
     case 'regions':
       switch(Iteration){
         case 'iteration_3':
-          var dataAux= convertir(Scenario === "Sustainaible" ? data.Greengraph_One__combination_Six : data.Greengraph_One__combination_Eight);
+          if(Scenario === "Sustainaible")
+          {
+            dataGraphOne= data.Greengraph_One__combination_Six
+            dataGraphTwo=data.Greengraph_Two__combination_Six
+          }else{
+            dataGraphOne= data.Greengraph_One__combination_Eight
+            dataGraphTwo=data.Greengraph_Two__combination_Eight
+          }
+          var dataGraphOneAux= convertir(dataGraphOne);
+          var dataGraphTwoAux= convertir(dataGraphTwo);
           break;
         case 'iteration_4':
-          var dataAux= convertir(Scenario === "Sustainaible" ? data.Greengraph_One__combination_Five : data.Greengraph_One__combination_Seven);
-          break
+          if(Scenario === "Sustainaible")
+          {
+            dataGraphOne=data.Greengraph_One__combination_Five
+            dataGraphTwo=data.Greengraph_Two__combination_Five
+          }else{
+            dataGraphOne=data.Greengraph_One__combination_Seven
+            dataGraphTwo=data.Greengraph_Two__combination_Seven
+          }
+          var dataGraphOneAux= convertir(dataGraphOne);
+          var dataGraphTwoAux= convertir(dataGraphTwo);
+          break;
+         
       }
       break;
     case 'countries':
       switch(Iteration){
       case 'iteration_3':
-        var dataAux= convertir(Scenario === "Sustainaible" ? data.Greengraph_One__combination_Ten : data.Greengraph_One__combination_Twelve);
+        if(Scenario === "Sustainaible")
+        {
+          dataGraphOne=data.Greengraph_One__combination_Ten
+          dataGraphTwo=data.Greengraph_Two__combination_Ten
+        }else{
+          dataGraphOne=data.Greengraph_One__combination_Twelve
+          dataGraphTwo=data.Greengraph_Two__combination_Twelve
+        }
+        var dataGraphOneAux= convertir(dataGraphOne);
+        var dataGraphTwoAux= convertir(dataGraphTwo);
         break;
+       
       case 'iteration_4':
-        var dataAux= convertir(Scenario === "Sustainaible" ? data.Greengraph_One__combination_Nine : data.Greengraph_One__combination_Eleven);
-
-        break
+        if(Scenario === "Sustainaible")
+        {
+          dataGraphOne=data.Greengraph_One__combination_Nine
+          dataGraphTwo=data.Greengraph_Two__combination_Nine
+        }else{
+          dataGraphOne=data.Greengraph_One__combination_Eleven
+          dataGraphTwo=data.Greengraph_Two__combination_Eleven
+        }
+        var dataGraphOneAux= convertir(dataGraphOne);
+        var dataGraphTwoAux= convertir(dataGraphTwo);
+        break;
     }
     break;
   }
   
 
 
-return <BarChart data={dataAux}
+return <div>
+  <BarChart data={dataGraphOneAux}
 title="Green House 2"/> 
+<BarChart data={dataGraphTwoAux}
+title="Green House 2"/> 
+  
+  </div>
 }
 
 
@@ -77,48 +143,47 @@ const convertir=(props)=>{
     if (props != undefined) {
         props.map((item) => {
           
-          console.log(item.c_country_t)
             if (item.c_country_t === "USA") {
-              usa.push(item.total_GHG_agric);
+              usa.push(item.total_GHG );
             }else if (item.c_country_t === "UK") {
-              UK.push(item.total_GHG_agric);
+              UK.push(item.total_GHG );
             }else if (item.c_country_t === "Sweden") {
-              sweden.push(item.total_GHG_agric);
+              sweden.push(item.total_GHG );
             }else if (item.c_country_t === "South Africa") {
-              south_Africa.push(item.total_GHG_agric);
+              south_Africa.push(item.total_GHG );
             }
             else if (item.c_country_t === "Rwanda") {
-              rwanda.push(item.total_GHG_agric);
+              rwanda.push(item.total_GHG );
             }else if (item.c_country_t === "Russia") {
-              russia.push(item.total_GHG_agric);
+              russia.push(item.total_GHG );
             }else if (item.c_country_t === "Rest of Sub-Saharan Africa") {
-              Rest_of_Sub_Saharan_Africa.push(item.total_GHG_agric);
+              Rest_of_Sub_Saharan_Africa.push(item.total_GHG );
             }else if (item.c_country_t === "Rest of North Africa Middle East and central Asia") {
-              Rest_of_North_Africa_Middle_East_and_central_Asia.push(item.total_GHG_agric);
+              Rest_of_North_Africa_Middle_East_and_central_Asia.push(item.total_GHG );
             }else if (item.c_country_t === "Rest of European Union") {
-              Rest_of_European_Union.push(item.total_GHG_agric);
+              Rest_of_European_Union.push(item.total_GHG );
             }else if (item.c_country_t === "Rest of Europe non EU28") {
-              Rest_of_Europe_non_EU28.push(item.total_GHG_agric);
+              Rest_of_Europe_non_EU28.push(item.total_GHG );
             }else if (item.c_country_t === "Rest of Central and South America") {
-              Rest_of_Central_and_South_America.push(item.total_GHG_agric);
+              Rest_of_Central_and_South_America.push(item.total_GHG );
             }else if (item.c_country_t === "Rest of Asia and Pacific") {
-              Rest_of_Asia_and_Pacific.push(item.total_GHG_agric);
+              Rest_of_Asia_and_Pacific.push(item.total_GHG );
             }else if (item.c_country_t === "Norway") {
-              norway.push(item.total_GHG_agric);
+              norway.push(item.total_GHG );
             }else if (item.c_country_t === "Mexico") {
-              mexico.push(item.total_GHG_agric);
+              mexico.push(item.total_GHG );
             }else if (item.c_country_t === "Malaysia") {
-              malaysia.push(item.total_GHG_agric);
+              malaysia.push(item.total_GHG );
             }else if (item.c_country_t === "Indonesia") {
-              indonesia.push(item.total_GHG_agric);
+              indonesia.push(item.total_GHG );
             }else if (item.c_country_t === "India") {
-              india.push(item.total_GHG_agric);
+              india.push(item.total_GHG );
             }else if (item.c_country_t === "Germany") {
-              germany.push(item.total_GHG_agric);
+              germany.push(item.total_GHG );
             }else if (item.c_country_t === "Finland") {
-              finland.push(item.total_GHG_agric);
+              finland.push(item.total_GHG );
             }else if (item.c_country_t === "otros") {
-              otros.push(item.total_GHG_agric);
+              otros.push(item.total_GHG );
             }
 
             if(!labels.includes(item.Year))
@@ -388,9 +453,9 @@ const convertir=(props)=>{
               ]
             };
 
-            console.log(data)
+           
        return data
-    
+   
 
 }
 

@@ -24,4 +24,4 @@ yarn-error.log*
 
 #archivos
 /mxfableson
-/.vscode
+/debug.log

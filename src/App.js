@@ -12,7 +12,8 @@ class App extends Component {
   render(){
     return (
     <React.Fragment>
-      <Jumbotron/> <Navbar/>
+      <Jumbotron/> 
+      <Navbar/>
         <div id="About">
              <About/>
         </div>

@@ -56,7 +56,7 @@ const drawFoodEnergyIntakePerCapita = (props) => {
 
     let dataAux;
 
-    const { GraficaType, Iteration, Scenario } = props.combinacion.select;
+    const { GraficaType, Iteration, Scenario, Year } = props.combinacion.select;
   
     switch(GraficaType){
       case 'group':
@@ -65,7 +65,7 @@ const drawFoodEnergyIntakePerCapita = (props) => {
             dataAux= convertir(Scenario === "Sustainaible" ? data.targetCinco_combinacionDos : data.targetCinco_combinacionCuatro);
             break;
           case 'iteration_4':
-            dataAux= convertir(Scenario === "Sustainaible" ? data.targetCinco_combinacionUno : data.targetCinco_combinacionTres);
+            dataAux= convertir(Year === "2030" ? data.targetCinco_combinacionUno : data.targetCinco_combinacionTres);
             break
         }
         break;

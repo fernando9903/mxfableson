@@ -5,7 +5,10 @@ import data from '../data/NetForestCoverChange1.json';
 //filter map
 //nfch=NetForestCoverChange
 const drawNfch = (props) => {
- 
+  
+
+
+
   let dataAux;
 
   const { GraficaType, Iteration, Scenario } = props.combinacion.select;
@@ -142,7 +145,7 @@ const convertir=(props)=> {
 
  return data
 } 
-  
+
  
 
 export default drawNfch;

@@ -4,13 +4,14 @@ import data from '../data/NetForestCoverChange2.json';
 //nfch=NetForestCoverChange
 const drawNfch2 = (props) => {
  
- 
+ console.log("entre")
   
  
 
   const { GraficaType, Iteration, Scenario } = props.combinacion.select;
 
   switch(GraficaType){
+    
     case 'group':
       switch(Iteration){
         case 'iteration_3':
@@ -18,6 +19,8 @@ const drawNfch2 = (props) => {
           break;
         case 'iteration_4':
           var dataAux= convertir(Scenario === "Sustainaible" ? data.combination_1 : data.combination_3);
+          
+          
           break
       }
       break;
@@ -44,12 +47,12 @@ const drawNfch2 = (props) => {
     break;
   }
   
-
-
+  
 return <BarChart data={dataAux}/> 
 }
 
 const convertir=(props)=> {
+  
     var labels=[];
      var mexico=[]; 
      var colombia=[]; 
@@ -147,15 +150,33 @@ const convertir=(props)=> {
       }else if(item.c_country_t==="otros")
       {
          otros.push(item.ha_per_year); 
+      }else if(item.c_country_t==="Rest of European Union")
+      {
+        rest_of_European_Union.push(item.ha_per_year); 
+      }else if(item.c_country_t==="Rest of North Africa Middle East and central Asia")
+      {
+        rest_of_North_Africa_Middle_East_and_central_Asia.push(item.ha_per_year); 
+      }else if(item.c_country_t==="Rest of Sub-Saharan Africa")
+      {
+        rest_of_Sub_Saharan_Africa.push(item.ha_per_year); 
       }
-  
+      else if(item.c_country_t==="Rest of Europe non EU28")
+      {
+        rest_of_Europe_non_EU28.push(item.ha_per_year); 
+      }else if(item.c_country_t==="Rest of Asia and Pacific")
+      {
+        rest_of_Asia_and_Pacific.push(item.ha_per_year); 
+      }else if(item.c_country_t==="Rest of Central and South America")
+      {
+        rest_of_Central_and_South_America.push(item.ha_per_year); 
+      }
       if(!labels.includes(item.Year))
       {
          labels.push(item.Year);
       }
      }
-   
-  
+
+    
     );}
   
     const data = {
@@ -415,6 +436,7 @@ const convertir=(props)=> {
             
           ]
         };
+  
    return data
   } 
     
