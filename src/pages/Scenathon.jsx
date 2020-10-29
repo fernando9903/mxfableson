@@ -127,7 +127,7 @@ class Scenathon extends Component {
     }
 
     selectDashboard(){
-      console.log("entre")
+    
         switch(this.state.dashboard){
             case 'Global Target Summary': 
                 this.combobox=<ComboBox onChange={this.handleChange}/>
@@ -144,8 +144,8 @@ class Scenathon extends Component {
                 document.getElementById("banner").src=BannerLifeOnLand;
                 break;
             case 'Biodiversity':
-                this.combobox=<ComboBox onChange={this.handleChange}/>
-                this.dash=<Biodiversity combinacion={this.state}/>;
+                this.combobox=null;  
+                this.dash=<Biodiversity/>;
                 document.getElementById("banner").src=BannerLifeOnLand;
             break;
             case 'Protected Areas by Type':
@@ -161,12 +161,14 @@ class Scenathon extends Component {
                 document.getElementById("banner").src=BannerLifeOnLand;
             break;
             case 'Fresh Water 1':
-                this.combobox=<ComboBox onChange={this.handleChange}/>
-                this.dash=<FreshWaterUse combinacion={this.state}/>;
+              //  this.combobox=<ComboBox onChange={this.handleChange}/>
+              this.combobox=null;  
+              this.dash=<FreshWaterUse combinacion={this.state}/>;
                 document.getElementById("banner").src=BannerCleanWater;
             break;
             case 'Fresh Water 2':
-                this.combobox=<ComboBox onChange={this.handleChange}/>
+              //  this.combobox=<ComboBox onChange={this.handleChange}/>
+              this.combobox=null; 
                 this.dash=<FreshWaterTwo combinacion={this.state}/>;
                 document.getElementById("banner").src=BannerCleanWater;
             break;

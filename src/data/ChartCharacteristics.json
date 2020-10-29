@@ -158,5 +158,18 @@
             "pointHoverBorderColor": "#EC932F",
             "yAxisID": "y-axis-1"
         }
+    ],
+    "million_cubic_metres": [
+        {
+            "type": "bar",
+            "label": "million cubic metres",
+            "borderColor": "#81c784",
+            "backgroundColor": "#81c784",
+            "pointBorderColor": "#81c784",
+            "pointBackgroundColor": "#81c784",
+            "pointHoverBackgroundColor": "#81c784",
+            "pointHoverBorderColor": "#81c784",
+            "yAxisID": "y-axis-1"
+        }
     ]
 }

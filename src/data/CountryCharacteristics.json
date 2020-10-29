@@ -267,7 +267,20 @@
             "pointHoverBorderColor": "#EC932F",
             "yAxisID": "y-axis-1"
         }
-    ],"Sweden": [
+    ],"SouthAfrica": [
+        {
+            "type": "bar",
+            "label": "ZAF",
+            "borderColor": "#EC932F",
+            "backgroundColor": "#ffd8b1",
+            "pointBorderColor": "#EC932F",
+            "pointBackgroundColor": "#EC932F",
+            "pointHoverBackgroundColor": "#EC932F",
+            "pointHoverBorderColor": "#EC932F",
+            "yAxisID": "y-axis-1"
+        }
+    ]
+    ,"Sweden": [
         {
             "type": "bar",
             "label": "SWE",
@@ -314,6 +327,84 @@
             "pointBackgroundColor": "#EC932F",
             "pointHoverBackgroundColor": "#EC932F",
             "pointHoverBorderColor": "#EC932F",
+            "yAxisID": "y-axis-1"
+
+        }
+    ],"R_AFR": [
+        {
+            "type": "bar",
+            "label": "R_AFR",
+            "borderColor": "#ED1755",
+            "backgroundColor": "#ED1755",
+            "pointBorderColor": "#ED1755",
+            "pointBackgroundColor": "#ED1755",
+            "pointHoverBackgroundColor": "#ED1755",
+            "pointHoverBorderColor": "#ED1755",
+            "yAxisID": "y-axis-1"
+
+        }
+    ],"R_ASIPAC": [
+        {
+            "type": "bar",
+            "label": "R_ASIPAC",
+            "borderColor": "#EBE24D",
+            "backgroundColor": "#EBE24D",
+            "pointBorderColor": "#EBE24D",
+            "pointBackgroundColor": "#EBE24D",
+            "pointHoverBackgroundColor": "#EBE24D",
+            "pointHoverBorderColor": "#EBE24D",
+            "yAxisID": "y-axis-1"
+
+        }
+    ],"R_LAM": [
+        {
+            "type": "bar",
+            "label": "R_LAM",
+            "borderColor": "#0A844A",
+            "backgroundColor": "#0A844A",
+            "pointBorderColor": "#0A844A",
+            "pointBackgroundColor": "#0A844A",
+            "pointHoverBackgroundColor": "#0A844A",
+            "pointHoverBorderColor": "#0A844A",
+            "yAxisID": "y-axis-1"
+
+        }
+    ],"R_MECAS": [
+        {
+            "type": "bar",
+            "label": "R_MECAS",
+            "borderColor": "#570039",
+            "backgroundColor": "#570039",
+            "pointBorderColor": "#570039",
+            "pointBackgroundColor": "#570039",
+            "pointHoverBackgroundColor": "#570039",
+            "pointHoverBorderColor": "#570039",
+            "yAxisID": "y-axis-1"
+
+        }
+    ],"R_NEU": [
+        {
+            "type": "bar",
+            "label": "R_MECAS",
+            "borderColor": "#570039",
+            "backgroundColor": "#570039",
+            "pointBorderColor": "#570039",
+            "pointBackgroundColor": "#570039",
+            "pointHoverBackgroundColor": "#570039",
+            "pointHoverBorderColor": "#570039",
+            "yAxisID": "y-axis-1"
+
+        }
+    ],"R_OEU": [
+        {
+            "type": "bar",
+            "label": "R_MECAS",
+            "borderColor": "#31EBAA",
+            "backgroundColor": "#31EBAA",
+            "pointBorderColor": "#31EBAA",
+            "pointBackgroundColor": "#31EBAA",
+            "pointHoverBackgroundColor": "#31EBAA",
+            "pointHoverBorderColor": "#31EBAA",
             "yAxisID": "y-axis-1"
 
         }

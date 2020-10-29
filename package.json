@@ -37,7 +37,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "serve": "nodemon server.js"
+    "server": "nodemon server/index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
