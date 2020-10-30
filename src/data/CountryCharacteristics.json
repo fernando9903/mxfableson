@@ -385,9 +385,9 @@
     ],"R_NEU": [
         {
             "type": "bar",
-            "label": "R_MECAS",
+            "label": "R_NEU",
             "borderColor": "#570039",
-            "backgroundColor": "#570039",
+            "backgroundColor": "#1FBEEB",
             "pointBorderColor": "#570039",
             "pointBackgroundColor": "#570039",
             "pointHoverBackgroundColor": "#570039",
@@ -398,7 +398,7 @@
     ],"R_OEU": [
         {
             "type": "bar",
-            "label": "R_MECAS",
+            "label": "R_OEU",
             "borderColor": "#31EBAA",
             "backgroundColor": "#31EBAA",
             "pointBorderColor": "#31EBAA",

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
 
-import ComboBox from '../componentes/ComboBox'
+import ComboBox from '../components/ComboBox'
 
-import ComboBox3 from '../componentes/ComboBox3'
-import Aside from '../componentes/Aside';
-import Dashboard from '../componentes/Dashboard'
+
+import Aside from '../components/Aside';
+
 
 //dashboards
 import NetForestCoverChange from '../pages/NetForestCoverChange'
@@ -31,6 +31,7 @@ import BannerCleanWater from '../assets/banners/Mesa de trabajo 8.png';
 import BannerZeroHunger from '../assets/banners/Mesa de trabajo 2.png';
 import BannerClimateAction from '../assets/banners/Mesa de trabajo 16.png';
 
+<<<<<<< HEAD
 {/*import NetForestCoverChangeInfoA from '../pages/NetForestCoverChangeInfo1';
 import NetForestCoverChangeInfo2 from '';
 import FreshWaterUseInfo1 from '';
@@ -39,6 +40,14 @@ import GreenHouseGasEmissionsInfo1 from '';
 import GreenHouseGasEmissionsInfo2 from '';
 import FoodEnergyIntakePerCapitaInfo1 from '';
 import FoodEnergyIntakePerCapitaInfo2 from '';*/}
+=======
+
+import SustainableImporter from '../pages/SustainableImporter'
+import SustainableNetExporter from './SustainableNetExporter'
+import CurrenTrendExporter from './CurrenTrendExporter'
+import CurrenTrendImporter from './CurrenTrendImporter'
+
+>>>>>>> 1549352518c5287126b2912f556d8231620fdc97
 
 const Styles = styled.div`
 header{
@@ -53,13 +62,18 @@ overflow:hidden;
   margin: 0;
   height: 100px;
   margin-top:20px;
+<<<<<<< HEAD
   width: 100%;
   
+=======
+  transition: all 0.5s ease;
+>>>>>>> 1549352518c5287126b2912f556d8231620fdc97
 
 
 .banner{
   max-width:100%;
 max-height:100%;
+transition: all 0.5s ease;
 }
 
 
@@ -67,6 +81,7 @@ max-height:100%;
 .container{
     display:flex;
     width:1500px;
+    border:5px solid green;
 }
 
 
@@ -79,12 +94,13 @@ class Scenathon extends Component {
         super(props);
         this.dash= <GlobalTargets combinacion={this.state}></GlobalTargets>;
         this.combobox=<ComboBox onChange={this.handleChange}/>;
+        this.fableRef=props.fableRef;
     }
     state = {
         select: {
             GraficaType:'group',
-            Iteration:'iteration_4',
-            Scenario:'Sustainaible',
+            Iteration:'before',
+            scenathon_id:'6',
             Year:'2000'
         },
         dashboard:"Global Target Summary"
@@ -98,7 +114,7 @@ class Scenathon extends Component {
     handleChange = e => {
       
 
-       if(e.target==undefined)
+       if(e.target===undefined)
        {
           
         this.setState({
@@ -106,13 +122,14 @@ class Scenathon extends Component {
                 //el next code evitara que se sobrescriba cuando reciba un valor new
                 GraficaType:this.state.select.GraficaType,
                 Iteration:this.state.select.Iteration,
-                Scenario:this.state.select.Scenario,
+                scenathon_id:this.state.select.scenathon_id,
                 Year:this.state.select.Year
             },
             dashboard:e
            
         }) 
        }else{
+         
           this.setState({
             select: {
                 //el next code evitara que se sobrescriba cuando reciba un valor new
@@ -134,18 +151,28 @@ class Scenathon extends Component {
     
         switch(this.state.dashboard){
             case 'Global Target Summary': 
-                this.combobox=<ComboBox onChange={this.handleChange}/>
+            //    this.combobox=<ComboBox onChange={this.handleChange}/>
+            this.combobox=null;  
                this.dash=<GlobalTargets combinacion={this.state}/>;
+               console.log("cocaina")
+               console.log(this.state)
               break;
             case 'Net Forest Cover Change 1': 
+<<<<<<< HEAD
             this.combobox=<ComboBox onChange={this.handleChange}/>
               this.dash=<NetForestCoverChange combinacion={this.state}/>;
               document.getElementById("banner").src=BannerLifeOnLand;
               //document.getElementById("info").src="NetForestCoverChangeInfoA";
+=======
+         //   this.combobox=<ComboBox onChange={this.handleChange}/>
+            this.combobox=null;  
+              this.dash=<NetForestCoverChange/>;
+>>>>>>> 1549352518c5287126b2912f556d8231620fdc97
               break;
             case 'Net Forest Cover Change 2':
-                this.combobox=<ComboBox3 onChange={this.handleChange}/>
-                this.dash=<NetForestCoverChange2 combinacion={this.state}/>;
+               // this.combobox=<ComboBox3 onChange={this.handleChange}/>
+               this.combobox=null;   
+               this.dash=<NetForestCoverChange2/>;
                 document.getElementById("banner").src=BannerLifeOnLand;
                 break;
             case 'Biodiversity':
@@ -162,29 +189,29 @@ class Scenathon extends Component {
             case 'Land Cover':
                // this.combobox=<ComboBox onChange={this.handleChange}/>
                 this.combobox=null;
-                this.dash=<LandCover combinacion={this.state}/>;
-                document.getElementById("banner").src=BannerLifeOnLand;
+                this.dash=<LandCover/>;
             break;
             case 'Fresh Water 1':
               //  this.combobox=<ComboBox onChange={this.handleChange}/>
               this.combobox=null;  
-              this.dash=<FreshWaterUse combinacion={this.state}/>;
+              this.dash=<FreshWaterUse/>;
                 document.getElementById("banner").src=BannerCleanWater;
             break;
             case 'Fresh Water 2':
               //  this.combobox=<ComboBox onChange={this.handleChange}/>
               this.combobox=null; 
-                this.dash=<FreshWaterTwo combinacion={this.state}/>;
-                document.getElementById("banner").src=BannerCleanWater;
+                this.dash=<FreshWaterTwo/>;
             break;
             case 'Green House Gas (GHG) Emissions 1':
-                this.combobox=<ComboBox onChange={this.handleChange}/>
-                this.dash=<GreenHouseOne combinacion={this.state}/>;
+             //   this.combobox=<ComboBox onChange={this.handleChange}/>
+             this.combobox=null;   
+             this.dash=<GreenHouseOne/>;
                 document.getElementById("banner").src=BannerClimateAction;
             break;
             case 'Green House Gas (GHG) Emissions 2':
-                this.combobox=<ComboBox onChange={this.handleChange}/>
-                this.dash=<GreenHouse2 combinacion={this.state}/>;
+               // this.combobox=<ComboBox onChange={this.handleChange}/>
+               this.combobox=null;    
+               this.dash=<GreenHouse2/>;
                 document.getElementById("banner").src=BannerClimateAction;
             break;
             case 'Food Energy Intake Per Capita 1':
@@ -199,9 +226,21 @@ class Scenathon extends Component {
              this.dash=<FoodEnergyIntakePerCapita2/>;
              document.getElementById("banner").src=BannerZeroHunger;
             break;
-            case 'Importers':
+            case 'Sustainable_next_exporters':
                 this.combobox=null;   
-             this.dash=<TradeReport/>;
+             this.dash=<SustainableNetExporter/>;
+            break;
+            case 'Sustainable_next_importers':
+                this.combobox=null;   
+             this.dash=<SustainableImporter/>;
+            break;
+            case 'Current_trend_next_exporters':
+                this.combobox=null;   
+             this.dash=<CurrenTrendExporter/>;
+            break;
+            case 'Current_trend_next_importers':
+                this.combobox=null;   
+                this.dash=<CurrenTrendImporter/>;
             break;
             case 'Trade Report':
                 this.dash=<TradeReport/>;
@@ -213,19 +252,19 @@ class Scenathon extends Component {
     render() {
         return (
 
-            <Styles>
-            <header>
+        
+                <Styles>
+            <header ref={this.fableRef}>
         <img class="banner" id="banner"></img>
         </header>
             <div className="container-fluid" style={{display: 'flex'}}>
+               
                <div>
                  <Aside onChange={this.handleChange}/>  
                </div>
             
           
-                <div>
-                 {/*    <Dashboard metodo={this.handleChange} data={this.state} />*/}
-                </div>
+               
                 <div>
                 {this.selectDashboard()}
                 {this.combobox}
@@ -234,7 +273,6 @@ class Scenathon extends Component {
                 <div class="info" id="info"></div>
             </div>
             </Styles>
-           
         )
     }
 }

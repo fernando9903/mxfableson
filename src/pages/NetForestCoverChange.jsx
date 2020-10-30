@@ -1,55 +1,79 @@
-import React from "react";
-import MixedChart from "../componentes/MixedChart.jsx";
+import React, { useState} from "react";
+import MixedChart from "../components/MixedChart.jsx";
 import data from '../data/NetForestCoverChange1.json';
+<<<<<<< HEAD
 import {Container,Row,Col} from "react-bootstrap";
 import Tour from '../componentes/Tour';
+=======
+import ComboBox from '../components/ComboBox';
+>>>>>>> 1549352518c5287126b2912f556d8231620fdc97
 
-import { Responsive as ResponsiveGridLayout } from 'react-grid-layout';
 //filter map
 //nfch=NetForestCoverChange
-const drawNfch = (props) => {
+const DrawNfch = () => {
   
+  const [state, setState] = useState({
+    select: {
+      GraficaType:'group',
+      scenathon_id:'6',
+      Iteration:'after',
+    }
+   
+  });
 
-
-
+  const handleChange = e => {
+  
+      setState({
+          select: {
+              //el next code evitara que se sobrescriba cuando reciba un valor new
+              ...state.select,
+              
+              [e.target.name]: e.target.value
+          },
+         
+      })
+      }
   var dataAux=null;
 
-  const { GraficaType, Iteration, Scenario } = props.combinacion.select;
+ 
 
-  switch(GraficaType){
+
+
+  switch(state.select.GraficaType){
     case 'group':
-      switch(Iteration){
-        case 'iteration_3':
-          dataAux= convertir(Scenario === "Sustainaible" ? data.combinacion_dos : data.combinacion_cuatro);
+      switch(state.select.Iteration){
+        case 'before':
+          dataAux= convertir(state.select.scenathon_id  === "6" ? data.combinacion_dos : data.combinacion_cuatro);
           break;
-        case 'iteration_4':
-          dataAux= convertir(Scenario === "Sustainaible" ? data.combinacion_uno : data.combinacion_tres);
-          console.log(dataAux);
+        case 'after':
+          dataAux= convertir(state.select.scenathon_id  === "6" ? data.combinacion_uno : data.combinacion_tres);
+        
           break
       }
       break;
     case 'regions':
-      switch(Iteration){
-        case 'iteration_3':
-          dataAux= convertir(Scenario === "Sustainaible" ? data.combinacion_seis : data.combinacion_ocho);
+      switch(state.select.Iteration){
+        case 'before':
+          dataAux= convertir(state.select.scenathon_id  === "6" ? data.combinacion_seis : data.combinacion_ocho);
           break;
-        case 'iteration_4':
-          dataAux= convertir(Scenario === "Sustainaible" ? data.combinacion_cinco : data.combinacion_siete);
+        case 'after':
+          dataAux= convertir(state.select.scenathon_id  === "6" ? data.combinacion_cinco : data.combinacion_siete);
           break
       }
       break;
     case 'countries':
-      switch(Iteration){
-      case 'iteration_3':
-        dataAux= convertir(Scenario === "Sustainaible" ? data.combinacion_dies : data.combinacion_doce);
+      switch(state.select.Iteration ){
+      case 'before':
+        dataAux= convertir(state.select.scenathon_id  === "6" ? data.combinacion_dies : data.combinacion_doce);
         break;
-      case 'iteration_4':
-        dataAux= convertir(Scenario === "Sustainaible" ? data.combinacion_nueve : data.combinacion_once);
+      case 'after':
+        dataAux= convertir(state.select.scenathon_id  === "6" ? data.combinacion_nueve : data.combinacion_once);
 
         break
     }
     break;
   }
+<<<<<<< HEAD
 
   const steps = [
     {
@@ -81,6 +105,17 @@ const drawNfch = (props) => {
   labelposition="bottom"/>
   </div>
   </div>;
+=======
+  return(
+     <div style={{height: "100vh",width:"70vw"}}>
+       <ComboBox onChange={handleChange}/>
+<MixedChart data={dataAux}
+  title="Net Forest Cover Change"
+  aspectRatio={false}
+  labelposition="bottom"  />
+  </div>
+  )
+>>>>>>> 1549352518c5287126b2912f556d8231620fdc97
 }
 
 
@@ -189,7 +224,7 @@ const convertir=(props)=> {
 
  
 
-export default drawNfch;
+export default DrawNfch;
 
 
 

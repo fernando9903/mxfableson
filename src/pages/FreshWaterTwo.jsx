@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import BarChart from "../componentes/BarChart";
+import BarChart from "../components/BarChart";
 
 import {Container,Row,Col,Jumbotron} from "react-bootstrap";
-import ComboBox from '../componentes/ComboBox';
+import ComboBox from '../components/ComboBox';
 import LeafletMap from './LeafletMap';
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
 import Tour from '../componentes/Tour';
 
-const DrawFreshWater2 = (props) => {
+const DrawFreshWater2 = () => {
 
  //   const {GraficaType, Iteration, Scenario} = props.combinacion.select;
 {/** 
@@ -80,7 +80,7 @@ useEffect(() => {
  
    try {   
      const body =state;
-    const response = await fetch("http://localhost:5000/freshwater2"+JSON.stringify(body));
+    const response = await fetch("https://server-fableson.wl.r.appspot.com/freshwater2"+JSON.stringify(body));
     const  jsonAux =  await response.json();
    setJson(jsonAux);
    } catch (error) {
@@ -131,7 +131,8 @@ useEffect(() => {
       var dataSum=[];
 var freshWater=[];
 var labels=[];
-var nameCounty="Argentina";
+var nameCounty=state.select.GraficaType==="regions"?"R_AFR":"Argentina";
+
 if (json != null) {
   json.map((item) => {
     if (!labels.includes(item.Year)) 

@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { Map, GeoJSON, TileLayer} from 'react-leaflet';
-import mapData from './../data/Countries.json';
+import { Map, GeoJSON} from 'react-leaflet';
 import mapDataTest from './../data/CountriesTest.json';
 import 'leaflet/dist/leaflet.css'; //This style is for the scroll and plus controls of the map
 import '../css/LeafletMap.css';
 import * as L from 'leaflet';
-import { ThemeProvider } from 'styled-components';
 
 
 class TradeReportMap extends Component {

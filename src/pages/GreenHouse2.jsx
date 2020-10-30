@@ -1,38 +1,60 @@
-import React from "react";
-import BarChart from "../componentes/BarChart";
+import React, { useState} from "react";
+import BarChart from "../components/BarChart";
 import data from '../data/Greenhouse2.json';
+import ComboBox from '../components/ComboBox';
 import { Container, Row, Col } from "react-bootstrap";
 import Tour from '../componentes/Tour'
 
 import LeafletMap from './LeafletMap';
 //nfch=NetForestCoverChange
-const greenHouse = (props) => {
+const GreenHouse = () => {
 
 
-  var dataGraphOne;
-  var dataGraphTwo;
+  var dataGraphOne=null;
+  var dataGraphTwo=null;
+  var dataGraphOneAux = null;
+  var dataGraphTwoAux = null;
 
 
+  const [state, setState] = useState({
+    select: {
+      GraficaType:'group',
+      scenathon_id:'6',
+      Iteration:'after',
+    }
+   
+  });
 
-  const { GraficaType, Iteration, Scenario } = props.combinacion.select;
+  const handleChange = e => {
+  
+    setState({
+        select: {
+            //el next code evitara que se sobrescriba cuando reciba un valor new
+            ...state.select,
+            
+            [e.target.name]: e.target.value
+        },
+       
+    })
+    }
 
-  switch (GraficaType) {
+  switch (state.select.GraficaType) {
     case 'group':
-      switch (Iteration) {
-        case 'iteration_3':
-          if (Scenario === "Sustainaible") {
+      switch (state.select.Iteration) {
+        case 'before':
+          if (state.select.scenathon_id  === "6") {
             dataGraphOne = data.Greengraph_One__combination_Two
             dataGraphTwo = data.Greengraph_Two__combination_Two
           } else {
             dataGraphOne = data.Greengraph_One__combination_Four
             dataGraphTwo = data.Greengraph_Two__combination_Four
           }
-          var dataGraphOneAux = convertir(dataGraphOne);
-          var dataGraphTwoAux = convertir(dataGraphTwo);
+           dataGraphOneAux = convertir(dataGraphOne);
+           dataGraphTwoAux = convertir(dataGraphTwo);
 
           break;
-        case 'iteration_4':
-          if (Scenario === "Sustainaible") {
+        case 'after':
+          if (state.select.scenathon_id  === "6") {
             dataGraphOne = data.Greengraph_One__combination_One
             dataGraphTwo = data.Greengraph_Two__combination_One
             console.log(dataGraphTwo)
@@ -41,63 +63,63 @@ const greenHouse = (props) => {
             dataGraphOne = data.Greengraph_One__combination_Three
             dataGraphTwo = data.Greengraph_Two__combination_Three
           }
-          var dataGraphOneAux = convertir(dataGraphOne);
-          var dataGraphTwoAux = convertir(dataGraphTwo);
+           dataGraphOneAux = convertir(dataGraphOne);
+           dataGraphTwoAux = convertir(dataGraphTwo);
           console.log(dataGraphTwoAux)
           break;
       }
       break;
     case 'regions':
-      switch (Iteration) {
-        case 'iteration_3':
-          if (Scenario === "Sustainaible") {
+      switch (state.select.Iteration) {
+        case 'before':
+          if (state.select.scenathon_id  === "6") {
             dataGraphOne = data.Greengraph_One__combination_Six
             dataGraphTwo = data.Greengraph_Two__combination_Six
           } else {
             dataGraphOne = data.Greengraph_One__combination_Eight
             dataGraphTwo = data.Greengraph_Two__combination_Eight
           }
-          var dataGraphOneAux = convertir(dataGraphOne);
-          var dataGraphTwoAux = convertir(dataGraphTwo);
+           dataGraphOneAux = convertir(dataGraphOne);
+           dataGraphTwoAux = convertir(dataGraphTwo);
           break;
-        case 'iteration_4':
-          if (Scenario === "Sustainaible") {
+        case 'after':
+          if (state.select.scenathon_id  === "6") {
             dataGraphOne = data.Greengraph_One__combination_Five
             dataGraphTwo = data.Greengraph_Two__combination_Five
           } else {
             dataGraphOne = data.Greengraph_One__combination_Seven
             dataGraphTwo = data.Greengraph_Two__combination_Seven
           }
-          var dataGraphOneAux = convertir(dataGraphOne);
-          var dataGraphTwoAux = convertir(dataGraphTwo);
+           dataGraphOneAux = convertir(dataGraphOne);
+           dataGraphTwoAux = convertir(dataGraphTwo);
           break;
 
       }
       break;
     case 'countries':
-      switch (Iteration) {
-        case 'iteration_3':
-          if (Scenario === "Sustainaible") {
+      switch (state.select.Iteration) {
+        case 'before':
+          if (state.select.scenathon_id  === "6") {
             dataGraphOne = data.Greengraph_One__combination_Ten
             dataGraphTwo = data.Greengraph_Two__combination_Ten
           } else {
             dataGraphOne = data.Greengraph_One__combination_Twelve
             dataGraphTwo = data.Greengraph_Two__combination_Twelve
           }
-          var dataGraphOneAux = convertir(dataGraphOne);
-          var dataGraphTwoAux = convertir(dataGraphTwo);
+           dataGraphOneAux = convertir(dataGraphOne);
+           dataGraphTwoAux = convertir(dataGraphTwo);
           break;
 
-        case 'iteration_4':
-          if (Scenario === "Sustainaible") {
+        case 'after':
+          if (state.select.scenathon_id  === "6") {
             dataGraphOne = data.Greengraph_One__combination_Nine
             dataGraphTwo = data.Greengraph_Two__combination_Nine
           } else {
             dataGraphOne = data.Greengraph_One__combination_Eleven
             dataGraphTwo = data.Greengraph_Two__combination_Eleven
           }
-          var dataGraphOneAux = convertir(dataGraphOne);
-          var dataGraphTwoAux = convertir(dataGraphTwo);
+           dataGraphOneAux = convertir(dataGraphOne);
+           dataGraphTwoAux = convertir(dataGraphTwo);
           break;
       }
       break;
@@ -127,6 +149,7 @@ const greenHouse = (props) => {
         <Tour stepsP={steps}/>
         <div className="graph">
         <Col><div style={{height: "100vh" ,width:"35vw"} }>
+        <ComboBox onChange={handleChange}/>
           <BarChart data={dataGraphOneAux}
             title="Green House 2" aspectRatio={false}
             labelposition="bottom" />
@@ -178,7 +201,7 @@ const convertir = (props) => {
   var otros = [];
   var labels = [];
 
-  if (props != undefined) {
+  if (props !== undefined) {
     props.map((item) => {
 
       if (item.c_country_t === "USA") {
@@ -498,4 +521,4 @@ const convertir = (props) => {
 }
 
 
-export default greenHouse;
+export default GreenHouse;

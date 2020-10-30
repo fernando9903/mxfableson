@@ -1,11 +1,7 @@
 import React from 'react';
-import { Jumbotron as Jumbo, Container } from 'react-bootstrap';
 import styled from 'styled-components';
-import IIASA_LOGO_WHITE from '../assets/IIASA_LOGO_WHITE.png';
 import IIASA_LOGO_COLOR from '../assets/IIASA_LOGO.png';
-import SDSN_LOGO_WHITE from '../assets/SDSN_LOGO_WHITE.png';
 import SDSN_LOGO_COLOR from '../assets/SDSN_LOGO.png';
-import FoodAndLand_LOGO_WHITE from '../assets/FoodAndLand_LOGO_WHITE.png';
 import FoodAndLand_LOGO_COLOR from '../assets/FoodAndLand_LOGO.png';
 import FB_Logo from '../assets/logofb_green.png';
 import IG_Logo from '../assets/logoinsta_green.png';

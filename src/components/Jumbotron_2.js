@@ -1,19 +1,20 @@
+  
 import React from 'react';
-import { Jumbotron as Jumbo, Container } from 'react-bootstrap';
+import { Jumbotron as Jumbo} from 'react-bootstrap';
 import styled from 'styled-components';
-import Banner3 from '../assets/banner_3.png';
+import Banner2 from '../assets/banner_2.jpg';
 
 const Styles = styled.div`
    
-    .jumbo3{
-        background: url(${Banner3});
+    .jumbo2{
+        background: url(${Banner2});
         background-size: cover;
         color: #ccc;
         position: absoulte;
         margin:0;
         padding:0;
         background-position:center ;
-        height:40vh;
+        height:55vh;
         width:100%;
     }
     .overlay{
@@ -28,11 +29,11 @@ const Styles = styled.div`
     }`;
 
 
-export const Jumbotron_3 = () => {
+export const Jumbotron_2 = () => {
     return(
 
     <Styles>
-        <Jumbo fluid className= "jumbo3">
+        <Jumbo fluid className= "jumbo2">
             <div className= "overlay"></div>
         </Jumbo>
     </Styles>

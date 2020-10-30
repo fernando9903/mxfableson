@@ -1,6 +1,7 @@
-import React from "react";
-import SuperGraph from "../componentes/SuperGraph";
+import React, { useState} from "react";
+import SuperGraph from "../components/SuperGraph";
 import data from '../data/Greenhouse1.json';
+import ComboBox from '../components/ComboBox';
 import { Container, Row, Col } from "react-bootstrap";
 import Tour from '../componentes/Tour'
 const drawGreenhouse1 = (props) => {
@@ -8,25 +9,54 @@ const drawGreenhouse1 = (props) => {
   var dataGraphOne;
   var dataGraphTwo;
   const { GraficaType, Iteration, Scenario } = props.combinacion.select;
+const DrawGreenhouse1 = () => {
+
+  var dataGraphOne=null;
+  var dataGraphTwo=null;
+  var dataGraphOneAux = null;
+  var dataGraphTwoAux=null;
+ 
+
+  const [state, setState] = useState({
+    select: {
+      GraficaType:'group',
+      scenathon_id:'6',
+      Iteration:'after',
+    }
+   
+  });
+
+  const handleChange = e => {
+  
+    setState({
+        select: {
+            //el next code evitara que se sobrescriba cuando reciba un valor new
+            ...state.select,
+            
+            [e.target.name]: e.target.value
+        },
+       
+    })
+    }
 
   //Cambiar por las combinaciones de los json falta ya que son dos graficas en el json 
-  switch (GraficaType) {
+  switch (state.select.GraficaType) {
     case 'group':
-      switch (Iteration) {
-        case 'iteration_3':
-          if (Scenario === "Sustainaible") {
-            dataGraphOne = data.graphOne_combinationTwo
-            dataGraphTwo = data.graphTwo_combinationTwo
+      switch (state.select.Iteration) {
+        case 'before':
+          if (state.select.scenathon_id === "6") {
+            dataGraphOne = data.graphOne_combinationTwo;
+            dataGraphTwo = data.graphTwo_combinationTwo;
           } else {
-            dataGraphOne = data.graphOne_combinationFour
-            dataGraphTwo = data.graphTwo_combinationFour
+            dataGraphOne = data.graphOne_combinationFour;
+            dataGraphTwo = data.graphTwo_combinationFour;
           }
-          var dataGraphOneAux = convertir(dataGraphOne);
-          var dataGraphTwoAux = convertir_data(dataGraphTwo);
+           dataGraphOneAux = convertir(dataGraphOne);
+           dataGraphTwoAux = convertir_data(dataGraphTwo);
 
           break;
-        case 'iteration_4':
-          if (Scenario === "Sustainaible") {
+        case 'after':
+          if (state.select.scenathon_id === "6") {
             dataGraphOne = data.graphOne_combinationOne
             dataGraphTwo = data.graphTwo_combinationOne
 
@@ -36,63 +66,63 @@ const drawGreenhouse1 = (props) => {
             dataGraphOne = data.graphOne_combinationThree
             dataGraphTwo = data.graphTwo_combinationThree
           }
-          var dataGraphOneAux = convertir(dataGraphOne);
-          var dataGraphTwoAux = convertir_data(dataGraphTwo);
+           dataGraphOneAux = convertir(dataGraphOne);
+           dataGraphTwoAux = convertir_data(dataGraphTwo);
 
           break;
       }
       break;
     case 'regions':
-      switch (Iteration) {
-        case 'iteration_3':
-          if (Scenario === "Sustainaible") {
+      switch (state.select.Iteration) {
+        case 'before':
+          if (state.select.scenathon_id === "6") {
             dataGraphOne = data.graphOne_combinationSix
             dataGraphTwo = data.graphTwo_combinationSix
           } else {
             dataGraphOne = data.graphOne_combinationEight
             dataGraphTwo = data.graphTwo_combinationSeven
           }
-          var dataGraphOneAux = convertir(dataGraphOne);
-          var dataGraphTwoAux = convertir_data(dataGraphTwo);
+           dataGraphOneAux = convertir(dataGraphOne);
+           dataGraphTwoAux = convertir_data(dataGraphTwo);
           break;
-        case 'iteration_4':
-          if (Scenario === "Sustainaible") {
+        case 'after':
+          if (state.select.scenathon_id === "6") {
             dataGraphOne = data.graphOne_combinationFive
             dataGraphTwo = data.graphTwo_combinationEight
           } else {
             dataGraphOne = data.graphOne_combinationSeven
             dataGraphTwo = data.Greengraph_Two__combination_Seven
           }
-          var dataGraphOneAux = convertir(dataGraphOne);
-          var dataGraphTwoAux = convertir_data(dataGraphTwo);
+           dataGraphOneAux = convertir(dataGraphOne);
+           dataGraphTwoAux = convertir_data(dataGraphTwo);
           break;
 
       }
       break;
     case 'countries':
-      switch (Iteration) {
-        case 'iteration_3':
-          if (Scenario === "Sustainaible") {
+      switch (state.select.Iteration) {
+        case 'before':
+          if (state.select.scenathon_id === "6") {
             dataGraphOne = data.graphOne_combinationTen
             dataGraphTwo = data.graphTwo_combinationTen
           } else {
             dataGraphOne = data.graphOne_combinationTwelve
             dataGraphTwo = data.graphTwo_combinationTwelve
           }
-          var dataGraphOneAux = convertir(dataGraphOne);
-          var dataGraphTwoAux = convertir_data(dataGraphTwo);
+           dataGraphOneAux = convertir(dataGraphOne);
+           dataGraphTwoAux = convertir_data(dataGraphTwo);
           break;
 
-        case 'iteration_4':
-          if (Scenario === "Sustainaible") {
+        case 'after':
+          if (state.select.scenathon_id === "6") {
             dataGraphOne = data.graphOne_combinationNine
             dataGraphTwo = data.graphTwo_combinationNine
           } else {
             dataGraphOne = data.graphOne_combinationEleven
             dataGraphTwo = data.graphTwo_combinationEleven
           }
-          var dataGraphOneAux = convertir(dataGraphOne);
-          var dataGraphTwoAux = convertir_data(dataGraphTwo);
+           dataGraphOneAux = convertir(dataGraphOne);
+           dataGraphTwoAux = convertir_data(dataGraphTwo);
           break;
       }
       break;
@@ -122,7 +152,9 @@ const drawGreenhouse1 = (props) => {
         <Tour stepsP={steps}/>
         <div className="graph">
         <Col >
-          <div style={{height: "100vh" ,width:"35vw"} }><SuperGraph data={dataGraphOneAux}
+          <div style={{height: "100vh" ,width:"35vw"} }>
+          <ComboBox onChange={handleChange}/>
+            <SuperGraph data={dataGraphOneAux}
             title="Green House 1"
             aspectRatio={false} 
             labelposition="top"/> 
@@ -150,7 +182,7 @@ const convertir_data = (props) => {
 
   var labels = [];
 
-  if (props != undefined) {
+  if (props !== undefined) {
 
     props.map((item) => {
       graphTwo_Total_GHG_land.push(item.total_GHG_land);
@@ -293,7 +325,7 @@ const convertir = (props) => {
   var crop_CO2 = [];
   var labels = [];
 
-  if (props != undefined) {
+  if (props !== undefined) {
 
     props.map((item) => {
       total_GHG_agri.push(item.Total_GHG_agric);
@@ -437,4 +469,4 @@ const convertir = (props) => {
 
 }
 
-export default drawGreenhouse1
+export default DrawGreenhouse1

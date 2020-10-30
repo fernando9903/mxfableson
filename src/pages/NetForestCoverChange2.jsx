@@ -1,55 +1,71 @@
-import React from "react";
-import BarChart from "../componentes/BarChart";
+import React, { useState} from "react";
+import BarChart from "../components/BarChart";
 import data from '../data/NetForestCoverChange2.json';
 import "../../node_modules/react-grid-layout/css/styles.css";
 import "../../node_modules/react-resizable/css/styles.css";
-import {Container,Row,Col,Jumbotron} from "react-bootstrap";
-import GridLayout from 'react-grid-layout';
-
+import {Container,Row,Col} from "react-bootstrap";
+import ComboBox3 from '../components/ComboBox3';
 import LeafletMap from './LeafletMap';
 //nfch=NetForestCoverChange
-const drawNfch2 = (props) => {
+const DrawNfch2 = () => {
  
+  const [state, setState] = useState({
+    select: {
+      GraficaType:'regions',
+      scenathon_id:'6',
+      Iteration:'after',
+    }
+   
+  });
+  var dataAux=null;
+  const handleChange = e => {
+  //console.log(e)
+      setState({
+          select: {
+              //el next code evitara que se sobrescriba cuando reciba un valor new
+              ...state.select,
+              
+              [e.target.name]: e.target.value
+          },
+         
+      })
+      }
 
-  
- 
-
-  const { GraficaType, Iteration, Scenario } = props.combinacion.select;
-  console.log(GraficaType);
-  console.log(Iteration);
-  console.log(Scenario);
-  switch(GraficaType){
+  switch(state.select.GraficaType){
     
     case 'regions':
-      switch(Iteration){
-        case 'iteration_3':
-          var dataAux= convertir(Scenario === "Sustainaible" ? data.combination_3 : data.combination_4);
+      switch(state.select.Iteration){
+        case 'before':
+           dataAux= convertir(state.select.scenathon_id  === "6" ? data.combination_3 : data.combination_4);
           break;
-        case 'iteration_4':
-          var dataAux= convertir(Scenario === "Sustainaible" ? data.combination_1 : data.combination_2);
+        case 'after':
+           dataAux= convertir(state.select.scenathon_id  === "6" ? data.combination_1 : data.combination_2);
           break
       }
       break;
     case 'countries':
-      switch(Iteration){
-      case 'iteration_3':
-        var dataAux= convertir(Scenario === "Sustainaible" ? data.combination_6 : data.combination_8);
+      switch(state.select.Iteration){
+      case 'before':
+         dataAux= convertir(state.select.scenathon_id  === "6" ? data.combination_6 : data.combination_8);
         break;
-      case 'iteration_4':
-        var dataAux= convertir(Scenario === "Sustainaible" ? data.combination_5 : data.combination_7);
+      case 'after':
+         dataAux= convertir(state.select.scenathon_id  === "6" ? data.combination_5 : data.combination_7);
         break;
   
     }
 
     break;
-    default:var dataAux= convertir(data.combination_1);
+    default:dataAux= convertir(data.combination_1);
     
   }
   
+<<<<<<< HEAD
   console.log('NET DATA AUX');
   console.log(dataAux);
 
 
+=======
+>>>>>>> 1549352518c5287126b2912f556d8231620fdc97
 return(
 
 
@@ -57,6 +73,7 @@ return(
             <Row  >
               <Col >
               <div style={{height: "100vh" ,width:"30vw"} }>
+              <ComboBox3 onChange={handleChange}/>
                 <BarChart data={dataAux}
                   title="Net Forest Cover Change 2"
                   labelposition="bottom"
@@ -110,7 +127,7 @@ const convertir=(props)=> {
      var otros=[];
 
      
-     if(props!=undefined){
+     if(props!==undefined){
      props.map((item) => {
      
       if(item.c_country_t==="Mexico"){
@@ -472,4 +489,4 @@ const convertir=(props)=> {
 
 
 
-export default drawNfch2;
+export default DrawNfch2;

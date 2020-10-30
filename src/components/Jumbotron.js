@@ -31,9 +31,9 @@ const Styles = styled.div`
     }`;
 
 
-export const Jumbotron = () => {
+export const Jumbotron = (props) => {
     return(
-    <Styles>
+    <Styles ref={props.jumboReference}>
         <Jumbo fluid className= "jumbo">
             <div className= "overlay"></div>
             <Container>

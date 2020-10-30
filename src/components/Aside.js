@@ -8,7 +8,11 @@ import {
   SidebarContent,
 } from 'react-pro-sidebar';
 import '../css/SideMenu.css';
+<<<<<<< HEAD:src/componentes/Aside.js
  
+=======
+
+>>>>>>> 1549352518c5287126b2912f556d8231620fdc97:src/components/Aside.js
 const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar, onChange }) => {
   const handleChange  =e =>{
     onChange(e);
@@ -76,12 +80,17 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar, onChange }
           </SubMenu>
             <SubMenu title="Trade Report">
               <SubMenu title="Sustainable - net">
-                <MenuItem onClick={()=>handleChange("Importers")}>Importers</MenuItem>
-                <MenuItem>Exporters</MenuItem>
+                <MenuItem onClick={()=>handleChange("Sustainable_next_importers")}>Importers</MenuItem>
+                <MenuItem onClick={()=>handleChange("Sustainable_next_exporters")}>Exporters</MenuItem>
               </SubMenu>
               <SubMenu title="Current Trend">
+<<<<<<< HEAD:src/componentes/Aside.js
                 <MenuItem >Importers</MenuItem>
                 <MenuItem >Exporters</MenuItem>
+=======
+                <MenuItem onClick={()=>handleChange("Current_trend_next_importers")}>Importers</MenuItem>
+                <MenuItem onClick={()=>handleChange("Current_trend_next_exporters")}>Exporters</MenuItem>
+>>>>>>> 1549352518c5287126b2912f556d8231620fdc97:src/components/Aside.js
               </SubMenu>
 
             </SubMenu>

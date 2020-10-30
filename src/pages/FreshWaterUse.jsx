@@ -2,76 +2,12 @@ import React, { useState, useEffect } from "react";
 import BarChart from "../componentes/BarChart";
 import Tour from "../componentes/Tour";
 import ComboBox from '../componentes/ComboBox';
+import ComboBox from '../components/ComboBox';
 import ChartCharacteristics from '../data/ChartCharacteristics.json';
 
-//filter map
-//nfch=NetForestCoverChange
 
-const DrawFreshWaterUse= (props) => {
+const DrawFreshWaterUse= () => {
 
-  {/*
-  let dataAux;
-
-  const { GraficaType, Iteration, Scenario } = props.combinacion.select;
-
-  switch(GraficaType){
-    case 'group':
-      switch(Iteration){
-        case 'iteration_3':
-          dataAux= convertir(Scenario === "Sustainaible" ? data.combination_2 : data.combination_4);
-          break;
-        case 'iteration_4':
-          dataAux= convertir(Scenario === "Sustainaible" ? data.combination_1 : data.combination_3);
-          break
-      }
-      break;
-    case 'regions':
-      switch(Iteration){
-        case 'iteration_3':
-          dataAux= convertir(Scenario === "Sustainaible" ? data.combination_6 : data.combination_8);
-          break;
-        case 'iteration_4':
-          dataAux= convertir(Scenario === "Sustainaible" ? data.combination_5 : data.combination_7);
-          break
-      }
-      break;
-    case 'countries':
-      switch(Iteration){
-      case 'iteration_3':
-        dataAux= convertir(Scenario === "Sustainaible" ? data.combination_10 : data.combination_12);
-        break;
-      case 'iteration_4':
-        dataAux= convertir(Scenario === "Sustainaible" ? data.combination_9 : data.combination_11);
-
-        break
-    }
-    break;
-  }
-  const steps = [
-    {
-      target: ".graph",
-      content: "Fresh water use for irrigation and livestock. The high demand of water continues to be expected the following decades, not showing much variation through the years.",
-      title: "Fresh Water Use 1",
-        styles: {
-          //this styles override the styles in the props  
-          options: {
-            textColor: "black"
-          }
-        },
-        locale: { 
-          next: <span>End</span>,
-        },
-        placement: "top"
-    }
-  ]
-
-
-  return <div style={{height: "100vh",width:"70vw"}}>
-    <Tour stepsP={steps}/>
-    <div className="graph" style={{height: "100vh",width:"70vw"}}>
-
-    <BarChart data={dataAux}
-  */}
 
 
 
@@ -105,7 +41,7 @@ const DrawFreshWaterUse= (props) => {
     
      try {   
        const body =state;
-      const response = await fetch("http://localhost:5000/freshwater1"+JSON.stringify(body));
+      const response = await fetch("https://server-fableson.wl.r.appspot.com/freshwater1"+JSON.stringify(body));
       const  jsonAux =  await response.json();
      setJson(jsonAux);
      } catch (error) {
@@ -120,21 +56,21 @@ const DrawFreshWaterUse= (props) => {
     var scenathon = state.select.scenathon_id;
     var iteration = state.select.Iteration;
     
-    if(e.target.name=="scenathon_id"){
+    if(e.target.name==="scenathon_id"){
       switch (e.target.value) {
         case '6':
-          iteration=state.select.Iteration=="1"? "3":"4";
+          iteration=state.select.Iteration==="1"? "3":"4";
           scenathon="6";
             break;
         case '5':
          scenathon="5";
-         iteration=state.select.Iteration=="3"? "1":"2";
+         iteration=state.select.Iteration==="3"? "1":"2";
             break;     
     }
     }else{
      
-      group= e.target.name=="GraficaType"? e.target.value: state.select.GraficaType;
-      iteration=e.target.name=="Iteration"?scenathon=="6" ? e.target.value==="after"? "4":"3" : e.target.value==="after"? "2":"1":state.select.Iteration;
+      group= e.target.name==="GraficaType"? e.target.value: state.select.GraficaType;
+      iteration=e.target.name==="Iteration"?scenathon==="6" ? e.target.value==="after"? "4":"3" : e.target.value==="after"? "2":"1":state.select.Iteration;
     }
     
     setState({
@@ -222,51 +158,4 @@ const DrawFreshWaterUse= (props) => {
 </div>
   );
 }
-
-
-
-
-
-
-{/* 
-const convertir=(props)=> {
- 
-    var dataUno=[]
-   
-    var labels=[]
-      
-     props.map((item) => {
-      dataUno.push(item.million_cubic_metres);
-     labels.push(item.Year);
-      
-    });
-   
-    const data={
-      labels:labels,
-       datasets:[
-         {
-          label:"million cubic metres",
-          data:dataUno,
-          fill:false,
-          type:"bar",
-          backgroundColor:"#81c784",
-          borderColor:"#81c784",
-          hoverBackgroundColor:"darkgreen",
-          hoverBorderColor:"#81c784",
-          yAxisID:"y-axis-1"
-         }
-       ]
-    }
-  
-   return data
-  } 
-
-*/}
-
-
-
-
-
-
-
 export default DrawFreshWaterUse;

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import BarChart2 from "../componentes/BarChart2.jsx";
+import BarChart2 from "../components/BarChart2.jsx";
 import ChartCharacteristics from '../data/ChartCharacteristics.json';
 import ComboBoxFoodEnergy2 from "../componentes/ComboBoxFoodEnergy2.jsx";
 import Tour from '../componentes/Tour'
+import ComboBoxFoodEnergy2 from "../components/ComboBoxFoodEnergy2.jsx";
 const FoodEnergyIntakePerCapita = (props) => {
 
   function Food(ChartCharacteristics,data) {
@@ -99,7 +100,7 @@ const FoodEnergyIntakePerCapita = (props) => {
       const body =state;
     
       
-     const response = await fetch("http://localhost:5000/foodenergy2"+JSON.stringify(body));
+     const response = await fetch("https://server-fableson.wl.r.appspot.com/foodenergy2"+JSON.stringify(body));
      const  jsonAux =  await response.json();
   
     setJson(jsonAux);

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import BarChart from "../componentes/BarChart.jsx";
-
-import ComboBox from '../componentes/ComboBox';
+import BarChart from "../components/BarChart.jsx";
+import ComboBox from '../components/ComboBox';
 import ChartCharacteristics from '../data/ChartCharacteristics.json';
 const DrawLandCover = () => {
 
@@ -40,7 +39,7 @@ const DrawLandCover = () => {
   {
     try {   
       const body =state;
-     const response = await fetch("http://localhost:5000/landcover"+JSON.stringify(body));
+     const response = await fetch("https://server-fableson.wl.r.appspot.com/landcover"+JSON.stringify(body));
      const  jsonAux =  await response.json();
     setJson(jsonAux);
     } catch (error) {
@@ -60,7 +59,7 @@ const DrawLandCover = () => {
     var dataSet=[];
 
     console.log(json);
-    if (json != null ) {
+    if (json !== null ) {
    
       json.map((item) => {
           labels.push(item.Year);
@@ -102,21 +101,21 @@ const DrawLandCover = () => {
     var scenathon = state.select.scenathon_id;
     var iteration = state.select.Iteration;
     
-    if(e.target.name=="scenathon_id"){
+    if(e.target.name==="scenathon_id"){
       switch (e.target.value) {
         case '6':
-          iteration=state.select.Iteration=="1"? "3":"4";
+          iteration=state.select.Iteration==="1"? "3":"4";
           scenathon="6";
             break;
         case '5':
          scenathon="5";
-         iteration=state.select.Iteration=="3"? "1":"2";
+         iteration=state.select.Iteration==="3"? "1":"2";
             break;     
     }
     }else{
      
-      group= e.target.name=="GraficaType"? e.target.value: state.select.GraficaType;
-      iteration=e.target.name=="Iteration"?scenathon=="6" ? e.target.value==="after"? "4":"3" : e.target.value==="after"? "2":"1":state.select.Iteration;
+      group= e.target.name==="GraficaType"? e.target.value: state.select.GraficaType;
+      iteration=e.target.name==="Iteration"?scenathon==="6" ? e.target.value==="after"? "4":"3" : e.target.value==="after"? "2":"1":state.select.Iteration;
     }
     
     setState({
@@ -132,147 +131,6 @@ const DrawLandCover = () => {
     
       }
     
-
-
-
- {/* 
-    const convertir=(props)=> {
- 
-        var dataUno=[]
-        var dataDos=[]
-        var dataTres=[]
-        var dataCuatro=[]
-        var dataCinco=[]
-        var dataSeis=[]
-        var labels=[]
-      
-          
-         props.map((item) => {
-          dataUno.push(item.Pasture);
-          dataDos.push(item.Crop_land);
-          dataTres.push(item.Forest);
-          dataCuatro.push(item.New_forest);
-          dataCinco.push(item.Other_land);
-          dataSeis.push(item.Urban);
-          labels.push(item.Year);
-          
-        });
-       
-        const data={
-          labels:labels,
-           datasets:[
-             {
-              label:"Pasture",
-              data:dataUno,
-              fill:false,
-              type:"bar",
-              backgroundColor:"Green",
-              borderColor:"Green",
-              hoverBackgroundColor:"Green",
-              hoverBorderColor:"Green",
-              yAxisID:"y-axis-1"
-             },
-             {
-              label:"Crop Land",
-              data:dataDos,
-              fill:false,
-              type:"bar",
-              backgroundColor:"Red",
-              borderColor:"Red",
-              hoverBackgroundColor:"Red",
-              hoverBorderColor:"#Red",
-              yAxisID:"y-axis-1"
-             },{
-                label:"Forest",
-                data:dataTres,
-                fill:false,
-                type:"bar",
-                backgroundColor:"Yellow",
-                borderColor:"Yellow",
-                hoverBackgroundColor:"Yellow",
-                hoverBorderColor:"Yellow",
-                yAxisID:"y-axis-1"
-               },{
-                label:"New Forest",
-                data:dataCuatro,
-                fill:false,
-                type:"bar",
-                backgroundColor:"Orange",
-                borderColor:"Orange",
-                hoverBackgroundColor:"Orange",
-                hoverBorderColor:"Orange",
-                yAxisID:"y-axis-1"
-               },{
-                label:"Other Land",
-                data:dataCinco,
-                fill:false,
-                type:"bar",
-                backgroundColor:"Blue",
-                borderColor:"Blue",
-                hoverBackgroundColor:"Blue",
-                hoverBorderColor:"Blue",
-                yAxisID:"y-axis-1"
-               },{
-                label:"Urban",
-                data:dataSeis,
-                fill:false,
-                type:"bar",
-                backgroundColor:"purple",
-                borderColor:"purple",
-                hoverBackgroundColor:"purple",
-                hoverBorderColor:"purple",
-                yAxisID:"y-axis-1"
-               }
-           ]
-        }
-      
-       return data
-      } 
-
- */}
-
-
-
-
-
-    //let dataAux;
-    //const { GraficaType, Iteration, Scenario } = props.combinacion.select;
-  {/*
-    switch(GraficaType){
-      case 'group':
-        switch(Iteration){
-          case 'iteration_3':
-            dataAux= convertir(Scenario === "Sustainaible" ? data.combination_two : data.combination_four);
-            break;
-          case 'iteration_4':
-            dataAux= convertir(Scenario === "Sustainaible" ? data.combination_one : data.combination_three);
-            break
-        }
-        break;
-      case 'regions':
-        switch(Iteration){
-          case 'iteration_3':
-            dataAux= convertir(Scenario === "Sustainaible" ? data.combination_six : data.combination_eight);
-            break;
-          case 'iteration_4':
-            dataAux= convertir(Scenario === "Sustainaible" ? data.combination_five : data.combination_seven);
-            break
-        }
-        break;
-      case 'countries':
-        switch(Iteration){
-        case 'iteration_3':
-          dataAux= convertir(Scenario === "Sustainaible" ? data.combination_ten : data.combination_twelve);
-          break;
-        case 'iteration_4':
-          dataAux= convertir(Scenario === "Sustainaible" ? data.combination_nine : data.combination_eleven);
-  
-          break
-      }
-      break;
-    }
- */}
-
 
 
 

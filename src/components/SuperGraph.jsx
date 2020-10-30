@@ -1,15 +1,9 @@
 import React from 'react';
 import {Bar} from 'react-chartjs-2';
 
-
-
-
 //draw triple style chart
 const  drawSuperGraph=(props)=> {
 
-     
-       
-      
     const options = {
       responsive: true,
       maintainAspectRatio: props.aspectRatio===undefined?false:props.aspectRatio,

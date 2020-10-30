@@ -31,10 +31,10 @@ width:100%;
 
 `;
 
-const About1=()=>{
+const About1=(props)=>{
 return(
 <Styles>
-<div className="about-container">
+<div className="about-container" ref={props.aboutRef}>
 <div className="about-title">Food, Agriculture, Biodiversity, Land and <br/> Energy Consortium</div>
 <div className="about-content">There is a remarkable opportunity to transform food and land use systems, but as the challenges are growing, we need to act with great urgency. The global report from the Food and Land Use Coalition (FOLU) proposes a reform agenda – centred around ten critical transitions – of real actionable solutions. <br/><br/>
 
