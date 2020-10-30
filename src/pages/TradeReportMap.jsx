@@ -181,7 +181,7 @@ class TradeReportMap extends Component {
         this.propsAux = props;
 
         console.log('Este es el trade report info props')
-        console.log(this.propsAux.countriesData)
+        console.log(this.propsAux.countriesData.datasets)
 
         this.paisesTest = this.propsAux.countriesData.datasets
 
