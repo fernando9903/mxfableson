@@ -189,42 +189,33 @@ var nameCounty="Argentina";
 
 return (
 <Container fluid >
-                  <Tour stepsP={steps}/>
-          <div className="graph">
+  <Tour stepsP={steps}/>
+  <div className="graph">
 
-            <Row >
+            <Row>
               <Col>
-              <div  style={{height: "100vh", width:"35vw"}}>    
-                  <BarChart data={dataAux} title="Biodiversity
-<div >
-    <ComboBox onChange={handleChange}/>
-    {converter()}
-    </div>
-            <Row  >
+                <div  style={{height: "100vh", width:"35vw"}}>    
+                  <BarChart data={data} title="Biodiversity"/>
+                <div/>
+                  <ComboBox onChange={handleChange}/>
+                  {converter()}
+                </div>
+              </Col>
+            </Row>
+            <Row>
               <Col>
-              
-              <div style={{height: "100vh", width:"35vw"}}>
+
+                <div style={{height: "100vh", width:"35vw"}}>
                   <BarChart data={data} title="Biodiversity"
                     aspectRatio={false}
                     labelposition="bottom"/>
-              </div>
+                </div>
               
               </Col>
               <Col>
-
-              <div className="map" style={{borderStyle:'solid', textAlign:'center', height: "70vh",width:"35vw"}}>
-                <LeafletMap countriesData = {dataAux}/>
-              <div style={{borderStyle:'solid', textAlign:'center', height: "70vh",width:"35vw"}}>
-              
-               
-              <LeafletMap
-              
-                
-                //countriesData = {data}
-              
-              />
-              </div>
-              
+                <div className="map" style={{borderStyle:'solid', textAlign:'center', height: "70vh",width:"35vw"}}>
+                  <LeafletMap countriesData = {data}/>              
+                </div>
               </Col>
             </Row>
             {/*<LeafletMap
@@ -233,8 +224,9 @@ return (
               countriesData = {dataAux}
               
             />*/}
-          </div>
-          </Container>
+
+  </div>
+</Container>
           
 );
 }

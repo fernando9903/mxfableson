@@ -77,16 +77,6 @@ const App = (props) => {
         <div className="Scenathon2020">
           <Scenathon className="Scenathon2020" id="Scenathon2020"/>
         </div>
-{/*
- <div style={{display: 'flex'}}>
-          <div>
-            <Aside />
-          </div>
-          <div style={{width: '100%'}}>
-            <Scenathon currentValue={currentValue} />
-          </div>
-        </div>
-*/ }
        
 
         

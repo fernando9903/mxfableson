@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BarChart from "../componentes/BarChart";
 import Tour from "../componentes/Tour";
-import data from '../data/FreshWaterUse1.json';
 import ComboBox from '../componentes/ComboBox';
 import ChartCharacteristics from '../data/ChartCharacteristics.json';
 
@@ -185,27 +184,42 @@ const DrawFreshWaterUse= (props) => {
       }
     
 
-
+  const steps = [
+    {
+      target: ".graph",
+      content: "Fresh water use for irrigation and livestock. The high demand of water continues to be expected the following decades, not showing much variation through the years.",
+      title: "Fresh Water Use 1",
+        styles: {
+          //this styles override the styles in the props  
+          options: {
+            textColor: "black"
+          }
+        },
+        locale: { 
+          next: <span>End</span>,
+        },
+        placement: "top"
+    }
+  ]
+    
 
 
   return (
-    <div>
+
 <div>
-<ComboBox onChange={handleChange}/>
-{converter()}
-</div>
+  <Tour stepsP={steps}/>
+  <div>
+    <ComboBox onChange={handleChange}/>
+    {converter()}
+  </div>
    
-  <div style={{height: "100vh",width:"70vw"}}>
-   
+  <div className="graph" style={{height: "100vh",width:"70vw"}}>
     <BarChart data={data}
-  aspectRatio={false}
-  labelposition="top"
-  title="Fresh Water use"/>
-  
-  </div>;
-    </div>
+    aspectRatio={false}
+    labelposition="top"
+    title="Fresh Water use"/>
   </div>
-  </div>
+</div>
   );
 }
 

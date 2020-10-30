@@ -5,6 +5,7 @@ import {Container,Row,Col,Jumbotron} from "react-bootstrap";
 import ComboBox from '../componentes/ComboBox';
 import LeafletMap from './LeafletMap';
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
+import Tour from '../componentes/Tour';
 
 const DrawFreshWater2 = (props) => {
 
@@ -160,6 +161,23 @@ data=dataAux;
     }
     
 
+  const steps = [
+    {
+      target: ".graph",
+      content: "Distribution of freshwater use for crop irrigation and livestock production by country.",
+      title: "Fresh Water Use 2",
+        styles: {
+          //this styles override the styles in the props  
+          options: {
+            textColor: "black"
+          }
+        },
+        locale: { 
+          next: <span>End</span>,
+        },
+        placement: "top"
+    }
+  ]
 
  
       return (
@@ -168,9 +186,10 @@ data=dataAux;
 <ComboBox onChange={handleChange}/>
 {converter()}
 </div>
+    <Tour stepsP={steps}/>
             <Row  >
               <Col >
-              <div style={{height: "100vh",width:"70vw"}}>
+              <div className="graph" style={{height: "100vh",width:"70vw"}}>
             
               <BarChart data={data}
                   title="Fresh Water Use 2"
