@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import MixedChart from "../components/MixedChart.jsx";
 import ChartCharacteristics from '../data/ChartCharacteristics.json';
-import ComboBox2 from "../componentes/ComboBox2.jsx";
-import Tour from "../componentes/Tour.js";
 import ComboBox2 from "../components/ComboBox2.jsx";
+import Tour from "../components/Tour.js";
 const FoodEnergyIntakePerCapita = (props) => {
 
   function Food(ChartCharacteristics,data) {

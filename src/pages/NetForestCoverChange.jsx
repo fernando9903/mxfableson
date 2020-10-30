@@ -1,12 +1,9 @@
 import React, { useState} from "react";
 import MixedChart from "../components/MixedChart.jsx";
 import data from '../data/NetForestCoverChange1.json';
-<<<<<<< HEAD
 import {Container,Row,Col} from "react-bootstrap";
-import Tour from '../componentes/Tour';
-=======
+import Tour from '../components/Tour';
 import ComboBox from '../components/ComboBox';
->>>>>>> 1549352518c5287126b2912f556d8231620fdc97
 
 //filter map
 //nfch=NetForestCoverChange
@@ -73,7 +70,6 @@ const DrawNfch = () => {
     }
     break;
   }
-<<<<<<< HEAD
 
   const steps = [
     {
@@ -105,17 +101,6 @@ const DrawNfch = () => {
   labelposition="bottom"/>
   </div>
   </div>;
-=======
-  return(
-     <div style={{height: "100vh",width:"70vw"}}>
-       <ComboBox onChange={handleChange}/>
-<MixedChart data={dataAux}
-  title="Net Forest Cover Change"
-  aspectRatio={false}
-  labelposition="bottom"  />
-  </div>
-  )
->>>>>>> 1549352518c5287126b2912f556d8231620fdc97
 }
 
 

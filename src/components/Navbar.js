@@ -139,11 +139,7 @@ const NavBar = (props) => {
               <Link to="/sasa">
                 <ReactBootStrap.Navbar.Brand classname="navbar-link" id="navbar-link-tour" href="#tour">Tour</ReactBootStrap.Navbar.Brand>
               </Link>
-<<<<<<< HEAD:src/componentes/Navbar.js
-              <Link href="#About1" to="/">
-=======
               <Link onClick={() => {handleClick(props.references.fable)}}>
->>>>>>> 1549352518c5287126b2912f556d8231620fdc97:src/components/Navbar.js
                 <ReactBootStrap.Navbar.Brand classname="navbar-link" id="navbar-link-fable">Fable</ReactBootStrap.Navbar.Brand>
               </Link>
               <Link onClick={() => {handleClick(props.references.scenathon)}}>

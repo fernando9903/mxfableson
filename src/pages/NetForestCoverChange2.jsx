@@ -59,13 +59,6 @@ const DrawNfch2 = () => {
     
   }
   
-<<<<<<< HEAD
-  console.log('NET DATA AUX');
-  console.log(dataAux);
-
-
-=======
->>>>>>> 1549352518c5287126b2912f556d8231620fdc97
 return(
 
 

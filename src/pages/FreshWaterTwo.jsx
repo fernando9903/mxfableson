@@ -5,7 +5,7 @@ import {Container,Row,Col,Jumbotron} from "react-bootstrap";
 import ComboBox from '../components/ComboBox';
 import LeafletMap from './LeafletMap';
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
-import Tour from '../componentes/Tour';
+import Tour from '../components/Tour';
 
 const DrawFreshWater2 = () => {
 

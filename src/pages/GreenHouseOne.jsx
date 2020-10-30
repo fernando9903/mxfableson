@@ -3,12 +3,8 @@ import SuperGraph from "../components/SuperGraph";
 import data from '../data/Greenhouse1.json';
 import ComboBox from '../components/ComboBox';
 import { Container, Row, Col } from "react-bootstrap";
-import Tour from '../componentes/Tour'
-const drawGreenhouse1 = (props) => {
+import Tour from '../components/Tour'
 
-  var dataGraphOne;
-  var dataGraphTwo;
-  const { GraficaType, Iteration, Scenario } = props.combinacion.select;
 const DrawGreenhouse1 = () => {
 
   var dataGraphOne=null;

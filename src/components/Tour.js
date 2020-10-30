@@ -17,14 +17,14 @@ const Tour = (props) => {
               arrowColor: "white",
               backgroundColor: "white",
               // page overlay color
-              overlayColor: "rgba(0.7, 0.7, 0.7, 0.0)",
+              overlayColor: "rgba(0.7, 0.7, 0.7, 0.3)",
               //button color
               primaryColor: "green",
           
               //width of modal
               width: 500,
               //zindex of modal
-              zIndex: 5000
+              zIndex: 9999
           }
       }}
         />

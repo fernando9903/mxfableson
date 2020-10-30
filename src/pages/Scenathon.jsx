@@ -22,7 +22,6 @@ import GreenHouse2 from '../pages/GreenHouse2'
 
 import GreenHouseOne from '../pages/GreenHouseOne'
 import FreshWaterTwo from '../pages/FreshWaterTwo'
-import TradeReport from '../pages/TradeReport'
 
 import styled from 'styled-components';
 
@@ -31,23 +30,12 @@ import BannerCleanWater from '../assets/banners/Mesa de trabajo 8.png';
 import BannerZeroHunger from '../assets/banners/Mesa de trabajo 2.png';
 import BannerClimateAction from '../assets/banners/Mesa de trabajo 16.png';
 
-<<<<<<< HEAD
-{/*import NetForestCoverChangeInfoA from '../pages/NetForestCoverChangeInfo1';
-import NetForestCoverChangeInfo2 from '';
-import FreshWaterUseInfo1 from '';
-import FreshWaterUseInfo2 from '';
-import GreenHouseGasEmissionsInfo1 from '';
-import GreenHouseGasEmissionsInfo2 from '';
-import FoodEnergyIntakePerCapitaInfo1 from '';
-import FoodEnergyIntakePerCapitaInfo2 from '';*/}
-=======
 
 import SustainableImporter from '../pages/SustainableImporter'
 import SustainableNetExporter from './SustainableNetExporter'
 import CurrenTrendExporter from './CurrenTrendExporter'
 import CurrenTrendImporter from './CurrenTrendImporter'
 
->>>>>>> 1549352518c5287126b2912f556d8231620fdc97
 
 const Styles = styled.div`
 header{
@@ -62,12 +50,9 @@ overflow:hidden;
   margin: 0;
   height: 100px;
   margin-top:20px;
-<<<<<<< HEAD
   width: 100%;
   
-=======
   transition: all 0.5s ease;
->>>>>>> 1549352518c5287126b2912f556d8231620fdc97
 
 
 .banner{
@@ -158,16 +143,10 @@ class Scenathon extends Component {
                console.log(this.state)
               break;
             case 'Net Forest Cover Change 1': 
-<<<<<<< HEAD
             this.combobox=<ComboBox onChange={this.handleChange}/>
               this.dash=<NetForestCoverChange combinacion={this.state}/>;
               document.getElementById("banner").src=BannerLifeOnLand;
               //document.getElementById("info").src="NetForestCoverChangeInfoA";
-=======
-         //   this.combobox=<ComboBox onChange={this.handleChange}/>
-            this.combobox=null;  
-              this.dash=<NetForestCoverChange/>;
->>>>>>> 1549352518c5287126b2912f556d8231620fdc97
               break;
             case 'Net Forest Cover Change 2':
                // this.combobox=<ComboBox3 onChange={this.handleChange}/>
@@ -242,9 +221,9 @@ class Scenathon extends Component {
                 this.combobox=null;   
                 this.dash=<CurrenTrendImporter/>;
             break;
-            case 'Trade Report':
+            /*case 'Trade Report':
                 this.dash=<TradeReport/>;
-            break;
+            break;*/
            
           }
     }

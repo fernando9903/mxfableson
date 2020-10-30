@@ -3,12 +3,8 @@ import BarChart from "../components/BarChart";
 
 import {Container,Row,Col} from "react-bootstrap";
 import LeafletMap from './LeafletMap';
-<<<<<<< HEAD
-import Tour from '../componentes/Tour';
-import ComboBox from '../componentes/ComboBox';
-=======
+import Tour from '../components/Tour';
 import ComboBox from '../components/ComboBox';
->>>>>>> 1549352518c5287126b2912f556d8231620fdc97
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
 
 //nfch=NetForestCoverChange
