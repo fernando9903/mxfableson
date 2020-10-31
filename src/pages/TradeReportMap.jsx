@@ -7,6 +7,8 @@ import '../css/LeafletMap.css';
 import * as L from 'leaflet';
 import { ThemeProvider } from 'styled-components';
 
+import hash from 'object-hash';
+
 
 class TradeReportMap extends Component {
     state = { color: '#b4b42d'} ;
@@ -172,19 +174,20 @@ class TradeReportMap extends Component {
     isColored = false;
 
     paisesTest = []
-    
+    //
 
     constructor(props) {
 
         super(props);
+        console.log('Se llamo el constructor')
         
         this.propsAux = props;
 
         console.log('Este es el trade report info props')
-        console.log(this.propsAux.countriesData.datasets)
+        //console.log(this.propsAux.countriesData)
 
         this.paisesTest = this.propsAux.countriesData.datasets
-
+//
         for (const country in this.paisesTest) {
             console.log(this.paisesTest[country].label)
             this.color.push(this.paisesTest[country].backgroundColor);
@@ -192,7 +195,10 @@ class TradeReportMap extends Component {
             this.data.push(this.paisesTest[country].data);
         }
 
-        this.years = this.propsAux.labels
+        this.years = this.propsAux.countriesData.labels
+
+        console.log('Estos son los años');
+        console.log(this.years)
 
         console.log(this.color)
         console.log(this.countriesName)
@@ -261,7 +267,8 @@ class TradeReportMap extends Component {
         for (const currentValue in this.years) {
             //try { 
                 this.htmlCode = this.htmlCode + '<li>' +'<strong>' + this.years[i] + '</strong>' +': '+ this.data[index][i] + '</li>'
-            /*} catch ( e ) {
+                //this.htmlCode = '<li>ola</li>'
+                /*} catch ( e ) {
                 console.log('Con este pais murio: ', countryName)
                 console.log('Este es el indece: ', index)
                 console.log(this.countriesName)
@@ -283,6 +290,8 @@ class TradeReportMap extends Component {
 
     onEachCountry = (country, layer) => {
 
+        
+//
        const countryName = country.id; //The name of the countries
        
        var indexAux = -1;
@@ -383,17 +392,22 @@ class TradeReportMap extends Component {
     }
 
     corner1 = L.latLng(-90, -200)
-    corner2 = L.latLng(90, 200)
+    corner2 = L.latLng(90, 200)//
     bounds = L.latLngBounds(this.corner1, this.corner2)
 
     render () {
         return (
             <div>
+                {console.log('Se renderio el mapa Trade Repor')}
                 
-                <Map style={{height: '80vh'}} zoom={2} center={[20, 100]} maxBoundsViscosity = {1.0} maxBounds = {this.bounds}>
+                <Map  style={{height: '80vh'}} zoom={2} center={[20, 100]} maxBoundsViscosity = {1.0} maxBounds = {this.bounds}>
                     <GeoJSON style={this.countryStyle} 
+                        
                         data={mapDataTest.features}
-                        onEachFeature={this.onEachCountry}></GeoJSON>
+                        onEachFeature={this.onEachCountry}
+        >{console.log('Entro al GeoJson')}
+        {console.log(this.propsAux)}
+        </GeoJSON>
                         {//<TileLayer
                         /*url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"
                         attribution='<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>'
