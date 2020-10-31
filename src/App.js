@@ -21,9 +21,9 @@ import steps from './components/TOUR_STEPS';
 const ReactHint = ReactHintFactory(React)
 
 const App = (props) => {
-  
-  const [currentValue, setCurrentValue] = React.useState("")
 
+  const [currentValue, setCurrentValue] = React.useState("")
+  
   const handleChangeAside = (value) => {
     setCurrentValue(value)
   }
@@ -37,6 +37,7 @@ const App = (props) => {
   }
 
     
+
     return (
         <React.Fragment>
         <div>
@@ -68,10 +69,10 @@ const App = (props) => {
         <div id="Jumbotron_fin" data-rh="Copyright" data-rh-at="top" id="final">
           <Jumbotron_fin/>
         </div>
-        
 
-        
-         
+
+
+
     </React.Fragment>
   )
 };

@@ -5,7 +5,7 @@ import ComboBox from '../components/ComboBox';
 import { Container, Row, Col } from "react-bootstrap";
 import Tour from '../components/Tour'
 
-const DrawGreenhouse1 = () => {
+const DrawGreenhouse1 = (props) => {
 
   var dataGraphOne=null;
   var dataGraphTwo=null;

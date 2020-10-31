@@ -152,53 +152,42 @@ var nameCounty=state.select.GraficaType==="regions"?"R_AFR":"Argentina";
   ]
 
 
-return (
-<Container fluid >
-  <Tour stepsP={steps}/>
-  <div className="graph">
-
-            <Row>
-              <Col>
-                <div  style={{height: "100vh", width:"35vw"}}>    
-                  <BarChart data={data} title="Biodiversity"/>
-                <div/>
-                  <ComboBox onChange={handleChange}/>
-                  {converter()}
-                </div>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-
-                <div style={{height: "100vh", width:"35vw"}}>
-                  <BarChart data={data} title="Biodiversity"
-                    aspectRatio={false}
-                    labelposition="bottom"/>
-                </div>
+  return (
+    <Container fluid >
+      <Tour stepsP={steps}/>
+      <div className="graph">
+    
+                <Row>
+                  <Col>
+                    <div  style={{height: "100vh", width:"35vw"}}>    
+                      <BarChart data={data} title="Biodiversity"/>
+                    <div/>
+                      <ComboBox onChange={handleChange}/>
+                      {converter()}
+                    </div>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+    
+                    <div style={{height: "100vh", width:"35vw"}}>
+                      <BarChart data={data} title="Biodiversity"
+                        aspectRatio={false}
+                        labelposition="bottom"/>
+                    </div>
+                  
+                  </Col>
+                  <Col>
+                    <div className="map" style={{borderStyle:'solid', textAlign:'center', height: "70vh",width:"35vw"}}>
+                      <LeafletMap countriesData = {data}/>              
+                    </div>
+                  </Col>
+                </Row>
+      </div>
+    </Container>
               
-              </Col>
-              <Col>
-                <div className="map" style={{borderStyle:'solid', textAlign:'center', height: "70vh",width:"35vw"}}>
-                  <LeafletMap countriesData = {data}/>              
-                </div>
-              </Col>
-            </Row>
-            {/*<LeafletMap
-              
-              
-              countriesData = {dataAux}
-              
-            />*/}
-
-  </div>
-</Container>
-          
-);
-}
-
-                                                          
-
-
+    );
+    }
 
 export default DrawBiodiversity;
 

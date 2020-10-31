@@ -3,7 +3,6 @@ import MixedChart from "../components/MixedChart.jsx";
 import data from '../data/NetForestCoverChange1.json';
 import {Container,Row,Col} from "react-bootstrap";
 import Tour from '../components/Tour';
-import ComboBox from '../components/ComboBox';
 
 //filter map
 //nfch=NetForestCoverChange

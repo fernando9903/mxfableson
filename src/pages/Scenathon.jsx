@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 
 import ComboBox from '../components/ComboBox'
 
-
+import ComboBox3 from '../components/ComboBox3'
 import Aside from '../components/Aside';
-
+import Dashboard from '../components/Dashboard'
 
 //dashboards
 import NetForestCoverChange from '../pages/NetForestCoverChange'
@@ -145,8 +145,6 @@ class Scenathon extends Component {
             case 'Net Forest Cover Change 1': 
             this.combobox=<ComboBox onChange={this.handleChange}/>
               this.dash=<NetForestCoverChange combinacion={this.state}/>;
-              document.getElementById("banner").src=BannerLifeOnLand;
-              //document.getElementById("info").src="NetForestCoverChangeInfoA";
               break;
             case 'Net Forest Cover Change 2':
                // this.combobox=<ComboBox3 onChange={this.handleChange}/>
@@ -252,8 +250,8 @@ class Scenathon extends Component {
                 <div class="info" id="info"></div>
             </div>
             </Styles>
+           
         )
     }
 }
 export default Scenathon;   
-
