@@ -17,6 +17,8 @@ import Scenathon from './pages/Scenathon';
 import Joyride, { ACTIONS, EVENTS, STATUS } from 'react-joyride';
 import BackgroundBlue from '../src/assets/background.jpg';
 import steps from './components/TOUR_STEPS';
+import Sidebar from './components/Sidebar';
+{/*import SwipeableDrawe from './components/SwipeableDrawer';*/}
 
 const ReactHint = ReactHintFactory(React)
 
@@ -69,6 +71,11 @@ const App = (props) => {
         <div id="Jumbotron_fin" data-rh="Copyright" data-rh-at="top" id="final">
           <Jumbotron_fin/>
         </div>
+
+        {/*<div>
+          <SwipeableDrawe/>
+          <Sidebar/>
+        </div>*/}
 
 
 
