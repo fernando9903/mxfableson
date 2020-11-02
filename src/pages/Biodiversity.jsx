@@ -3,9 +3,9 @@ import BarChart from "../components/BarChart";
 
 import { Container, Row, Col } from "react-bootstrap";
 import LeafletMap from './LeafletMap';
+import Tour from '../components/Tour';
 import ComboBox from '../components/ComboBox';
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
-
 
 //nfch=NetForestCoverChange
 const DrawBiodiversity = (props) => {
@@ -132,51 +132,71 @@ const DrawBiodiversity = (props) => {
     data = dataAux;
   }
 
+      
+
+    const steps = [
+    {
+      target: ".graph",
+      content: "Net Forest Change (loss and gain) describes the sum of all changes in forest area over a specific period of time.",
+      title: "Net Forest Change Graph",
+        styles: {
+          //this styles override the styles in the props  
+          options: {
+            textColor: "black"
+          }
+        },
+        locale: { 
+          next: <span>Next</span>,
+        },
+        placement: "top"
+    }
+  ]
+
 
 
   return (
     <Container fluid >
-      <div >
-        <ComboBox onChange={handleChange} />
-        {converter()}
+      <Tour stepsP={steps}/>
+      <div className="graph">
+    
+                <Row>
+                  <Col>
+                    <div  style={{height: "100vh", width:"35vw"}}>    
+                      <BarChart data={data} title="Biodiversity"/>
+                    <div/>
+                      <ComboBox onChange={handleChange}/>
+                      {converter()}
+                    </div>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+    
+                    <div style={{height: "100vh", width:"35vw"}}>
+                      <BarChart data={data} title="Biodiversity"
+                        aspectRatio={false}
+                        labelposition="bottom"/>
+                    </div>
+                  
+                  </Col>
+                  <Col>
+                    <div className="map" style={{borderStyle:'solid', textAlign:'center', height: "70vh",width:"35vw"}}>
+                      <LeafletMap countriesData = {data}/>              
+                    </div>
+                  </Col>
+                </Row>
+                {/*<LeafletMap
+                  
+                  
+                  countriesData = {dataAux}
+                  
+                />*/}
+    
       </div>
-      <Row  >
-        <Col>
-
-          <div style={{ height: "100vh", width: "35vw" }}>
-            <BarChart data={data} title="Biodiversity"
-              aspectRatio={false}
-              labelString='ha per year'
-              fontSize='25'
-
-              labelposition="bottom" />
-          </div>
-
-        </Col>
-        <Col>
-
-          <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "35vw" }}>
-
-            {/* 
-              <LeafletMap
-              
-                
-                countriesData = {data}
-              
-              />
-              */}
-          </div>
-        </Col>
-      </Row>
-
     </Container>
-
-  );
-}
-
-
-
-
+              
+    );
+    }
 
 export default DrawBiodiversity;
 

@@ -235,4 +235,3 @@ class Scenathon extends Component {
     }
 }
 export default Scenathon;   
-

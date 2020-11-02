@@ -40,7 +40,9 @@ const GreenHouse = () => {
       try {
             
       
+
       const response = await fetch("https://fable2020.herokuapp.com/gas2"+JSON.stringify(state));
+
        const  jsonAux =  await response.json();
     
       setJson(jsonAux);

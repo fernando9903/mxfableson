@@ -36,6 +36,7 @@ const DrawNfch2 = () => {
 
 
   useEffect(() => {
+
     const getNetForest = async () => {
 
       try {
@@ -44,6 +45,7 @@ const DrawNfch2 = () => {
         const response = await fetch("https://fable2020.herokuapp.com/forestTwo" + JSON.stringify(state));
         const jsonAux = await response.json();
         setJson(jsonAux);
+
       } catch (error) {
         console.error(error)
       }
@@ -172,9 +174,4 @@ const DrawNfch2 = () => {
     </Container>
   );
 }
-
-
-
-
-
 export default DrawNfch2;

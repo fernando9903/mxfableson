@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import BarChart from "../components/BarChart";
 
-import { Container, Row, Col } from "react-bootstrap";
+import {Container,Row,Col,Jumbotron} from "react-bootstrap";
 import ComboBox from '../components/ComboBox';
 import LeafletMap from './LeafletMap';
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
@@ -52,11 +52,9 @@ const DrawFreshWater2 = () => {
 
 
   const handleChange = e => {
-
     var group = state.select.GraficaType;
     var scenathon = state.select.scenathon_id;
     var iteration = state.select.Iteration;
-
     if (e.target.name === "scenathon_id") {
       switch (e.target.value) {
         case '6':
@@ -69,8 +67,8 @@ const DrawFreshWater2 = () => {
           break;
         default: iteration = state.select.Iteration === "1" ? "3" : "4";
       }
-    } else {
-
+    } 
+    else {
       group = e.target.name === "GraficaType" ? e.target.value : state.select.GraficaType;
       iteration = e.target.name === "Iteration" ? scenathon === "6" ? e.target.value === "after" ? "4" : "3" : e.target.value === "after" ? "2" : "1" : state.select.Iteration;
     }
@@ -80,19 +78,17 @@ const DrawFreshWater2 = () => {
         GraficaType: group,
         scenathon_id: scenathon,
         Iteration: iteration,
-
       }
-
-
-    });
-
+    });  
   }
 
   const converter = () => {
 
 
+
     var dataBlueWater = [];
     var count = 0;
+
     var freshWater = [];
     var labels = [];
     var nameCounty = ""
