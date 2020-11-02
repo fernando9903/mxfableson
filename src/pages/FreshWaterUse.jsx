@@ -33,10 +33,9 @@ const DrawFreshWaterUse = () => {
     const getFreshWater = async () => {
 
       try {
-        const body = state;
        
-        // const response = await fetch("https://server-fableson.wl.r.appspot.com/freshwater1" + JSON.stringify(body));
-        const response = await fetch("http://localhost:3456/freshwater1"+JSON.stringify(body));
+       
+        const response = await fetch("https://fable2020.herokuapp.com/freshwater1"+JSON.stringify(state));
         
         const jsonAux = await response.json();
         setJson(jsonAux);
