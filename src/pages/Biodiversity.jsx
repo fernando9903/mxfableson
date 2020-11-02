@@ -39,26 +39,25 @@ const DrawBiodiversity = (props) =>
 
 
   useEffect(() => {
-    
-     getBiodiversity();
+    const getBiodiversity = async () => 
+    {
+      
+      try {   
+        const body =state;
+ 
+       const response = await fetch("https://server-fableson.wl.r.appspot.com/biodiversity"+JSON.stringify(body));
+ 
+       const  jsonAux =  await response.json();
+      setJson(jsonAux);
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    getBiodiversity();
    }, [state]);
  
 
-   const getBiodiversity = async () => 
-   {
-     
-     try {   
-       const body =state;
-
-      const response = await fetch("https://server-fableson.wl.r.appspot.com/biodiversity"+JSON.stringify(body));
-
-      const  jsonAux =  await response.json();
-     setJson(jsonAux);
-     } catch (error) {
-       console.error(error)
-     }
-   }
-
+ 
    const handleChange = e => {
   
     var group = state.select.GraficaType;
@@ -74,7 +73,8 @@ const DrawBiodiversity = (props) =>
         case '5':
          scenathon="5";
          iteration=state.select.Iteration==="3"? "1":"2";
-            break;     
+            break;    
+            default:  iteration=state.select.Iteration==="1"? "3":"4"; 
     }
     }else{
      
@@ -105,7 +105,7 @@ var labels=[];
 var nameCounty=state.select.GraficaType==="regions"?"R_AFR":"Argentina";
 
   if (json != null) {
-    json.map((item) => {
+    json.forEach(item => {
       if (!labels.includes(item.Year)) 
       {
         labels.push(item.Year);
@@ -136,8 +136,8 @@ var nameCounty=state.select.GraficaType==="regions"?"R_AFR":"Argentina";
     const steps = [
     {
       target: ".graph",
-      content: "Net Forest Change (loss and gain) describes the sum of all changes in forest area over a specific period of time.",
-      title: "Net Forest Change Graph",
+      content: "",
+      title: "Biodiversity",
         styles: {
           //this styles override the styles in the props  
           options: {
@@ -145,7 +145,7 @@ var nameCounty=state.select.GraficaType==="regions"?"R_AFR":"Argentina";
           }
         },
         locale: { 
-          next: <span>Next</span>,
+          next: <span>End</span>,
         },
         placement: "top"
     }
@@ -157,25 +157,14 @@ var nameCounty=state.select.GraficaType==="regions"?"R_AFR":"Argentina";
       <Tour stepsP={steps}/>
       <div className="graph">
     
+            <ComboBox style={{margin:"300px"}} onChange={handleChange}/>
                 <Row>
                   <Col>
-                    <div  style={{height: "100vh", width:"35vw"}}>    
+                    <div  style={{height: "100vh", width:"35vw", padding: "20px"}}>    
                       <BarChart data={data} title="Biodiversity"/>
                     <div/>
-                      <ComboBox onChange={handleChange}/>
                       {converter()}
                     </div>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
-    
-                    <div style={{height: "100vh", width:"35vw"}}>
-                      <BarChart data={data} title="Biodiversity"
-                        aspectRatio={false}
-                        labelposition="bottom"/>
-                    </div>
-                  
                   </Col>
                   <Col>
                     <div className="map" style={{borderStyle:'solid', textAlign:'center', height: "70vh",width:"35vw"}}>

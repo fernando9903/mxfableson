@@ -45,29 +45,30 @@ const SustainableExporter =()=>
   }
 
   useEffect(() => {
+    const getNetSustainableImporter = async() => {
+      try {
+   
+        const body =state;
+        console.log(body)
+        
+     
+       const response = await fetch("https://server-fableson.wl.r.appspot.com/net"+JSON.stringify(body));
+        const  jsonAux =  await response.json();
+      
+      setJson(jsonAux);
+  
+      } catch (error) {
+        console.error(error)
+      }
+  
+  
+  
+    }
+  
     getNetSustainableImporter();
   }, [state]);
 
-  //llamada a la base de datos
-const getNetSustainableImporter = async() => {
-    try {
  
-      const body =state;
-      console.log(body)
-      
-   
-     const response = await fetch("https://server-fableson.wl.r.appspot.com/net/"+JSON.stringify(body));
-      const  jsonAux =  await response.json();
-    
-    setJson(jsonAux);
-
-    } catch (error) {
-      console.error(error)
-    }
-
-
-
-  }
 
   const converter=()=>
   {
@@ -75,10 +76,13 @@ const getNetSustainableImporter = async() => {
   var dataImport_quantity=[];
   var paises=[];
   var labels=[];
-  var nameCounty="Argentina";
+  var nameCounty="";
   
-    if (json != null) {
-      json.map((item) => {
+    if (json.length !==0) {
+      var firstElement =JSON.parse(JSON.stringify(json[0]));
+     
+      nameCounty=firstElement["name"];
+      json.forEach(item => {
         if (!labels.includes(item.Year)) 
         {
           labels.push(item.Year);
@@ -112,7 +116,9 @@ const getNetSustainableImporter = async() => {
                   <Col>
                   
                   <div style={{height: "100vh", width:"35vw"}}>
-                      <BarChart data={dataAux} title="Sustainable net exporters"
+                      <BarChart data={dataAux} title="Current trend net Importers"
+                                                                              labelString='Import quantity'
+
                         aspectRatio={false}
                         labelposition="bottom"/> 
                   </div>

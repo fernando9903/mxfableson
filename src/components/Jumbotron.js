@@ -31,7 +31,7 @@ const Styles = styled.div`
     }`;
 
 
-export const Jumbotron = (props) => {
+const Jumbotron = (props) => {
     return(
     <Styles ref={props.jumboReference}>
         <Jumbo fluid className= "jumbo">
@@ -44,3 +44,4 @@ export const Jumbotron = (props) => {
     </Styles>
     )
 };
+export default Jumbotron;

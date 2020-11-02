@@ -49,23 +49,20 @@ const DrawGreenhouse1 = (props) => {
           }
            dataGraphOneAux = convertir(dataGraphOne);
            dataGraphTwoAux = convertir_data(dataGraphTwo);
-
           break;
         case 'after':
           if (state.select.scenathon_id === "6") {
             dataGraphOne = data.graphOne_combinationOne
             dataGraphTwo = data.graphTwo_combinationOne
-
-
-
           } else {
             dataGraphOne = data.graphOne_combinationThree
             dataGraphTwo = data.graphTwo_combinationThree
           }
            dataGraphOneAux = convertir(dataGraphOne);
            dataGraphTwoAux = convertir_data(dataGraphTwo);
-
           break;
+          default:dataGraphOne = data.graphOne_combinationTwo;
+          dataGraphTwo = data.graphTwo_combinationTwo;
       }
       break;
     case 'regions':
@@ -81,6 +78,7 @@ const DrawGreenhouse1 = (props) => {
            dataGraphOneAux = convertir(dataGraphOne);
            dataGraphTwoAux = convertir_data(dataGraphTwo);
           break;
+         
         case 'after':
           if (state.select.scenathon_id === "6") {
             dataGraphOne = data.graphOne_combinationFive
@@ -92,9 +90,12 @@ const DrawGreenhouse1 = (props) => {
            dataGraphOneAux = convertir(dataGraphOne);
            dataGraphTwoAux = convertir_data(dataGraphTwo);
           break;
+          default:dataGraphOne = data.graphOne_combinationTwo;
+          dataGraphTwo = data.graphTwo_combinationTwo;
 
       }
       break;
+    
     case 'countries':
       switch (state.select.Iteration) {
         case 'before':
@@ -120,15 +121,19 @@ const DrawGreenhouse1 = (props) => {
            dataGraphOneAux = convertir(dataGraphOne);
            dataGraphTwoAux = convertir_data(dataGraphTwo);
           break;
+          default:dataGraphOne = data.graphOne_combinationTwo;
+          dataGraphTwo = data.graphTwo_combinationTwo;
       }
       break;
+      default:dataGraphOne = data.graphOne_combinationTwo;
+      dataGraphTwo = data.graphTwo_combinationTwo;
   }
 
   const steps = [
     {
       target: ".graph",
       content: "Computed annual global greenhouse gas emissions from crops and livestock (left), and from land use and peat oxidation (right) in Gt.",
-      title: "Greenhouse Gas (GHG) emissions 1",
+      title: "Greenhouse Gas Emissions 1",
         styles: {
           //this styles override the styles in the props  
           options: {
@@ -144,9 +149,9 @@ const DrawGreenhouse1 = (props) => {
 
   return (
     <Container fluid>
+      <Tour stepsP={steps}/>
+      <div className="graph">
       <Row>
-        <Tour stepsP={steps}/>
-        <div className="graph">
         <Col >
           <div style={{height: "100vh" ,width:"35vw"} }>
           <ComboBox onChange={handleChange}/>
@@ -158,9 +163,9 @@ const DrawGreenhouse1 = (props) => {
         <Col > <div style={{height: "100vh" ,width:"35vw"} }><SuperGraph data={dataGraphTwoAux}
           title="Green House 2"
           aspectRatio={false} 
-          labelposition="top" /> </div></Col>
-        </div>
+            labelposition="top" /> </div></Col>
       </Row>
+      </div>
     </Container>
  ); 
 }
@@ -180,7 +185,7 @@ const convertir_data = (props) => {
 
   if (props !== undefined) {
 
-    props.map((item) => {
+    props.forEach(item => {
       graphTwo_Total_GHG_land.push(item.total_GHG_land);
       graphTwo_Target_GHG_lu.push(item.Target_GHG_LU);
       graphTwo_FAO_LU_global.push(item.FAO_LU_global);
@@ -323,7 +328,7 @@ const convertir = (props) => {
 
   if (props !== undefined) {
 
-    props.map((item) => {
+    props.forEach(item => {
       total_GHG_agri.push(item.Total_GHG_agric);
       target_GHG_agri.push(item.Target_GHG_agri);
       FAO_LU_global.push(item.FAO_Agric_global);

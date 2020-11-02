@@ -5,11 +5,7 @@
             "type": "bar",
             "label": "ProtectedAreasForest",
             "borderColor": "#EC932F",
-            "backgroundColor": "#e6194b",
-            "pointBorderColor": "#EC932F",
-            "pointBackgroundColor": "#EC932F",
-            "pointHoverBackgroundColor": "#EC932F",
-            "pointHoverBorderColor": "#EC932F",
+            "backgroundColor": "#307a33",
             "yAxisID": "y-axis-1"
         }
     ], "ProtectedAreasOther": [
@@ -17,11 +13,7 @@
             "type": "bar",
             "label": "ProtectedAreasOther",
             "borderColor": "#EC932F",
-            "backgroundColor": "#3cb44b",
-            "pointBorderColor": "#EC932F",
-            "pointBackgroundColor": "#EC932F",
-            "pointHoverBackgroundColor": "#EC932F",
-            "pointHoverBorderColor": "#EC932F",
+            "backgroundColor": "#ffd54f",
             "yAxisID": "y-axis-1"
         }
     ],
@@ -30,7 +22,7 @@
             "type": "bar",
             "label": "ProtectedAreasOtherNat",
             "borderColor": "#EC932F",
-            "backgroundColor": "#ffe119",
+            "backgroundColor": "#81c784",
             "pointBorderColor": "#EC932F",
             "pointBackgroundColor": "#EC932F",
             "pointHoverBackgroundColor": "#EC932F",
@@ -78,7 +70,7 @@
             "type": "bar",
             "label": "calcPasture",
             "borderColor": "#36a2eb",
-            "backgroundColor": "#36a2eb",
+            "backgroundColor": "#307a33",
             "pointBorderColor": "#36a2eb",
             "pointBackgroundColor": "#36a2eb",
             "pointHoverBackgroundColor": "#36a2eb",
@@ -90,7 +82,7 @@
             "type": "bar",
             "label": "calcCropland",
             "borderColor": "#ff006e",
-            "backgroundColor": "#ff006e",
+            "backgroundColor": "#81c784",
             "pointBorderColor": "#ff006e",
             "pointBackgroundColor": "#ff006e",
             "pointHoverBackgroundColor": "#ff006e",
@@ -102,7 +94,7 @@
             "type": "bar",
             "label": "calcForest",
             "borderColor": "#e71d36",
-            "backgroundColor": "#e71d36",
+            "backgroundColor": "#ffd54f",
             "pointBorderColor": "#e71d36",
             "pointBackgroundColor": "#e71d36",
             "pointHoverBackgroundColor": "#e71d36",
@@ -114,7 +106,7 @@
             "type": "bar",
             "label": "calcNewForest",
             "borderColor": "#4ecdc4",
-            "backgroundColor": "#4ecdc4",
+            "backgroundColor": "#000000",
             "pointBorderColor": "#4ecdc4",
             "pointBackgroundColor": "#4ecdc4",
             "pointHoverBackgroundColor": "#4ecdc4",
@@ -126,7 +118,7 @@
             "type": "bar",
             "label": "calcOtherLand",
             "borderColor": "#4ecdc4",
-            "backgroundColor": "#4ecdc4",
+            "backgroundColor": "#e64a19",
             "pointBorderColor": "#4ecdc4",
             "pointBackgroundColor": "#4ecdc4",
             "pointHoverBackgroundColor": "#4ecdc4",
@@ -138,7 +130,7 @@
             "type": "bar",
             "label": "calcUrban",
             "borderColor": "#9a031e",
-            "backgroundColor": "#9a031e",
+            "backgroundColor": "#00acc1",
             "pointBorderColor": "#9a031e",
             "pointBackgroundColor": "#9a031e",
             "pointHoverBackgroundColor": "#9a031e",
@@ -159,15 +151,14 @@
             "yAxisID": "y-axis-1"
         }
     ],
-    "million_cubic_metres": [
+    "cubic_metres": [
         {
             "type": "bar",
-            "label": "million cubic metres",
+            "label": "Cubic metres",
             "borderColor": "#81c784",
-            "backgroundColor": "#81c784",
+            "backgroundColor": "#0072f0",
             "pointBorderColor": "#81c784",
             "pointBackgroundColor": "#81c784",
-            "pointHoverBackgroundColor": "#81c784",
             "pointHoverBorderColor": "#81c784",
             "yAxisID": "y-axis-1"
         }

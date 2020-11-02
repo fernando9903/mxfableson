@@ -70,26 +70,26 @@ const Styles = styled.div`
 
   
    `;
-export const Jumbotron_fin = () => {
+ const Jumbotron_fin = () => {
   return (
     <Styles>
       <div class="footer-container">
         <div class="logo-container">
           <div class="logo-container-1">
-            <img class="logo" src={FoodAndLand_LOGO_COLOR} />
-            <img class="logo" src={SDSN_LOGO_COLOR} />
+            <img class="logo" src={FoodAndLand_LOGO_COLOR} alt="" />
+            <img class="logo" src={SDSN_LOGO_COLOR} alt=""/>
           </div>
           <div class="logo-container-2">
-            <img class="logo" src={IIASA_LOGO_COLOR} />
+            <img class="logo" src={IIASA_LOGO_COLOR} alt="" />
           </div>
         </div>
 
         <div class="contact-container">
           <p class="email">info@foodandlandandusecoalition.org</p>
           <div class="socialmedia-container">
-            <a href="https://www.instagram.com/folucoalition/"><img class="socialmedia-logo" src={TW_Logo} /></a>
-            <a href="https://www.facebook.com/IIASA"><img class="socialmedia-logo" src={FB_Logo} /></a>
-            <a href="https://www.instagram.com/folucoalition/"><img class="socialmedia-logo" src={IG_Logo} /></a>
+            <a href="https://www.instagram.com/folucoalition/"><img class="socialmedia-logo" src={TW_Logo} alt="" /></a>
+            <a href="https://www.facebook.com/IIASA"><img class="socialmedia-logo" src={FB_Logo} alt=""/></a>
+            <a href="https://www.instagram.com/folucoalition/"><img class="socialmedia-logo" src={IG_Logo} alt=""/></a>
           </div>
           <p class="copyright">© Copyright 2020 Fable Scenathon. All rights
  reserved. Privacy policy. Web design by Rubisco.</p>
@@ -102,3 +102,5 @@ export const Jumbotron_fin = () => {
 
   );
 };
+
+export default Jumbotron_fin;

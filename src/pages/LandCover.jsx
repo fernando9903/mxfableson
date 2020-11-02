@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import BarChart from "../components/BarChart.jsx";
 import ComboBox from '../components/ComboBox';
 import ChartCharacteristics from '../data/ChartCharacteristics.json';
+import Tour from '../components/Tour'
 const DrawLandCover = () => {
 
 
@@ -30,22 +31,23 @@ const DrawLandCover = () => {
   var data = null;
 
   useEffect(() => {
+    const getLandCover = async () => 
+    {
+      try {   
+        const body =state;
+       const response = await fetch("https://server-fableson.wl.r.appspot.com/landcover"+JSON.stringify(body));
+       const  jsonAux =  await response.json();
+      setJson(jsonAux);
+      } catch (error) {
+        console.error(error)
+      }
+    }
     getLandCover();
   }, [state]);
 
 
 
-  const getLandCover = async () => 
-  {
-    try {   
-      const body =state;
-     const response = await fetch("https://server-fableson.wl.r.appspot.com/landcover"+JSON.stringify(body));
-     const  jsonAux =  await response.json();
-    setJson(jsonAux);
-    } catch (error) {
-      console.error(error)
-    }
-  }
+
 
   const converter = () => 
   {
@@ -61,7 +63,7 @@ const DrawLandCover = () => {
     console.log(json);
     if (json !== null ) {
    
-      json.map((item) => {
+      json.forEach(item => {
           labels.push(item.Year);
           calcPasture.push(item.CalcPasture);
           calcCropland.push(item.CalcCropland);
@@ -110,7 +112,8 @@ const DrawLandCover = () => {
         case '5':
          scenathon="5";
          iteration=state.select.Iteration==="3"? "1":"2";
-            break;     
+            break;   
+            default:  iteration=state.select.Iteration==="1"? "3":"4";  
     }
     }else{
      
@@ -130,13 +133,29 @@ const DrawLandCover = () => {
     });
     
       }
+
+      const steps = [
+        {
+          target: ".graph",
+          content: "Distribution of land cover area in 1000 ha.",
+          title: "Land Cover",
+            styles: {
+              //this styles override the styles in the props  
+              options: {
+                textColor: "black"
+              }
+            },
+            locale: { 
+              next: <span>End</span>,
+            },
+            placement: "top"
+        }
+      ]
     
-
-
-
-
     return (
-     <div>
+
+    <div className="graph">
+      <Tour stepsP={steps}/>
 
     <div >
     <ComboBox onChange={handleChange}/>
@@ -145,8 +164,13 @@ const DrawLandCover = () => {
 
     <div style={{height: "100vh",width:"70vw"}}>
     <BarChart data={data}
+    labelwidth={40}
+    labelSize={24}
     title="Land Cover"
-    labelposition='top'
+    labelposition='right'
+    labelString='Ha per year'
+    fontSize='20'
+    fontColor='black'
    aspectRatio={false}/>
     </div>
 

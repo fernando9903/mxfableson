@@ -48,18 +48,14 @@ setState({
 
  }
  useEffect(() => {
-    getNettrade();
-  }, [state]);
-
-//llamada a la base de datos
-const getNettrade = async() => {
+  const getNettrade = async() => {
     try {
    console.log("net")
       const body =state;
       console.log(body)
       
    
-     const response = await fetch("https://server-fableson.wl.r.appspot.com/net/"+JSON.stringify(body));
+     const response = await fetch("https://server-fableson.wl.r.appspot.com/net"+JSON.stringify(body));
       const  jsonAux =  await response.json();
     
     setJson(jsonAux);
@@ -71,6 +67,11 @@ const getNettrade = async() => {
 
 
   }
+    getNettrade();
+  }, [state]);
+
+
+
 
   const converter=()=>
 {
@@ -78,9 +79,12 @@ const getNettrade = async() => {
 var dataExport_quantity=[];
 var paises=[];
 var labels=[];
-var nameCounty="Argentina";
-  if (json != null) {
-    json.map((item) => {
+var nameCounty="";
+  if (json.length !==0) {
+    var firstElement =JSON.parse(JSON.stringify(json[0]));
+     
+    nameCounty=firstElement["name"];
+    json.forEach(item => {
       if (!labels.includes(item.Year)) 
       {
         labels.push(item.Year);
@@ -115,6 +119,8 @@ return (
                   
                   <div style={{height: "100vh", width:"35vw"}}>
                       <BarChart data={dataAux} title="Sustainable net exporters"
+                                  labelString='Export quantity'
+
                         aspectRatio={false}
                         labelposition="bottom"/> 
                   </div>

@@ -102,6 +102,7 @@ const NavBar = (props) => {
       */}
       <Router>
         <ReactBootStrap.Navbar expand="lg" className="nav navBarWidth" id="navbar" variant="light">
+
           <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
             <div className="banner-container">
@@ -187,7 +188,7 @@ const NavBar = (props) => {
               </Route>
 */}
 
-          <Route path="/About1" render={
+          <Route path="/About" render={
             () => {
               return (<h1>About</h1>);
             }

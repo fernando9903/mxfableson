@@ -43,8 +43,8 @@ const DrawNfch = () => {
           break;
         case 'after':
           dataAux= convertir(state.select.scenathon_id  === "6" ? data.combinacion_uno : data.combinacion_tres);
-        
-          break
+          break;
+          default:dataAux= convertir(data.combination_1);
       }
       break;
     case 'regions':
@@ -54,9 +54,11 @@ const DrawNfch = () => {
           break;
         case 'after':
           dataAux= convertir(state.select.scenathon_id  === "6" ? data.combinacion_cinco : data.combinacion_siete);
-          break
+          break;
+          default:dataAux= convertir(data.combination_1);
       }
       break;
+     
     case 'countries':
       switch(state.select.Iteration ){
       case 'before':
@@ -65,9 +67,11 @@ const DrawNfch = () => {
       case 'after':
         dataAux= convertir(state.select.scenathon_id  === "6" ? data.combinacion_nueve : data.combinacion_once);
 
-        break
+        break;
+        default:dataAux= convertir(data.combination_1);
     }
     break;
+    default:dataAux= convertir(data.combination_1);
   }
 
   const steps = [
@@ -117,7 +121,7 @@ const convertir=(props)=> {
   var aforestation=[]; 
   var net_forest_change=[]; 
    
-   props.map((item) => {
+  props.forEach(item => {
     forest_target.push(item.forest_target);
     gfw_deforestation.push(item.GFW_deforestation);
     forest_loss.push(item.forest_loss);

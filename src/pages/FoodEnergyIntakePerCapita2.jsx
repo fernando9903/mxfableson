@@ -24,62 +24,34 @@ const FoodEnergyIntakePerCapita = (props) => {
 
   const [json, setJson] = useState([]);
 
-  {/*
-    const convertir=(props)=> {
- 
- 
-
-
-
-
-        var dataUno=[]
-        var dataDos=[]
-        var labels=[]
-          
-         props.map((item) => {
-          dataUno.push(item.Kcal_feasible);
-          dataDos.push(item.Target_MDER);
-         labels.push(item.c_country_t);
-          
-        });
-       
-        const data={
-          labels:labels,
-           datasets:[
-             {
-              label:"Target (MDER)",
-              data:dataDos,
-              fill:false,
-              type:"scatter",
-              backgroundColor:"Red",
-              borderColor:"Red",
-              hoverBackgroundColor:"Red",
-              hoverBorderColor:"Red",
-              yAxisID:"y-axis-1"
-             },
-             {
-              label:"Kcal feasible",
-              data:dataUno,
-              fill:false,
-              type:"bar",
-              backgroundColor:"#81c784",
-              borderColor:"#81c784",
-              hoverBackgroundColor:"darkgreen",
-              hoverBorderColor:"#81c784",
-              yAxisID:"y-axis-1"
-             }
-           ]
-        }
-      
-       return data
-      } 
-*/}
   var data = null;
 
 
 
 
   useEffect(() => {
+    const getFoodEnergyIntakePerCapita = async () => {
+   
+
+   
+      try {
+            
+        const body =state;
+      
+        
+       const response = await fetch("https://server-fableson.wl.r.appspot.com/foodenergy2"+JSON.stringify(body));
+       const  jsonAux =  await response.json();
+    
+      setJson(jsonAux);
+     
+  
+      } catch (error) {
+        console.error(error)
+      }
+  
+  
+  
+    }
   
     getFoodEnergyIntakePerCapita();
     
@@ -90,28 +62,6 @@ const FoodEnergyIntakePerCapita = (props) => {
 
 
 
-  const getFoodEnergyIntakePerCapita = async () => {
-   
-
-   
-    try {
-          
-      const body =state;
-    
-      
-     const response = await fetch("https://server-fableson.wl.r.appspot.com/foodenergy2"+JSON.stringify(body));
-     const  jsonAux =  await response.json();
-  
-    setJson(jsonAux);
-   
-
-    } catch (error) {
-      console.error(error)
-    }
-
-
-
-  }
 
 
   const handleChange = e => {
@@ -139,7 +89,7 @@ setState({
 
     if (json != null ) {
    
-      json.map((item) => {
+      json.forEach(item => {
           labels.push(item.Country);
           Protein_feasible.push(item.Protein_feasible);
           Fat_feasible.push(item.Fat_feasible);
@@ -222,22 +172,23 @@ setState({
     ]
 
   return (
-
-    <div>
+    
+    <div className="graph">
+    <Tour stepsP={steps}/>
       
       <div>
         <ComboBoxFoodEnergy2 onChange={handleChange} />
         {converter()}
       </div>
 
-      <Tour stepsP={steps}/>
-    <div className="graph" style={{height: "100vh" ,width:"70vw"} }>
+    <div  style={{height: "100vh" ,width:"70vw"} }>
       <BarChart2 data={data}
     aspectRatio={false}
     labelposition="top"
     labelwidth={50}
     labelSize={24}
     TitleSize={45}
+    labelString='Energy intake per capita'
     title="Food energy intake per capita"/>
     </div>
   

@@ -17,10 +17,11 @@ const Tour = (props) => {
               arrowColor: "white",
               backgroundColor: "white",
               // page overlay color
-              overlayColor: "rgba(0.7, 0.7, 0.7, 0.3)",
+              overlayColor: "rgba(0, 0, 0, 0)",
               //button color
               primaryColor: "green",
-          
+              //spotlightShadow: '1 1 15px rgba(0, 0, 0, 0)',
+              beaconSize: 36,
               //width of modal
               width: 500,
               //zindex of modal
