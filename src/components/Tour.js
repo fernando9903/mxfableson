@@ -2,7 +2,7 @@ import React from "react"
 import ReactJoyride from 'react-joyride';
 import steps from "./TOUR_STEPS"
 
-
+//
 const Tour = (props) => {
 
     return (
@@ -17,14 +17,15 @@ const Tour = (props) => {
               arrowColor: "white",
               backgroundColor: "white",
               // page overlay color
-              overlayColor: "rgba(0.7, 0.7, 0.7, 0.0)",
+              overlayColor: "rgba(0, 0, 0, 0)",
               //button color
               primaryColor: "green",
-          
+              //spotlightShadow: '1 1 15px rgba(0, 0, 0, 0)',
+              beaconSize: 36,
               //width of modal
               width: 500,
               //zindex of modal
-              zIndex: 5000
+              zIndex: 9999
           }
       }}
         />

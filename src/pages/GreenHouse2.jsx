@@ -4,6 +4,9 @@ import ComboBox from '../components/ComboBox';
 import { Container, Row, Col } from "react-bootstrap";
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
 import LeafletMap from './LeafletMap';
+import TradeReportMap from './TradeReportMap'
+import Tour from '../components/Tour'
+
 //nfch=NetForestCoverChange
 const GreenHouse = () => {
   function GreenHouseTwo(ChartCharacteristics,data) {
@@ -167,44 +170,56 @@ dataAux = {
   
     }
   
-  
+    const steps = [
+      {
+        target: ".graph",
+        content: "Average annual distribution of CO2e emissions in Gt per country globally derived from crops and livestock (left), and from land use change and peat oxidation in Gt CO2e. (right)",
+        title: "Greenhouse Gas Emissions 2",
+          styles: {
+            //this styles override the styles in the props  
+            options: {
+              textColor: "black"
+            }
+          },
+          locale: { 
+            next: <span>End</span>,
+          },
+          placement: "top"
+      }
+    ]
 
-  return (
-    <Container fluid>
+return (
+<Container fluid>
+  <Tour stepsP={steps}/>
+    <div className="graph">
       <Row>
         <Col><div style={{height: "100vh" ,width:"35vw"} }>
         <ComboBox onChange={handleChange}/>
         {converter()}
           
           <BarChart data={dataChart1}
-            title="Green House 2" aspectRatio={false}
+            title="Greenhouse Gas 2" aspectRatio={false}
             labelposition="bottom" />
           
         </div>
         </Col>
-        <Col><div style={{height: "100vh" ,width:"35vw"} }>
+      </Row>
+      <Row>
+        <Col>
+        <div style={{height: "100vh" ,width:"35vw"} }>
         
           <BarChart data={dataChart2}
-            title="Green House 2" aspectRatio={false}
+            title="Greenhouse Gas 2" aspectRatio={false}
             labelposition="bottom" />
               
         </div>
         </Col>
       </Row>
- {/* 
-      Graph 1
-      
-      <LeafletMap 
-        countriesData = {dataGraphOneAux}
-      />
-      Graph 2
-      <LeafletMap 
-        countriesData = {dataGraphTwoAux}
-      />
-      */}
-
-    </Container>);
-
+      <TradeReportMap countriesData = {dataChart1}/>
+      <TradeReportMap countriesData = {dataChart2}/>
+    </div>
+</Container>
+  );
 }
 
 

@@ -104,9 +104,8 @@ setState({
       var dataAux = {
         labels:labels,
         datasets:dataSet
-    };
-    data=dataAux;
-
+      };
+      data=dataAux;
 
     }
   
@@ -172,16 +171,16 @@ setState({
     ]
 
   return (
-
-    <div>
+    
+    <div className="graph">
+    <Tour stepsP={steps}/>
       
       <div>
         <ComboBoxFoodEnergy2 onChange={handleChange} />
         {converter()}
       </div>
 
-      <Tour stepsP={steps}/>
-    <div className="graph" style={{height: "100vh" ,width:"70vw"} }>
+    <div  style={{height: "100vh" ,width:"70vw"} }>
       <BarChart2 data={data}
     aspectRatio={false}
     labelposition="top"

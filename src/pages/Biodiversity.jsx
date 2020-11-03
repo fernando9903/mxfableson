@@ -137,8 +137,8 @@ const DrawBiodiversity = (props) => {
     const steps = [
     {
       target: ".graph",
-      content: "Net Forest Change (loss and gain) describes the sum of all changes in forest area over a specific period of time.",
-      title: "Net Forest Change Graph",
+      content: "",
+      title: "Biodiversity",
         styles: {
           //this styles override the styles in the props  
           options: {
@@ -146,7 +146,7 @@ const DrawBiodiversity = (props) => {
           }
         },
         locale: { 
-          next: <span>Next</span>,
+          next: <span>End</span>,
         },
         placement: "top"
     }
@@ -159,25 +159,14 @@ const DrawBiodiversity = (props) => {
       <Tour stepsP={steps}/>
       <div className="graph">
     
+            <ComboBox style={{margin:"300px"}} onChange={handleChange}/>
                 <Row>
                   <Col>
-                    <div  style={{height: "100vh", width:"35vw"}}>    
+                    <div  style={{height: "100vh", width:"35vw", padding: "20px"}}>    
                       <BarChart data={data} title="Biodiversity"/>
                     <div/>
-                      <ComboBox onChange={handleChange}/>
                       {converter()}
                     </div>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
-    
-                    <div style={{height: "100vh", width:"35vw"}}>
-                      <BarChart data={data} title="Biodiversity"
-                        aspectRatio={false}
-                        labelposition="bottom"/>
-                    </div>
-                  
                   </Col>
                   <Col>
                     <div className="map" style={{borderStyle:'solid', textAlign:'center', height: "70vh",width:"35vw"}}>
@@ -185,13 +174,6 @@ const DrawBiodiversity = (props) => {
                     </div>
                   </Col>
                 </Row>
-                {/*<LeafletMap
-                  
-                  
-                  countriesData = {dataAux}
-                  
-                />*/}
-    
       </div>
     </Container>
               
