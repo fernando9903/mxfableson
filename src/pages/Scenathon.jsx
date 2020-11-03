@@ -206,11 +206,6 @@ class Scenathon extends Component {
           }
     }
 
-   
-  
-
-   
-
 
     render() {
         return (

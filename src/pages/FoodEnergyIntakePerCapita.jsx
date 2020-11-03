@@ -30,11 +30,15 @@ const FoodEnergyIntakePerCapita = (props) => {
     const getFoodEnergyIntakePerCapita = async () => {
       try {   
         const body =state;
-        const response = await fetch("https://server-fableson.wl.r.appspot.com/foodenergy1"+JSON.stringify(body));
-        const  jsonAux =  await response.json();
-        setJson(jsonAux);
-      } 
-      catch (error) {console.error(error)}
+
+      const response = await fetch("https://fable2020.herokuapp.com/foodenergy1"+JSON.stringify(body));
+   
+       const  jsonAux =  await response.json();
+      setJson(jsonAux);
+      } catch (error) {
+        console.error(error)
+      }
+
     }
     getFoodEnergyIntakePerCapita();
   }, [state]);
@@ -71,26 +75,36 @@ const handleChange = e => {
   });
 }
 
-const converter = () => {
-  var labels=[];
-  var target_mder=[];
-  var kcal_feasible=[];
-  var dataSet=[]
-  if (json !== null ) {
-    json.forEach(item => {
-      labels.push(item.Country);
-      target_mder.push(item.target_mder);
-      kcal_feasible.push(item.kcal_feasible);
-    });
 
-    var food = new Food(ChartCharacteristics["target_mder"],target_mder);
-    dataSet.push(food);
-    food = new Food(ChartCharacteristics["kcal_feasible"],kcal_feasible);
-    dataSet.push(food);
+  const converter = () => {
+  
 
-    var dataAux = {
-      labels:labels,
-      datasets:dataSet
+    var labels=[];
+    var target_mder=[];
+
+    var kcal_feasible=[];
+    var dataSet=[]
+
+
+    if (json !== null ) {
+   
+      json.forEach(item => {
+          labels.push(item.Country);
+          target_mder.push(item.Target_MDER);
+
+          kcal_feasible.push(item.Kcal_feasible);
+        
+      });
+
+      var food = new Food(ChartCharacteristics["target_mder"],target_mder);
+      dataSet.push(food);
+      food = new Food(ChartCharacteristics["kcal_feasible"],kcal_feasible);
+      dataSet.push(food);
+
+      var dataAux = {
+        labels:labels,
+        datasets:dataSet
+
     };
     data=dataAux;
   }

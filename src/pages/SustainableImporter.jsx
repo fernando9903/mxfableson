@@ -28,7 +28,7 @@ const SustainableExporter =()=>
        //const [state,setState]=useState([]);
  const [json,setJson]=useState([]);
  var dataChart = null;
- var dataMap = null;
+ 
  
  const handleChange = e => {
     var  iteration = e.target.name==="iteration"? e.target.value==="after"?'4':'3':state.select.iteration;
@@ -51,11 +51,12 @@ const SustainableExporter =()=>
     const getNetSustainableImporter = async() => {
       try {
    
-        const body =state;
       
         
      
-       const response = await fetch("https://server-fableson.wl.r.appspot.com/net"+JSON.stringify(body));
+    // const response = await fetch("https://server-fableson.wl.r.appspot.com/net"+JSON.stringify(body));
+    
+  const response = await fetch("https://fable2020.herokuapp.com/net"+JSON.stringify(state));
         const  jsonAux =  await response.json();
       
       setJson(jsonAux);
@@ -75,9 +76,8 @@ const SustainableExporter =()=>
 
   const converter=()=>
   {
-    console.log("metodo converter sustainable json")
-
     
+    var count = 0;
   var dataImport_quantity=[];
   var datasetsCharts=[];
 
@@ -85,52 +85,35 @@ const SustainableExporter =()=>
   var nameCounty="";
   
     if (json.length !==0) {
-      //console.log(json)
-      var firstElement =JSON.parse(JSON.stringify(json[0]));
-     
-      nameCounty=firstElement["name"];
-      json.forEach(item => {
-        
-        if (!labels.includes(item.Year)) 
+      nameCounty=json[0].name;
+      json.forEach(item => 
         {
-          labels.push(item.Year);
-        }
-        dataImport_quantity.push(item.Import_quantity);
-        if (nameCounty!==item.name) 
-        {
-         
-         
-          var pais = new Pais(CountryCharacteristics[nameCounty], dataImport_quantity);
-          datasetsCharts.push(pais);
-         
-
-
+          if (!labels.includes(item.Year)) 
+          {
+            labels.push(item.Year);
+          }
+          
+          if (nameCounty!==item.name) 
+          {
+            if(count!==dataImport_quantity.length){
+            var pais = new Pais(CountryCharacteristics[nameCounty], dataImport_quantity);
+            datasetsCharts.push(pais);
+            
+          }
+          count = 0;
           nameCounty=item.name;
           dataImport_quantity=[];
+          }
           dataImport_quantity.push(item.Import_quantity);
-        }
-      });
-  //colores
-  //labels
-  //data
-  
+          count = item.Import_quantity === "0.00" ? count + 1 : count;
+        });
     }
+   
    var data = {
       labels:labels,
       datasets:datasetsCharts
   };
    dataChart=data;
-
-  
-
-
-
-
-
-
-
-
-
   }
 
   return (
@@ -160,7 +143,7 @@ const SustainableExporter =()=>
                   <TradeReportMap countriesData = {dataChart} />
                    */}
 
-                   <TradeReportMap countriesData = {dataChart} Product={state.select.Product}/>
+                   <TradeReportMap countriesData = {dataChart}/>
                
                   
                   </div>
