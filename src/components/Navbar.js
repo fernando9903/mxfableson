@@ -8,7 +8,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import Scenathon from '../pages/Scenathon';
+
 
 import About from '../pages/About';
 import styled from 'styled-components';
@@ -102,6 +102,7 @@ const NavBar = (props) => {
       */}
       <Router>
         <ReactBootStrap.Navbar expand="lg" className="nav navBarWidth" id="navbar" variant="light">
+
           <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
             <div className="banner-container">
@@ -139,10 +140,7 @@ const NavBar = (props) => {
               <Link to="/sasa">
                 <ReactBootStrap.Navbar.Brand classname="navbar-link" id="navbar-link-tour" href="#tour">Tour</ReactBootStrap.Navbar.Brand>
               </Link>
-
               <Link onClick={() => {handleClick(props.references.fable)}}>
-
-             
                 <ReactBootStrap.Navbar.Brand classname="navbar-link" id="navbar-link-fable">Fable</ReactBootStrap.Navbar.Brand>
               </Link>
               <Link onClick={() => {handleClick(props.references.scenathon)}}>
@@ -190,7 +188,7 @@ const NavBar = (props) => {
               </Route>
 */}
 
-          <Route path="/About1" render={
+          <Route path="/About" render={
             () => {
               return (<h1>About</h1>);
             }

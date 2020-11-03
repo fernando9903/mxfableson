@@ -21,12 +21,14 @@ margin-top:20px;
     font-size:35px;
     font-weight: bold;
     margin-bottom:30px;
+    margin-left:95px;
 }
 
 .about-content{
     color:#4E4E4E;
     text-align:justify;
     font-size:20px;
+    margin-left:95px;
 }
 }
 
@@ -36,7 +38,7 @@ const About2=(props)=>{
 return(
 <Styles ref={props.aboutReference}>
 <div className="about-container">
-<div className="about-title">Scenathons: Ineractive Scenerario and <br/>Development Pathway Planning</div>
+<div className="about-title">Scenathons: Interactive Scenerario and <br/> Pathway Planning Development</div>
 <div className="about-content">Scenathons were conceived at IIASA as participatory decision-making exercises that integrate models, stakeholders, and technology to collectively solve complex, large-scale multi-objective problems. <br/><br/>
 
 The Food, Agriculture, Biodiversity, Land, and Energy (FABLE) Consortium has applied the Scenathon concept to answer questions concerned with sustainability transformations of food and land use systems. Within this setting, the Scenathon process allows country teams to progressively align national pathways with the global FABLE targets and to balance trade flows.

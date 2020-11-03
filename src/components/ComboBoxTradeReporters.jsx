@@ -16,7 +16,7 @@ const Styles = styled.div`
 function ComboBoxTradeReportersImporters (props) {
 
     
-        const{onChange}=props
+       
         return (
             <Styles>
 

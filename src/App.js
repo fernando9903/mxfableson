@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './css/App.css';
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
@@ -7,10 +7,10 @@ import About2 from "./components/About2";
 import About3 from "./components/About3";
 import Tour from "./components/Tour";
 import About from './pages/About';
-import { Jumbotron } from './components/Jumbotron'
-import { Jumbotron_2}  from './components/Jumbotron_2'
-import { Jumbotron_3 } from './components/Jumbotron_3'
-import { Jumbotron_fin } from './components/Jumbotron_fin'
+import Jumbotron from './components/Jumbotron'
+import Jumbotron2  from './components/Jumbotron2'
+import Jumbotron3 from './components/Jumbotron3'
+import JumbotronFin from './components/JumbotronFin'
 import ReactHintFactory from 'react-hint'
 import 'react-hint/css/index.css';
 import Scenathon from './pages/Scenathon';
@@ -46,14 +46,12 @@ const App = (props) => {
         <div className="Nav">
           <Navbar references={references}/>
         </div>
-            
-            <Jumbotron/>
 
         <div className= "About1" id="About1">
           <About1 aboutRef={references.fable}/>
         </div>
-        <div id="Jumbotron_2" >
-          <Jumbotron_2 />
+        <div id="Jumbotron2" >
+          <Jumbotron2 />
         </div>
 
 
@@ -65,8 +63,8 @@ const App = (props) => {
           <About2 fableRef={references.scenathon}/>
         </div>
 
-        <div id="Jumbotron_fin" data-rh="Copyright" data-rh-at="top" id="final">
-          <Jumbotron_fin/>
+        <div id="JumbotronFin" data-rh="Copyright" data-rh-at="top" id="final">
+          <JumbotronFin/>
         </div>
 
 

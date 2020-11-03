@@ -76,12 +76,12 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar, onChange }
           </SubMenu>
             <SubMenu title="Trade Report">
               <SubMenu title="Sustainable - net">
-                <MenuItem onClick={()=>handleChange("Importers")}>Importers</MenuItem>
-                <MenuItem>Exporters</MenuItem>
+                <MenuItem onClick={()=>handleChange("Sustainable_next_importers")}>Importers</MenuItem>
+                <MenuItem onClick={()=>handleChange("Sustainable_next_exporters")}>Exporters</MenuItem>
               </SubMenu>
               <SubMenu title="Current Trend">
-                <MenuItem >Importers</MenuItem>
-                <MenuItem >Exporters</MenuItem>
+                <MenuItem onClick={()=>handleChange("Current_trend_next_importers")}>Importers</MenuItem>
+                <MenuItem onClick={()=>handleChange("Current_trend_next_exporters")}>Exporters</MenuItem>
               </SubMenu>
 
             </SubMenu>

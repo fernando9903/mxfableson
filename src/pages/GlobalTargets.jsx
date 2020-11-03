@@ -1,33 +1,58 @@
-import React from "react";
+import React, { useState} from "react";
 import "../css/graphCharacteristics.css";
 import "../css/Box.css";
 import "../../node_modules/react-grid-layout/css/styles.css";
 import "../../node_modules/react-resizable/css/styles.css";
-import {Container,Row,Col,Jumbotron} from "react-bootstrap";
-import GridLayout from 'react-grid-layout';
-import { Responsive as ResponsiveGridLayout } from 'react-grid-layout';
 import { WidthProvider, Responsive } from "react-grid-layout";
 
 import MixedChart from "../components/MixedChart";
 import data from '../data/GlobalTargets.json';
 import BarChart from '../components/BarChart'
+import ComboBox from '../components/ComboBox';
+
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
-const drawGlobalTargets = (props) => {
-  
+const DrawGlobalTargets = (props) => {
+
+  const [state, setState] = useState({
+    select: {
+      GraficaType:'group',
+      scenathon_id:'6',
+      Iteration:'after',
+    }
+   
+  });
+
+ const handleChange = e => {
+  setState({
+      select: {
+          //el next code evitara que se sobrescriba cuando reciba un valor new
+          ...state.select,
+          [e.target.name]: e.target.value
+      },
+  })
+  }
 const crearDataTargetUno=(props)=> {
  
   var dataUno=[]
   var dataDos=[]
   var labels=[]
-    
+  props.forEach(item => {
+
+    dataUno.push(item.Net_forest_change);
+    dataDos.push(item.Forest_change_target);
+   labels.push(item.Year);
+  });
+  /**
+   
    props.map((item) => {
     dataUno.push(item.Net_forest_change);
     dataDos.push(item.Forest_change_target);
    labels.push(item.Year);
     
   });
- 
+ * 
+   */
   const data={
     labels:labels,
      datasets:[
@@ -47,9 +72,9 @@ const crearDataTargetUno=(props)=> {
         data:dataUno,
         fill:false,
         type:"bar",
-        backgroundColor:"#81c784",
+        backgroundColor:"#388e3c",
         borderColor:"#81c784",
-        hoverBackgroundColor:"darkgreen",
+        hoverBackgroundColor:"#388e3c",
         hoverBorderColor:"#81c784",
         yAxisID:"y-axis-1"
        }
@@ -65,11 +90,17 @@ var dataUno=[]
 var dataDos=[]
 var labels=[]
   
-   props.map((item) => {
+ //  props.map((item) => {
+  //  dataUno.push(item.Protected_land);
+//dataDos.push(item.target_Protected_land);
+  //  labels.push(item.Year);
+    
+ // });
+
+  props.forEach(item => {
     dataUno.push(item.Protected_land);
     dataDos.push(item.target_Protected_land);
     labels.push(item.Year);
-    
   });
  
   const data={
@@ -91,9 +122,9 @@ var labels=[]
         data:dataUno,
         fill:false,
         type:"bar",
-        backgroundColor:"#81c784",
+        backgroundColor:"#7cb342",
         borderColor:"#81c784",
-        hoverBackgroundColor:"darkgreen",
+        hoverBackgroundColor:"#7cb342",
         hoverBorderColor:"#81c784",
         yAxisID:"y-axis-1"
        }
@@ -112,7 +143,16 @@ const crearDataTargetTres=(props)=> {
   var dataTres=[]
   var dataCuatro=[]
   var labels=[]
+  props.forEach(item => {
+    dataUno.push(item.Biodiversity_land);
+    dataDos.push(item.biod_by_year);
+    dataTres.push(item.biod_target1);
+    dataCuatro.push(item.biod_target3);
+    labels.push(item.Year);
 
+  });
+/**
+ * 
 
     props.map((item) => {
       dataUno.push(item.Biodiversity_land);
@@ -122,6 +162,7 @@ const crearDataTargetTres=(props)=> {
      labels.push(item.Year);
      
    });
+    */
    const data={
     labels:labels,
      datasets:[
@@ -130,9 +171,10 @@ const crearDataTargetTres=(props)=> {
         data:dataDos,
         fill:false,
         type:"scatter",
-        backgroundColor:"Yellow",
+        backgroundColor:"Orange",
         borderColor:"Yellow",
-        hoverBackgroundColor:"Yellow",
+        hoverBackgroundColor:"Orange",
+        radius:5,
         hoverBorderColor:"Yellow",
         yAxisID:"y-axis-1"
        },
@@ -141,9 +183,9 @@ const crearDataTargetTres=(props)=> {
         data:dataUno,
         fill:false,
         type:"bar",
-        backgroundColor:"#81c784",
+        backgroundColor:"#cddc39",
         borderColor:"#81c784",
-        hoverBackgroundColor:"darkgreen",
+        hoverBackgroundColor:"#cddc39",
         hoverBorderColor:"#81c784",
         yAxisID:"y-axis-1"
        },  {
@@ -177,13 +219,21 @@ const crearDataTargetTres=(props)=> {
   var dataUno=[]
   var dataDos=[]
   var labels=[]
-    
-   props.map((item) => {
+
+  props.forEach(item => {
     dataUno.push(item.Kcal_feasible);
     dataDos.push(item.Target_MDER);
    labels.push(item.c_country_t);
-    
+
   });
+
+
+ //  props.map((item) => {
+   // dataUno.push(item.Kcal_feasible);
+    //dataDos.push(item.Target_MDER);
+   //labels.push(item.c_country_t);
+    
+ // });
  
   const data={
     labels:labels,
@@ -193,10 +243,11 @@ const crearDataTargetTres=(props)=> {
         data:dataDos,
         fill:false,
         type:"scatter",
-        backgroundColor:"Red",
-        borderColor:"Red",
-        hoverBackgroundColor:"Red",
-        hoverBorderColor:"Red",
+        backgroundColor:"#e64a19",
+        borderColor:"#e64a19",
+        radius:4,
+        hoverBackgroundColor:"#e64a19",
+        hoverBorderColor:"#e64a19",
         yAxisID:"y-axis-1"
        },
        {
@@ -204,9 +255,9 @@ const crearDataTargetTres=(props)=> {
         data:dataUno,
         fill:false,
         type:"bar",
-        backgroundColor:"#81c784",
+        backgroundColor:"#ffc107",
         borderColor:"#81c784",
-        hoverBackgroundColor:"darkgreen",
+        hoverBackgroundColor:"#ffc107",
         hoverBorderColor:"#81c784",
         yAxisID:"y-axis-1"
        }
@@ -221,14 +272,22 @@ const crearDataTargetSeis=(props)=> {
   var dataUno=[]
   var dataDos=[]
   var labels=[]
-    
+     props.forEach(item => {
+      dataUno.push(item.Blue_water_in_million_cubic_meters);
+      dataDos.push(item.Water_target);
+     labels.push(item.Year);
+
+     });
+     /**
+     
    props.map((item) => {
     dataUno.push(item.Blue_water_in_million_cubic_meters);
     dataDos.push(item.Water_target);
    labels.push(item.Year);
     
   });
- 
+  * 
+      */
   const data={
     labels:labels,
      datasets:[
@@ -248,9 +307,9 @@ const crearDataTargetSeis=(props)=> {
         data:dataUno,
         fill:false,
         type:"bar",
-        backgroundColor:"#81c784",
+        backgroundColor:"#0072f0",
         borderColor:"#81c784",
-        hoverBackgroundColor:"darkgreen",
+        hoverBackgroundColor:"#0072f0",
         hoverBorderColor:"#81c784",
         yAxisID:"y-axis-1"
        }
@@ -269,7 +328,17 @@ const crearDataTargetCuatro=(props)=> {
   var dataCinco=[]
   var dataSeis=[]
   var labels=[];
-    
+  props.forEach(item => {
+
+    dataUno.push(item.Crop_CH4);
+    dataDos.push(item.Crop_CO2);
+    dataTres.push(item.Crop_N2O);
+    dataCuatro.push(item.Livestock_CH4);
+    dataCinco.push(item.Livestock_N2O);
+    dataSeis.push(item.Target);
+
+  });
+  /* 
    props.map((item) => {
     dataUno.push(item.Crop_CH4);
     dataDos.push(item.Crop_CO2);
@@ -280,6 +349,7 @@ const crearDataTargetCuatro=(props)=> {
    
     
   });
+  */
   labels.push(2050);
  
   const data={
@@ -290,10 +360,10 @@ const crearDataTargetCuatro=(props)=> {
         data:dataSeis,
         fill:false,
         type:"scatter",
-        backgroundColor:"Red",
-        borderColor:"Red",
-        hoverBackgroundColor:"Red",
-        hoverBorderColor:"Red",
+        backgroundColor:"#c3502b",
+        borderColor:"#c3502b",
+        hoverBackgroundColor:"#c3502b",
+        hoverBorderColor:"#c3502b",
         yAxisID:"y-axis-1"
        },
        {
@@ -301,9 +371,9 @@ const crearDataTargetCuatro=(props)=> {
         data:dataUno,
         fill:false,
         type:"bar",
-        backgroundColor:"#81c784",
+        backgroundColor:"#999999",
         borderColor:"#81c784",
-        hoverBackgroundColor:"darkgreen",
+        hoverBackgroundColor:"#999999",
         hoverBorderColor:"#81c784",
         yAxisID:"y-axis-1"
        },{
@@ -311,9 +381,9 @@ const crearDataTargetCuatro=(props)=> {
         data:dataDos,
         fill:false,
         type:"bar",
-        backgroundColor:"black",
+        backgroundColor:"#d1d1d1",
         borderColor:"black",
-        hoverBackgroundColor:"black",
+        hoverBackgroundColor:"#d1d1d1",
         hoverBorderColor:"black",
         yAxisID:"y-axis-1"
        },{
@@ -321,9 +391,9 @@ const crearDataTargetCuatro=(props)=> {
         data:dataTres,
         fill:false,
         type:"bar",
-        backgroundColor:"green",
+        backgroundColor:"#607d8b",
         borderColor:"green",
-        hoverBackgroundColor:"green",
+        hoverBackgroundColor:"#607d8b",
         hoverBorderColor:"green",
         yAxisID:"y-axis-1"
        },
@@ -332,9 +402,9 @@ const crearDataTargetCuatro=(props)=> {
         data:dataCuatro,
         fill:false,
         type:"bar",
-        backgroundColor:"yellow",
+        backgroundColor:"#9e9e9e",
         borderColor:"yellow",
-        hoverBackgroundColor:"yellow",
+        hoverBackgroundColor:"#9e9e9e",
         hoverBorderColor:"yellow",
         yAxisID:"y-axis-1"
        },{
@@ -342,9 +412,9 @@ const crearDataTargetCuatro=(props)=> {
         data:dataCinco,
         fill:false,
         type:"bar",
-        backgroundColor:"blue",
+        backgroundColor:"#616161",
         borderColor:"blue",
-        hoverBackgroundColor:"blue",
+        hoverBackgroundColor:"#616161",
         hoverBorderColor:"blue",
         yAxisID:"y-axis-1"
        }
@@ -360,14 +430,22 @@ const crearDataTargetSiete=(props)=> {
   var dataDos=[]
   var labels=[]
   labels.push(2050);
-    
+  props.forEach(item => {
+
+    dataUno.push(item.total_GHG_land);
+    dataDos.push(item.GHG_LU_target);
+ 
+
+  });
+  /*
+  
    props.map((item) => {
     dataUno.push(item.total_GHG_land);
     dataDos.push(item.GHG_LU_target);
  
     
   });
- 
+ */
   const data={
     labels:labels,
      datasets:[
@@ -376,10 +454,10 @@ const crearDataTargetSiete=(props)=> {
         data:dataDos,
         fill:false,
         type:"scatter",
-        backgroundColor:"Red",
-        borderColor:"Red",
-        hoverBackgroundColor:"Red",
-        hoverBorderColor:"Red",
+        backgroundColor:"#e64a19",
+        borderColor:"#e64a19",
+        hoverBackgroundColor:"#e64a19",
+        hoverBorderColor:"#e64a19",
         yAxisID:"y-axis-1"
        },
        {
@@ -387,9 +465,9 @@ const crearDataTargetSiete=(props)=> {
         data:dataUno,
         fill:false,
         type:"bar",
-        backgroundColor:"#81c784",
+        backgroundColor:"#607d8b",
         borderColor:"#81c784",
-        hoverBackgroundColor:"darkgreen",
+        hoverBackgroundColor:"#607d8b",
         hoverBorderColor:"#81c784",
         yAxisID:"y-axis-1"
        }
@@ -406,7 +484,7 @@ const crearDataTargetSiete=(props)=> {
    var dataAuxTargetCinco;
   var dataAuxTargetSeis;
   var dataAuxTargetSiete;
-  if (props.combinacion.select.GraficaType === "group" &&  props.combinacion.select.Iteration === "iteration_4" && props.combinacion.select.Scenario === "Sustainaible") {
+  if (state.select.GraficaType === "group" &&  state.select.Iteration === "before" && state.select.scenathon_id === "6") {
    
     dataAuxTargetUno= crearDataTargetUno(data.targetUno_combinacionUno);
     dataAuxTargetDos= crearDataTargetDos(data.targetDos_combinacionUno);
@@ -420,8 +498,8 @@ const crearDataTargetSiete=(props)=> {
     
 
  
-} else if (props.combinacion.select.GraficaType === "group" &&  props.combinacion.select.Iteration  === "iteration_3" && props.combinacion.select.Scenario === "Sustainaible") {
- 
+} else if (state.select.GraficaType === "group" && state.select.Iteration  === "after" && state.select.scenathon_id === "6") {
+ console.log("entre if")
   dataAuxTargetUno= crearDataTargetUno(data.targetUno_combinacionDos);
   dataAuxTargetDos= crearDataTargetDos(data.targetDos_combinacionDos);
   dataAuxTargetTres= crearDataTargetTres(data.targetTres_combinacionDos);
@@ -430,7 +508,7 @@ const crearDataTargetSiete=(props)=> {
   dataAuxTargetSeis= crearDataTargetSeis(data.targetSeis_combinacionDos);
   dataAuxTargetSiete= crearDataTargetSiete(data.targetCuatro_2_combinacionDos);
   
-} else if (props.combinacion.select.GraficaType === "group" && props.combinacion.select.Iteration === "iteration_4" && props.combinacion.select.Scenario === "Current_trend") {
+} else if (state.select.GraficaType === "group" && state.select.Iteration === "after" && state.select.scenathon_id === "5") {
   
   dataAuxTargetUno= crearDataTargetUno(data.targetUno_combinacionTres);
   dataAuxTargetDos= crearDataTargetDos(data.targetDos_combinacionTres);
@@ -440,7 +518,7 @@ const crearDataTargetSiete=(props)=> {
   dataAuxTargetSeis= crearDataTargetSeis(data.targetSeis_combinacionTres);
   dataAuxTargetSiete= crearDataTargetSiete(data.targetCuatro_2_combinacionTres);
 
-} else if (props.combinacion.select.GraficaType === "group" && props.combinacion.select.Iteration === "iteration_3" && props.combinacion.select.Scenario === "Current_trend") {
+} else if (state.select.GraficaType === "group" && state.select.Iteration === "before" && state.select.scenathon_id === "5") {
   
   dataAuxTargetUno= crearDataTargetUno(data.targetUno_combinacionCuatro);
   dataAuxTargetDos= crearDataTargetDos(data.targetDos_combinacionCuatro);
@@ -450,7 +528,7 @@ const crearDataTargetSiete=(props)=> {
   dataAuxTargetSeis= crearDataTargetSeis(data.targetSeis_combinacionCuatro);
   dataAuxTargetSiete= crearDataTargetSiete(data.targetCuatro_2_combinacionCuatro);
 
-} else if (props.combinacion.select.GraficaType === "regions" && props.combinacion.select.Iteration === "iteration_4" && props.combinacion.select.Scenario === "Sustainaible") {
+} else if (state.select.GraficaType === "regions" && state.select.Iteration === "after" && state.select.scenathon_id === "6") {
  
   dataAuxTargetUno= crearDataTargetUno(data.targetUno_combinacionCinco);
   dataAuxTargetDos= crearDataTargetDos(data.targetDos_combinacionCinco);
@@ -460,7 +538,7 @@ const crearDataTargetSiete=(props)=> {
   dataAuxTargetSeis= crearDataTargetSeis(data.targetSeis_combinacionCinco);
   dataAuxTargetSiete= crearDataTargetSiete(data.targetCuatro_2_combinacionCinco);
 
-} else if (props.combinacion.select.GraficaType === "regions" && props.combinacion.select.Iteration === "iteration_3" && props.combinacion.select.Scenario === "Sustainaible") {
+} else if (state.select.GraficaType === "regions" && state.select.Iteration === "before" && state.select.scenathon_id === "6") {
   
   dataAuxTargetUno= crearDataTargetUno(data.targetUno_combinacionSeis);
   dataAuxTargetDos= crearDataTargetDos(data.targetDos_combinacionSeis);
@@ -470,7 +548,7 @@ const crearDataTargetSiete=(props)=> {
   dataAuxTargetSeis= crearDataTargetSeis(data.targetSeis_combinacionSeis);
   dataAuxTargetSiete= crearDataTargetSiete(data.targetCuatro_2_combinacionSeis);
 
-} else if (props.combinacion.select.GraficaType === "regions" && props.combinacion.select.Iteration === "iteration_4" && props.combinacion.select.Scenario === "Current_trend") {
+} else if (state.select.GraficaType === "regions" && state.select.Iteration === "after" && state.select.scenathon_id === "5") {
   
   dataAuxTargetUno= crearDataTargetUno(data.targetUno_combinacionSiete);
   dataAuxTargetDos= crearDataTargetDos(data.targetDos_combinacionSiete);
@@ -480,7 +558,7 @@ const crearDataTargetSiete=(props)=> {
   dataAuxTargetSeis= crearDataTargetSeis(data.targetSeis_combinacionSiete);
   dataAuxTargetSiete= crearDataTargetSiete(data.targetCuatro_2_combinacionSiete);
 
-} else if (props.combinacion.select.GraficaType === "regions" && props.combinacion.select.Iteration === "iteration_3" && props.combinacion.select.Scenario === "Current_trend") {
+} else if (state.select.GraficaType === "regions" && state.select.Iteration === "before" && state.select.scenathon_id === "5") {
   
   dataAuxTargetUno= crearDataTargetUno(data.targetUno_combinacionOcho);
   dataAuxTargetDos= crearDataTargetDos(data.targetDos_combinacionOcho);
@@ -490,7 +568,7 @@ const crearDataTargetSiete=(props)=> {
   dataAuxTargetSeis= crearDataTargetSeis(data.targetSeis_combinacionOcho);
   dataAuxTargetSiete= crearDataTargetSiete(data.targetCuatro_2_combinacionOcho);
 
-} else if (props.combinacion.select.GraficaType === "countries" && props.combinacion.select.Iteration === "iteration_4" && props.combinacion.select.Scenario === "Sustainaible") {
+} else if (state.select.GraficaType === "countries" && state.select.Iteration === "after" && state.select.scenathon_id === "6") {
   
   dataAuxTargetUno= crearDataTargetUno(data.targetUno_combinacionNueve);
   dataAuxTargetDos= crearDataTargetDos(data.targetDos_combinacionNueve);
@@ -500,7 +578,7 @@ const crearDataTargetSiete=(props)=> {
   dataAuxTargetSeis= crearDataTargetSeis(data.targetSeis_combinacionNueve);
   dataAuxTargetSiete= crearDataTargetSiete(data.targetCuatro_2_combinacionNueve);
 
-}else if (props.combinacion.select.GraficaType === "countries" && props.combinacion.select.Iteration === "iteration_3" && props.combinacion.select.Scenario === "Sustainaible") {
+}else if (state.select.GraficaType === "countries" && state.select.Iteration === "before" && state.select.scenathon_id === "6") {
   
   dataAuxTargetUno= crearDataTargetUno(data.targetUno_combinacionDies);
   dataAuxTargetDos= crearDataTargetDos(data.targetDos_combinacionDies);
@@ -510,7 +588,7 @@ const crearDataTargetSiete=(props)=> {
   dataAuxTargetSeis= crearDataTargetSeis(data.targetSeis_combinacionDies);
   dataAuxTargetSiete= crearDataTargetSiete(data.targetCuatro_2_combinacionDies);
 
-} else if (props.combinacion.select.GraficaType === "countries" && props.combinacion.select.Iteration === "iteration_4" && props.combinacion.select.Scenario === "Current_trend") {
+} else if (state.select.GraficaType === "countries" && state.select.Iteration === "after" && state.select.scenathon_id === "5") {
   
   dataAuxTargetUno= crearDataTargetUno(data.targetUno_combinacionOnce);
   dataAuxTargetDos= crearDataTargetDos(data.targetDos_combinacionOnce);
@@ -520,7 +598,7 @@ const crearDataTargetSiete=(props)=> {
   dataAuxTargetSeis= crearDataTargetSeis(data.targetSeis_combinacionOnce);
   dataAuxTargetSiete= crearDataTargetSiete(data.targetCuatro_2_combinacionOnce);
 
-} else if (props.combinacion.select.GraficaType === "countries" && props.combinacion.select.Iteration === "iteration_3" && props.combinacion.select.Scenario === "Current_trend") {
+} else if (state.select.GraficaType === "countries" && state.select.Iteration === "before" && state.select.scenathon_id === "5") {
   dataAuxTargetUno= crearDataTargetUno(data.targetUno_combinacionDoce);
   dataAuxTargetDos= crearDataTargetDos(data.targetDos_combinacionDoce);
   dataAuxTargetTres= crearDataTargetTres(data.targetTres_combinacionDoce);
@@ -531,7 +609,8 @@ const crearDataTargetSiete=(props)=> {
 }
   return (
     
-<div style={{width:"70vw"}}>
+<div style={{width:"100vw"}}>
+<ComboBox onChange={handleChange}/>
 <ResponsiveReactGridLayout
           className="layout"
           cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
@@ -544,6 +623,9 @@ const crearDataTargetSiete=(props)=> {
             data={dataAuxTargetUno}
             title="Target 1.- Zero net deforestation"
             aspectRatio={false}
+            labelString='1000h/year'
+            fontSize='16'
+            fontColor='black'
             labelposition="bottom"/>
         </div>
         <div key="t2" data-grid={{x: 2, y: 0, w: 2, h: 7}} >
@@ -551,6 +633,7 @@ const crearDataTargetSiete=(props)=> {
             data={dataAuxTargetDos}
             aspectRatio={false}
             labelposition="bottom"
+            
             title="Target 2.- Share of total land which is protected"/>
           </div>
         <div key="t3" data-grid={{x: 4, y: 0, w: 2, h: 7}}>
@@ -583,6 +666,9 @@ const crearDataTargetSiete=(props)=> {
             data={dataAuxTargetCinco}
             aspectRatio={false}
             labelposition="top"
+            labelString='Kcal per capita /day'
+            fontSize='15'
+            fontColor='black'
             title="Target 5.-  Food security"/>
             </div>
         <div key="t7" data-grid={{x: 7, y: 1, w: 2.5, h: 8}} style={{borderStyle:'none'}}>
@@ -590,6 +676,10 @@ const crearDataTargetSiete=(props)=> {
             data={dataAuxTargetSeis}
             aspectRatio={false}
             labelposition="bottom"
+            labelString='blue water in million cubic meters'
+            fontSize='14'
+            fontColor='black'
+
             title="Target 6.- Fresh water use"/>
             </div>
         </ResponsiveReactGridLayout>
@@ -597,4 +687,4 @@ const crearDataTargetSiete=(props)=> {
   );
 };
 
-export default drawGlobalTargets;
+export default DrawGlobalTargets;

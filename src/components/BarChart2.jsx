@@ -57,6 +57,13 @@ const  BarChart2=(props)=> {
           id: 'y-axis-1',
           gridLines: {
             display: true,
+          }, scaleLabel: {
+            display: true,
+            labelString:props.labelString===undefined?'':props.labelString,
+            fontColor:props.fontColor===undefined?'#546372':props.fontColor,
+            fontSize:props.fontSize===undefined?18:props.fontSize,
+            fontFamily: "Montserrat",
+
           },
 
           labels: {

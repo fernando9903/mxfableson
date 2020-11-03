@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron as Jumbo, Container } from 'react-bootstrap';
+import { Jumbotron as Jumbo} from 'react-bootstrap';
 import styled from 'styled-components';
 import Banner3 from '../assets/banner_3.png';
 
@@ -28,7 +28,7 @@ const Styles = styled.div`
     }`;
 
 
-export const Jumbotron_3 = () => {
+const Jumbotron_3 = () => {
     return(
 
     <Styles>
@@ -38,3 +38,5 @@ export const Jumbotron_3 = () => {
     </Styles>
     )
 };
+
+export default Jumbotron_3;
