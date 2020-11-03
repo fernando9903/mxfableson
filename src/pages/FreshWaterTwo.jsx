@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import BarChart from "../components/BarChart";
 
-import { Container, Row, Col } from "react-bootstrap";
+import {Container,Row,Col,Jumbotron} from "react-bootstrap";
 import ComboBox from '../components/ComboBox';
 import LeafletMap from './LeafletMap';
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
+import Tour from '../components/Tour';
+
+import TradeReportMap from './TradeReportMap'
 
 const DrawFreshWater2 = () => {
 
@@ -52,11 +55,9 @@ const DrawFreshWater2 = () => {
 
 
   const handleChange = e => {
-
     var group = state.select.GraficaType;
     var scenathon = state.select.scenathon_id;
     var iteration = state.select.Iteration;
-
     if (e.target.name === "scenathon_id") {
       switch (e.target.value) {
         case '6':
@@ -69,8 +70,8 @@ const DrawFreshWater2 = () => {
           break;
         default: iteration = state.select.Iteration === "1" ? "3" : "4";
       }
-    } else {
-
+    } 
+    else {
       group = e.target.name === "GraficaType" ? e.target.value : state.select.GraficaType;
       iteration = e.target.name === "Iteration" ? scenathon === "6" ? e.target.value === "after" ? "4" : "3" : e.target.value === "after" ? "2" : "1" : state.select.Iteration;
     }
@@ -80,19 +81,17 @@ const DrawFreshWater2 = () => {
         GraficaType: group,
         scenathon_id: scenathon,
         Iteration: iteration,
-
       }
-
-
-    });
-
+    });  
   }
 
   const converter = () => {
 
 
+
     var dataBlueWater = [];
     var count = 0;
+
     var freshWater = [];
     var labels = [];
     var nameCounty = ""
@@ -126,29 +125,52 @@ const DrawFreshWater2 = () => {
     data = dataAux;
   }
 
+  const steps = [
+    {
+      target: ".graph",
+      content: "Distribution of freshwater use for crop irrigation and livestock production by country.",
+      title: "Fresh Water Use 2",
+        styles: {
+          //this styles override the styles in the props  
+          options: {
+            textColor: "black"
+          }
+        },
+        locale: { 
+          next: <span>End</span>,
+        },
+        placement: "top"
+    }
+  ]
 
 
 
   return (
     <Container fluid>
+      <Tour stepsP={steps}/>
       <div>
         <ComboBox onChange={handleChange} />
         {converter()}
       </div>
       <Row  >
         <Col >
-          <div style={{ height: "100vh", width: "35vw" }}>
+          <div className="graph"  style={{ textAlign: 'center',height: "100vh", width: "35vw" }}>
 
             <BarChart data={data}
               title="Fresh Water Use 2"
               labelposition="bottom"
               labelSize={15}
+              labelwidth={50}
+              labelSize={16}
+              TitleSize={35}
+          
               aspectRatio={false} />
 
           </div>
         </Col>
         <Col>
-          <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh",width:"35vw"}}>
+          <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh",width:"30vw"}}>
+          <TradeReportMap countriesData = {data}/>
             {/** 
               <LeafletMap
                 

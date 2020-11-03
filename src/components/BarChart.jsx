@@ -2,14 +2,14 @@ import React from 'react';
 import { Bar} from 'react-chartjs-2';
 
 
-function BarChart(props){
+const BarChart = (props) => {
 
   const options = {
     responsive: true,
     maintainAspectRatio: props.aspectRatio===undefined?true:props.aspectRatio,
     title: {
       display: true,
-      TfontSize:props.TitleSize===undefined?12:props.TitleSize,
+      fontSize:props.TitleSize===undefined?12:props.TitleSize,
 
       text: props.title
   },legend:{

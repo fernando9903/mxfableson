@@ -1,7 +1,11 @@
 import React from 'react';
+import { Jumbotron as Jumbo, Container } from 'react-bootstrap';
 import styled from 'styled-components';
+import IIASA_LOGO_WHITE from '../assets/IIASA_LOGO_WHITE.png';
 import IIASA_LOGO_COLOR from '../assets/IIASA_LOGO.png';
+import SDSN_LOGO_WHITE from '../assets/SDSN_LOGO_WHITE.png';
 import SDSN_LOGO_COLOR from '../assets/SDSN_LOGO.png';
+import FoodAndLand_LOGO_WHITE from '../assets/FoodAndLand_LOGO_WHITE.png';
 import FoodAndLand_LOGO_COLOR from '../assets/FoodAndLand_LOGO.png';
 import FB_Logo from '../assets/logofb_green.png';
 import IG_Logo from '../assets/logoinsta_green.png';
@@ -70,26 +74,28 @@ const Styles = styled.div`
 
   
    `;
- const Jumbotron_fin = () => {
+
+
+const  JumbotronFin = () => {
   return (
     <Styles>
       <div class="footer-container">
         <div class="logo-container">
           <div class="logo-container-1">
-            <img class="logo" src={FoodAndLand_LOGO_COLOR} alt="" />
-            <img class="logo" src={SDSN_LOGO_COLOR} alt=""/>
+            <img class="logo" src={FoodAndLand_LOGO_COLOR} />
+            <img class="logo" src={SDSN_LOGO_COLOR} />
           </div>
           <div class="logo-container-2">
-            <img class="logo" src={IIASA_LOGO_COLOR} alt="" />
+            <img class="logo" src={IIASA_LOGO_COLOR} />
           </div>
         </div>
 
         <div class="contact-container">
           <p class="email">info@foodandlandandusecoalition.org</p>
           <div class="socialmedia-container">
-            <a href="https://www.instagram.com/folucoalition/"><img class="socialmedia-logo" src={TW_Logo} alt="" /></a>
-            <a href="https://www.facebook.com/IIASA"><img class="socialmedia-logo" src={FB_Logo} alt=""/></a>
-            <a href="https://www.instagram.com/folucoalition/"><img class="socialmedia-logo" src={IG_Logo} alt=""/></a>
+            <a href="https://www.instagram.com/folucoalition/"><img class="socialmedia-logo" src={TW_Logo} /></a>
+            <a href="https://www.facebook.com/IIASA"><img class="socialmedia-logo" src={FB_Logo} /></a>
+            <a href="https://www.instagram.com/folucoalition/"><img class="socialmedia-logo" src={IG_Logo} /></a>
           </div>
           <p class="copyright">© Copyright 2020 Fable Scenathon. All rights
  reserved. Privacy policy. Web design by Rubisco.</p>
@@ -103,4 +109,4 @@ const Styles = styled.div`
   );
 };
 
-export default Jumbotron_fin;
+export default JumbotronFin;

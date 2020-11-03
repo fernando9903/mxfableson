@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import BarChart from "../components/BarChart";
 import ComboBox from '../components/ComboBox';
+import Tour from "../components/Tour";
 import ChartCharacteristics from '../data/ChartCharacteristics.json';
 
 
@@ -85,7 +86,7 @@ const DrawFreshWaterUse = () => {
     var dataSet = []
 
 
-    if (json.length !==0) {
+    if (json !== null) {
       json.forEach(item => {
         labels.push(item.Year);
         blueWater.push(item.BlueWater);
@@ -108,10 +109,27 @@ const DrawFreshWaterUse = () => {
 
 
 
-
+  const steps = [
+    {
+      target: ".graph",
+      content: "Fresh water use for irrigation and livestock. The high demand of water continues to be expected the following decades, not showing much variation through the years.",
+      title: "Fresh Water Use 1",
+        styles: {
+          //this styles override the styles in the props  
+          options: {
+            textColor: "black"
+          }
+        },
+        locale: { 
+          next: <span>End</span>,
+        },
+        placement: "top"
+    }
+  ]
 
   return (
     <div>
+      <Tour stepsP={steps}/>
       <div>
         <ComboBox onChange={handleChange} />
         {converter()}
@@ -126,7 +144,7 @@ const DrawFreshWaterUse = () => {
           labelSize={24}
           labelString='Blue water cubic metres'
           fontSize='24'
-          TitleSize={55}
+         
           title="Fresh Water use" />
 
       </div>

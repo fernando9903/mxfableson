@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import BarChart from "../components/BarChart";
+
 import ComboBox from '../components/ComboBox';
 import { Container, Row, Col } from "react-bootstrap";
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
 import LeafletMap from './LeafletMap';
+import TradeReportMap from './TradeReportMap'
+import Tour from '../components/Tour'
+
 //nfch=NetForestCoverChange
 const GreenHouse = () => {
   function GreenHouseTwo(ChartCharacteristics,data) {
@@ -39,7 +43,6 @@ const GreenHouse = () => {
    
       try {
             
-      
       const response = await fetch("https://fable2020.herokuapp.com/gas2"+JSON.stringify(state));
        const  jsonAux =  await response.json();
     
@@ -165,44 +168,84 @@ dataAux = {
   
     }
   
-  
+    const steps = [
+      {
+        target: ".graph",
+        content: "Average annual distribution of CO2e emissions in Gt per country globally derived from crops and livestock (left), and from land use change and peat oxidation in Gt CO2e. (right)",
+        title: "Greenhouse Gas Emissions 2",
+          styles: {
+            //this styles override the styles in the props  
+            options: {
+              textColor: "black"
+            }
+          },
+          locale: { 
+            next: <span>End</span>,
+          },
+          placement: "top"
+      }
+    ]
 
-  return (
-    <Container fluid>
-      <Row>
-        <Col><div style={{height: "100vh" ,width:"35vw"} }>
-        <ComboBox onChange={handleChange}/>
+return (
+<Container fluid>
+  <div>
+  <Tour stepsP={steps}/>
+  <ComboBox onChange={handleChange}/>
         {converter()}
-          
+  </div>
+ 
+    <div className="graph">
+      <Row>
+        <Col>
+        <div style={{ textAlign: 'center',height: "120vh" ,width:"35vw"} }>
+       
+    
           <BarChart data={dataChart1}
-            title="Green House 2" aspectRatio={false}
-            labelposition="bottom" />
+            title="Greenhouse Gas 2" 
+            aspectRatio={false}
+            labelposition="bottom"
+            labelwidth={50}
+            labelSize={16}
+            TitleSize={40} />
           
         </div>
         </Col>
-        <Col><div style={{height: "100vh" ,width:"35vw"} }>
-        
-          <BarChart data={dataChart2}
-            title="Green House 2" aspectRatio={false}
-            labelposition="bottom" />
-              
+
+        <Col>
+        <br/><br/><br/>
+        <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "30vw"}}>
+        <TradeReportMap countriesData = {dataChart1}/>
         </div>
+      
         </Col>
       </Row>
- {/* 
-      Graph 1
-      
-      <LeafletMap 
-        countriesData = {dataGraphOneAux}
-      />
-      Graph 2
-      <LeafletMap 
-        countriesData = {dataGraphTwoAux}
-      />
-      */}
-
-    </Container>);
-
+      <Row>
+        <Col>
+        <div style={{ textAlign: 'center',height: "120vh" ,width:"35vw"} }>
+        
+          <BarChart data={dataChart2}
+            title="Greenhouse Gas 2" aspectRatio={false}
+            labelposition="bottom" 
+            labelwidth={50}
+            labelSize={10}
+            TitleSize={45}
+        />
+              
+        </div >
+        </Col>
+        <Col>
+        <br/><br/><br/>
+        <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "30vw"}}>
+        <TradeReportMap countriesData = {dataChart2}/>
+        </div>
+       
+        </Col>
+      </Row>
+     
+   
+    </div>
+</Container>
+  );
 }
 
 

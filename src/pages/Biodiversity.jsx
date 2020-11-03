@@ -4,6 +4,8 @@ import BarChart from "../components/BarChart";
 import { Container, Row, Col } from "react-bootstrap";
 import LeafletMap from './LeafletMap';
 import ComboBox from '../components/ComboBox';
+
+import TradeReportMap from './TradeReportMap'
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
 
 
@@ -100,23 +102,23 @@ const DrawBiodiversity = () =>
     var dataBiodiversity_land = [];
     var biodiversities = [];
     var labels = [];
-    var nameCounty = ""
+    var nameCountry = ""
 
     if (json.length !==0) {
-      nameCounty=json[0].name;
+      nameCountry=json[0].name;
       json.forEach(item => {
         if (!labels.includes(item.Year)) {
           labels.push(item.Year);
         }
         
-        if (nameCounty !== item.Country) {
+        if (nameCountry !== item.Country) {
 
           if(count!==dataBiodiversity_land.length){
-            var biodiversity = new Biodiversity(CountryCharacteristics[nameCounty], dataBiodiversity_land);
+            var biodiversity = new Biodiversity(CountryCharacteristics[nameCountry], dataBiodiversity_land);
             biodiversities.push(biodiversity);
           }
           count = 0;
-          nameCounty = item.Country;
+          nameCountry = item.Country;
           dataBiodiversity_land = [];
        
         }
@@ -134,38 +136,31 @@ const DrawBiodiversity = () =>
   }
 
 
-
   return (
     <Container fluid >
       <div >
         <ComboBox onChange={handleChange} />
         {converter()}
       </div>
-      <Row  >
+      <Row>
         <Col>
 
-          <div style={{ height: "100vh", width: "35vw" }}>
+          <div style={{ textAlign: 'center', height: "120vh", width: "35vw" }}>
             <BarChart data={data} title="Biodiversity"
               aspectRatio={false}
               labelString='ha per year'
               fontSize='25'
-
+              labelwidth={50}
+              labelSize={16}
+              TitleSize={40}
               labelposition="bottom" />
           </div>
 
         </Col>
         <Col>
-
-          <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "35vw" }}>
-
-            {/* 
-              <LeafletMap
-              
-                
-                countriesData = {data}
-              
-              />
-              */}
+<br/><br/><br/>
+          <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "30vw" }}>
+          <TradeReportMap countriesData = {data}/>
           </div>
         </Col>
       </Row>
@@ -175,6 +170,3 @@ const DrawBiodiversity = () =>
   );
 }
 export default DrawBiodiversity;
-
-
-

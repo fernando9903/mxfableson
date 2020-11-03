@@ -3,7 +3,9 @@ import SuperGraph from "../components/SuperGraph";
 import data from '../data/Greenhouse1.json';
 import ComboBox from '../components/ComboBox';
 import { Container, Row, Col } from "react-bootstrap";
-const DrawGreenhouse1 = () => {
+import Tour from '../components/Tour'
+
+const DrawGreenhouse1 = (props) => {
 
   var dataGraphOne=null;
   var dataGraphTwo=null;
@@ -127,22 +129,55 @@ const DrawGreenhouse1 = () => {
       dataGraphTwo = data.graphTwo_combinationTwo;
   }
 
+  const steps = [
+    {
+      target: ".graph",
+      content: "Computed annual global greenhouse gas emissions from crops and livestock (left), and from land use and peat oxidation (right) in Gt.",
+      title: "Greenhouse Gas Emissions 1",
+        styles: {
+          //this styles override the styles in the props  
+          options: {
+            textColor: "black"
+          }
+        },
+        locale: { 
+          next: <span>End</span>,
+        },
+        placement: "top"
+    }
+  ]
+
   return (
     <Container fluid>
+      <Tour stepsP={steps}/>
+      <ComboBox onChange={handleChange}/>
+      <div className="graph">
       <Row>
         <Col >
-          <div style={{height: "100vh" ,width:"35vw"} }>
-          <ComboBox onChange={handleChange}/>
+          <div style={{ textAlign: 'center', height: "120vh", width: "30vw" }}>
+          
             <SuperGraph data={dataGraphOneAux}
             title="Green House 1"
             aspectRatio={false} 
-            labelposition="top"/> 
-            </div></Col>
-        <Col > <div style={{height: "100vh" ,width:"35vw"} }><SuperGraph data={dataGraphTwoAux}
+            labelposition="bottom"
+            labelwidth={50}
+            labelSize={24}
+            TitleSize={35}/> 
+            </div>
+            </Col>
+        <Col > 
+        <div style={{ textAlign: 'center', height: "120vh", width: "30vw" }}>
+          <SuperGraph data={dataGraphTwoAux}
           title="Green House 2"
           aspectRatio={false} 
-            labelposition="top" /> </div></Col>
+            labelposition="bottom" 
+            labelwidth={50}
+            labelSize={24}
+            TitleSize={35}/> 
+            </div>
+            </Col>
       </Row>
+      </div>
     </Container>
  ); 
 }

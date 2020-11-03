@@ -1,7 +1,8 @@
 import React, { useState} from "react";
 import MixedChart from "../components/MixedChart.jsx";
 import data from '../data/NetForestCoverChange1.json';
-import ComboBox from '../components/ComboBox';
+import {Container,Row,Col} from "react-bootstrap";
+import Tour from '../components/Tour';
 
 //filter map
 //nfch=NetForestCoverChange
@@ -72,18 +73,37 @@ const DrawNfch = () => {
     break;
     default:dataAux= convertir(data.combination_1);
   }
-  return(
-     <div style={{height: "100vh",width:"70vw"}}>
-       <ComboBox onChange={handleChange}/>
-<MixedChart data={dataAux}
+
+  const steps = [
+    {
+      target: ".graph",
+      content: "Net Forest Change (loss and gain) describes the sum of all changes in forest area over a specific period of time.",
+      title: "Net Forest Change 1",
+        styles: {
+          //this styles override the styles in the props  
+          options: {
+            textColor: "black"
+          }
+        },
+        locale: { 
+          next: <span>End</span>,
+        },
+        placement: "top"
+    }
+  ]
+
+
+  return <div style={{height: "100vh",width:"70vw"}}>
+
+<Tour stepsP={steps}/>
+
+<div style={{height: "100vh",width:"70vw"}} className="graph">
+<MixedChart style={{height: "100vh",width:"70vw"}} data={dataAux}
   title="Net Forest Cover Change"
   aspectRatio={false}
-  labelString='ha per year'
-  fontSize='25'
-  
-  labelposition="bottom"  />
+  labelposition="bottom"/>
   </div>
-  )
+  </div>;
 }
 
 
@@ -160,11 +180,10 @@ const convertir=(props)=> {
             label: 'Aforestation',
             data: aforestation,
             fill: false,
-            backgroundColor: 'rgba(129,199,132, 0.8)',
+            backgroundColor: 'rgba(129,199,132, 1)',
             borderColor: 'Green',
-            borderWidth: 2,
            
-            hoverBackgroundColor: 'rgba(129,199,135,0.7)',
+            hoverBackgroundColor: 'rgba(129,199,135,1)',
             hoverBorderColor: 'Green',
             yAxisID: 'y-axis-1'
           },{
@@ -173,8 +192,8 @@ const convertir=(props)=> {
             data: forest_loss,
             fill: false,
             borderColor: '#a98600',
-            borderWidth: 2,
-            backgroundColor: 'rgba(255,213,79, 0.8)',
+            
+            backgroundColor: 'rgba(255,213,79, 1)',
             hoverBackgroundColor: 'rgba(255,213,79,0.7)',
 
             pointBorderColor: '#ffd54f',

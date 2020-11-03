@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import BarChart from "../components/BarChart";
+
 import "../../node_modules/react-grid-layout/css/styles.css";
 import "../../node_modules/react-resizable/css/styles.css";
 import { Container, Row, Col } from "react-bootstrap";
 import ComboBox3 from '../components/ComboBox3';
-import LeafletMap from './LeafletMap';
+
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
 import { css } from "styled-components";
+
+import TradeReportMap from './TradeReportMap'
 
 //nfch=NetForestCoverChange
 const DrawNfch2 = () => {
@@ -36,6 +39,7 @@ const DrawNfch2 = () => {
 
 
   useEffect(() => {
+
     const getNetForest = async () => {
 
       try {
@@ -44,6 +48,7 @@ const DrawNfch2 = () => {
         const response = await fetch("https://fable2020.herokuapp.com/forestTwo" + JSON.stringify(state));
         const jsonAux = await response.json();
         setJson(jsonAux);
+
       } catch (error) {
         console.error(error)
       }
@@ -140,15 +145,17 @@ const DrawNfch2 = () => {
 
 
     <Container fluid >
-      <Row>
-        <Col >
-          <div style={{ height: "100vh", width: "35vw" }}>
+        <div >
             <ComboBox3 onChange={handleChange} />
             {converter()}
+            </div>
+      <Row>
+    
+        <Col >
+          
 
-
-
-            <BarChart data={data}
+<div style={{ textAlign: 'center', height: "100vh", width: "35vw" }}>
+<BarChart data={data}
               title="Net Forest Cover Change 2"
               labelposition="bottom"
               display={true}
@@ -156,25 +163,19 @@ const DrawNfch2 = () => {
               fontSize='25'
               aspectRatio={false} />
 
-          </div>
+</div>
+           
+         
         </Col>
         <Col>
 
-          <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "35vw" }}>
-            {/* 
-                <LeafletMap
-                  countriesData = {dataAux}
-                />
-  */}
+          <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "30vw" }}>
+          <TradeReportMap countriesData = {data}/>
+      
           </div>
         </Col>
       </Row>
     </Container>
   );
 }
-
-
-
-
-
 export default DrawNfch2;
