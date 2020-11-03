@@ -1,3 +1,16 @@
+/*
+ .menuoptioncontainer{
+  background-color: transparent;
+   
+  }
+
+  .menuoptioncontainer:hover{
+    background-color: #306973;
+    box-shadow: .5px .5px 5px #000000; 
+     
+    }
+
+    */
 @keyframes swing {
   0%,
   30%,
@@ -22,7 +35,10 @@
   text-align: left;
   transition: width, left, right, 0.3s;
   position: relative;
-  z-index: 1009; }
+  z-index: 1009;
+  margin-left:55px;
+ }
+
   .pro-sidebar > .pro-sidebar-inner {
     background: #FFFFFF;
     height: 100%;
@@ -226,8 +242,11 @@
       padding: 8px 35px 8px 20px;
       cursor: pointer; }
       .pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item:focus {
+   background: #306973;
         outline: none;
-        color: #306973; }
+        color: white ;
+       
+         }
       .pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item > .pro-icon-wrapper {
         margin-right: 10px;
         font-size: 14px;
@@ -246,7 +265,10 @@
         flex-grow: 1;
         flex-shrink: 1; }
       .pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item:hover {
-        color: #306973 }
+        box-shadow: .5px .5px 5px #000000 ;
+        color: white ;
+        background: #306973
+        }
         .pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item:hover .pro-icon-wrapper .pro-icon {
           animation: swing ease-in-out 0.5s 1 alternate; }
     .pro-sidebar .pro-menu .pro-menu-item.pro-sub-menu > .pro-inner-item:before {
