@@ -52,6 +52,11 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: 'nowrap',
     
   },
+  drawerGeneralStyles: {
+    position: 'relative',
+    display: 'block',
+    height: '100vh'
+  },
   drawerOpen: {
     width:330,
     transition: theme.transitions.create('width', {
@@ -110,6 +115,7 @@ export default function MiniDrawer() {
           paper: clsx({
             [classes.drawerOpen]: open,
             [classes.drawerClose]: !open,
+            [classes.drawerGeneralStyles]: true
           }),
         }}
       >
