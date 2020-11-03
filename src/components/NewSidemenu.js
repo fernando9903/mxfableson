@@ -89,10 +89,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MiniDrawer() {
+export default function MiniDrawer(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const onChangeF = props.onChange;
+
+  const handleChange = e =>{
+    onChangeF(e);
+  }
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -146,7 +151,7 @@ export default function MiniDrawer() {
 
       </div>
       
-       <Aside />
+       <Aside onChange={onChangeF} />
       </Drawer>
     </div>
   );
