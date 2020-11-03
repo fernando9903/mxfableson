@@ -236,6 +236,7 @@ if(state.select.column=="Export_quantity")
                   </div>
                   </Col>
                 </Row>
+                <TradeReportMap countriesData={dataAux}/>
               </Container>
               </div>
       </div>

@@ -7,7 +7,6 @@ import '../css/LeafletMap.css';
 import * as L from 'leaflet';
 import { ThemeProvider } from 'styled-components';
 
-import hash from 'object-hash';
 
 
 class TradeReportMap extends Component {
@@ -176,50 +175,23 @@ class TradeReportMap extends Component {
     paisesTest = []
     //
 
-    constructor(props) {
+     constructor(props) {
 
         super(props);
-        console.log('Se llamo el constructor')
         
         this.propsAux = props;
 
-        console.log('Este es el trade report info props')
-        //console.log(this.propsAux.countriesData)
+        this.years = props.countriesData.labels;
 
-        this.paisesTest = this.propsAux.countriesData.datasets
+        this.paisesTest = props.countriesData.datasets;
 //
+
         for (const country in this.paisesTest) {
             console.log(this.paisesTest[country].label)
             this.color.push(this.paisesTest[country].backgroundColor);
             this.countriesName.push(this.paisesTest[country].label);
             this.data.push(this.paisesTest[country].data);
-        }
-
-        this.years = this.propsAux.countriesData.labels
-
-        console.log('Estos son los años');
-        console.log(this.years)
-
-        console.log(this.color)
-        console.log(this.countriesName)
-        console.log(this.data)
-
-        //console.log(this.paisesTest[1].label);
-
-        /*try {
-            
-            this.propsAux.countriesData.datasets.map((item) => {
-                this.color.push(item.backgroundColor);
-                this.countriesName.push(item.label);
-                this.data.push(item.data);
-            });
-
-            this.years = this.propsAux.countriesData.labels
-
-
-        } catch ( e ) {
-            console.error ( e );
-        }*/
+        } 
         
     }
     
@@ -239,13 +211,7 @@ class TradeReportMap extends Component {
     }
 
     changeTheCountryColor = ( event ) => {
-        //console.log('The mouse is over the country')
-        //console.log( event )
-
-        //console.log(this.props);
-
-        //console.log('Over the country')
-        //console.log(event.target);
+        
         event.target.setStyle({
             color: 'grey',
             //fillColor: '#b4b42d' this is the fable color
@@ -265,22 +231,11 @@ class TradeReportMap extends Component {
 
         var i = 0
         for (const currentValue in this.years) {
-            //try { 
+
                 this.htmlCode = this.htmlCode + '<li>' +'<strong>' + this.years[i] + '</strong>' +': '+ this.data[index][i] + '</li>'
-                //this.htmlCode = '<li>ola</li>'
-                /*} catch ( e ) {
-                console.log('Con este pais murio: ', countryName)
-                console.log('Este es el indece: ', index)
-                console.log(this.countriesName)
-            }*/
-            
             
             i ++ ;
         }
-
-        //this.years.forEach(function (currentValue, index, array){
-        //    this.htmlCode = '<li>' + this.years[index] +': '+ this.data[index] + '</li>'
-        //});
 
         this.htmlCode = this.htmlCode + '</ul>'
 
@@ -290,8 +245,6 @@ class TradeReportMap extends Component {
 
     onEachCountry = (country, layer) => {
 
-        
-//
        const countryName = country.id; //The name of the countries
        
        var indexAux = -1;
@@ -327,21 +280,6 @@ class TradeReportMap extends Component {
        }
 
        indexAux = this.countriesName.indexOf(countryName);
-       
-       /*this.countriesName.forEach(function(country, index, array) {
-            if (country == countryName) {
-                indexAux = index;
-                //break;
-                return
-            }
-
-            if(this.name_countries_Rest_of_Sub_Saharan_Africa.includes(country)) {
-                indexAux = index;
-                //break;
-                return
-            } 
-            
-       });*/
 
        /**
         * If the value of indexAux is less than 1 
@@ -356,32 +294,6 @@ class TradeReportMap extends Component {
             layer.bindPopup(popup)
             this.isColored = true;
        }
-       /*if (!this.isColored) {
-        indexAux = this.countriesName.indexOf('Otros');
-        layer.options.fillColor = this.color[indexAux];
-            
-            var popup = L.popup().setContent(this.createListInfoCountry (indexAux, countryName));
-            layer.bindPopup(popup)
-       }*/
-
-       
-
-        //layer.options.fillOpacity = Math.random () ; //This line is for draw diferent opacities with the countries
-        //const colorIndex = Math.floor(Math.random() * this.colors.length); //The random color index in the array of the colors
-        //layer.options.fillColor = this.colors[colorIndex]; //Change the color with anything color in the array od colors
-
-        //console.log('This is the layer country')
-        //console.log(countryName)
-
-        //layer.bindPopup( countryName ) ; //When i click above the countri display the name of the country. If i need to add more
-        //information about the country like for example i only need to concat the string. example countryName + 'other information'
-        //this parameter could be a componenet or HTML code
-
-        //admin the event on the layer with the countries
-        /*layer.on({
-            click: this.printMessageToConsole,
-            //mouseover: this.changeTheCountryColor //This line change the country color when the mause is over the country 
-        });*/
 
     }
 
@@ -392,22 +304,23 @@ class TradeReportMap extends Component {
     }
 
     corner1 = L.latLng(-90, -200)
-    corner2 = L.latLng(90, 200)//
+    corner2 = L.latLng(90, 200)
     bounds = L.latLngBounds(this.corner1, this.corner2)
 
     render () {
         return (
             <div>
-                {console.log('Se renderio el mapa Trade Repor')}
                 
                 <Map  style={{height: '80vh'}} zoom={2} center={[20, 100]} maxBoundsViscosity = {1.0} maxBounds = {this.bounds}>
+                    
                     <GeoJSON style={this.countryStyle} 
                         
                         data={mapDataTest.features}
                         onEachFeature={this.onEachCountry}
-        >{console.log('Entro al GeoJson')}
-        {console.log(this.propsAux)}
-        </GeoJSON>
+                    >
+                        {console.log('Esta dentro de la etiqueta Geo')}
+                        {console.log(this.props)}
+                    </GeoJSON>
                         {//<TileLayer
                         /*url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"
                         attribution='<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>'

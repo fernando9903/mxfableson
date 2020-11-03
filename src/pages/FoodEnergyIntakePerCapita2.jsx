@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import BarChart2 from "../componentes/BarChart2.jsx";
 import ChartCharacteristics from '../data/ChartCharacteristics.json';
 import ComboBoxFoodEnergy2 from "../componentes/ComboBoxFoodEnergy2.jsx";
+import Tour from '../componentes/Tour'
 const FoodEnergyIntakePerCapita = (props) => {
 
   function Food(ChartCharacteristics,data) {
@@ -153,9 +154,8 @@ setState({
       var dataAux = {
         labels:labels,
         datasets:dataSet
-    };
-    data=dataAux;
-
+      };
+      data=dataAux;
 
     }
   
@@ -201,6 +201,25 @@ setState({
       break;
     }
     */}
+
+    const steps = [
+      {
+        target: ".graph",
+        content: "Average grams per day of feasible fats and proteins by country and selected year per capita.",
+        title: "Food energy intake per capita 2",
+          styles: {
+            //this styles override the styles in the props  
+            options: {
+              textColor: "black"
+            }
+          },
+          locale: { 
+            next: <span>End</span>,
+          },
+          placement: "top"
+      }
+    ]
+
   return (
 
     <div>
@@ -210,8 +229,8 @@ setState({
         {converter()}
       </div>
 
-      
-    <div  style={{height: "100vh" ,width:"70vw"} }>
+      <Tour stepsP={steps}/>
+    <div className="graph" style={{height: "100vh" ,width:"70vw"} }>
       <BarChart2 data={data}
     aspectRatio={false}
     labelposition="top"
