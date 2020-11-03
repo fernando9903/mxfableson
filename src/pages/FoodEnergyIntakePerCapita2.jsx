@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import BarChart2 from "../componentes/BarChart2.jsx";
+import BarChart2 from "../components/BarChart2.jsx";
 import ChartCharacteristics from '../data/ChartCharacteristics.json';
-import ComboBoxFoodEnergy2 from "../componentes/ComboBoxFoodEnergy2.jsx";
-import Tour from '../componentes/Tour'
+import ComboBoxFoodEnergy2 from "../components/ComboBoxFoodEnergy2.jsx";
+import Tour from '../components/Tour'
 const FoodEnergyIntakePerCapita = (props) => {
 
   function Food(ChartCharacteristics,data) {
@@ -24,62 +24,34 @@ const FoodEnergyIntakePerCapita = (props) => {
 
   const [json, setJson] = useState([]);
 
-  {/*
-    const convertir=(props)=> {
- 
- 
-
-
-
-
-        var dataUno=[]
-        var dataDos=[]
-        var labels=[]
-          
-         props.map((item) => {
-          dataUno.push(item.Kcal_feasible);
-          dataDos.push(item.Target_MDER);
-         labels.push(item.c_country_t);
-          
-        });
-       
-        const data={
-          labels:labels,
-           datasets:[
-             {
-              label:"Target (MDER)",
-              data:dataDos,
-              fill:false,
-              type:"scatter",
-              backgroundColor:"Red",
-              borderColor:"Red",
-              hoverBackgroundColor:"Red",
-              hoverBorderColor:"Red",
-              yAxisID:"y-axis-1"
-             },
-             {
-              label:"Kcal feasible",
-              data:dataUno,
-              fill:false,
-              type:"bar",
-              backgroundColor:"#81c784",
-              borderColor:"#81c784",
-              hoverBackgroundColor:"darkgreen",
-              hoverBorderColor:"#81c784",
-              yAxisID:"y-axis-1"
-             }
-           ]
-        }
-      
-       return data
-      } 
-*/}
   var data = null;
 
 
 
 
   useEffect(() => {
+    const getFoodEnergyIntakePerCapita = async () => {
+   
+
+   
+      try {
+            
+       
+        
+       const response = await fetch("https://fable2020.herokuapp.com/foodenergy2"+JSON.stringify(state));
+    
+       const  jsonAux =  await response.json();
+    
+      setJson(jsonAux);
+     
+  
+      } catch (error) {
+        console.error(error)
+      }
+  
+  
+  
+    }
   
     getFoodEnergyIntakePerCapita();
     
@@ -90,28 +62,6 @@ const FoodEnergyIntakePerCapita = (props) => {
 
 
 
-  const getFoodEnergyIntakePerCapita = async () => {
-   
-
-   
-    try {
-          
-      const body =state;
-    
-      
-     const response = await fetch("http://localhost:5000/foodenergy2"+JSON.stringify(body));
-     const  jsonAux =  await response.json();
-  
-    setJson(jsonAux);
-   
-
-    } catch (error) {
-      console.error(error)
-    }
-
-
-
-  }
 
 
   const handleChange = e => {
@@ -139,7 +89,7 @@ setState({
 
     if (json != null ) {
    
-      json.map((item) => {
+      json.forEach(item => {
           labels.push(item.Country);
           Protein_feasible.push(item.Protein_feasible);
           Fat_feasible.push(item.Fat_feasible);
@@ -237,6 +187,7 @@ setState({
     labelwidth={50}
     labelSize={24}
     TitleSize={45}
+    labelString='Energy intake per capita'
     title="Food energy intake per capita"/>
     </div>
   

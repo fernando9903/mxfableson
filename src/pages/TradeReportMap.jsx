@@ -328,6 +328,7 @@ class TradeReportMap extends Component {
                         noWrap='true'
                         */
                         /*/>*/}
+                        
                 </Map>
                 
             </div>
