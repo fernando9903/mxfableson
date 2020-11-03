@@ -32,7 +32,7 @@ const App = (props) => {
   }
     console.groupEnd();
   
-    const references = {
+    let references = {
     fable: React.createRef(),
     scenathon2020: React.createRef(),
     scenathon: React.createRef(),
