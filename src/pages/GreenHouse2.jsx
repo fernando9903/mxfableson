@@ -4,6 +4,7 @@ import ComboBox from '../components/ComboBox';
 import { Container, Row, Col } from "react-bootstrap";
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
 import LeafletMap from './LeafletMap';
+import TradeReportMap from './TradeReportMap'
 import Tour from '../components/Tour'
 
 //nfch=NetForestCoverChange
@@ -214,10 +215,11 @@ return (
         </div>
         </Col>
       </Row>
+      <TradeReportMap countriesData = {dataChart1}/>
+      <TradeReportMap countriesData = {dataChart2}/>
     </div>
 </Container>
   );
-
 }
 
 

@@ -8,6 +8,8 @@ import LeafletMap from './LeafletMap';
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
 import { css } from "styled-components";
 
+import TradeReportMap from './TradeReportMap'
+
 //nfch=NetForestCoverChange
 const DrawNfch2 = () => {
 
@@ -163,6 +165,7 @@ const DrawNfch2 = () => {
         <Col>
 
           <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "35vw" }}>
+          <TradeReportMap countriesData = {data}/>
             {/* 
                 <LeafletMap
                   countriesData = {data}
