@@ -199,7 +199,10 @@ return (
           
           <BarChart data={dataChart1}
             title="Greenhouse Gas 2" aspectRatio={false}
-            labelposition="bottom" />
+            labelposition="bottom"
+            labelwidth={50}
+            labelSize={24}
+            TitleSize={45} />
           
         </div>
         </Col>
@@ -210,7 +213,11 @@ return (
         
           <BarChart data={dataChart2}
             title="Greenhouse Gas 2" aspectRatio={false}
-            labelposition="bottom" />
+            labelposition="bottom" 
+            labelwidth={50}
+            labelSize={24}
+            TitleSize={45}
+        />
               
         </div>
         </Col>
