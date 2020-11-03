@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+
+
+import ComboBox from '../components/ComboBox'
+
+import ComboBox3 from '../components/ComboBox3'
 import Aside from '../components/Aside';
 //dashboards
 import NetForestCoverChange from '../pages/NetForestCoverChange'
@@ -13,6 +18,7 @@ import NetForestCoverChange2 from '../pages/NetForestCoverChange2'
 import GreenHouse2 from '../pages/GreenHouse2'
 import GreenHouseOne from '../pages/GreenHouseOne'
 import FreshWaterTwo from '../pages/FreshWaterTwo'
+
 import styled from 'styled-components';
 import BannerLifeOnLand from '../assets/banners/Mesa de trabajo 19.png';
 import BannerCleanWater from '../assets/banners/Mesa de trabajo 8.png';
@@ -38,6 +44,8 @@ overflow:hidden;
   margin: 0;
   height: 100px;
   margin-top:20px;
+  width: 100%;
+  
   transition: all 0.5s ease;
 
 
@@ -124,9 +132,9 @@ class Scenathon extends Component {
             this.combobox=null;  
                this.dash=<GlobalTargets combinacion={this.state}/>;
               break;
-            case 'Net Forest Cover Change 1':
-            this.combobox=null;  
-              this.dash=<NetForestCoverChange/>;
+            case 'Net Forest Cover Change 1': 
+            this.combobox=<ComboBox onChange={this.handleChange}/>
+              this.dash=<NetForestCoverChange combinacion={this.state}/>;
               break;
             case 'Net Forest Cover Change 2':
                // this.combobox=<ComboBox3 onChange={this.handleChange}/>
@@ -231,6 +239,7 @@ class Scenathon extends Component {
              
             </div>
             </Styles>
+           
         )
     }
 }

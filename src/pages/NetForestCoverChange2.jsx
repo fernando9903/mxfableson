@@ -165,7 +165,7 @@ const DrawNfch2 = () => {
           <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "35vw" }}>
             {/* 
                 <LeafletMap
-                  countriesData = {dataAux}
+                  countriesData = {data}
                 />
   */}
           </div>
