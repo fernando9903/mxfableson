@@ -6,7 +6,7 @@ import ComboBox from '../componentes/ComboBox'
 import ComboBox3 from '../componentes/ComboBox3'
 import Aside from '../componentes/Aside';
 import Dashboard from '../componentes/Dashboard'
-
+import NewSidemenu from '../componentes/NewSidemenu';
 
 //dashboards
 import NetForestCoverChange from '../pages/NetForestCoverChange'
@@ -33,7 +33,7 @@ import BannerClimateAction from '../assets/banners/Mesa de trabajo 16.png';
 
 import TradeReport from '../pages/TradeReport'
 const Styles = styled.div`
-header{
+.header{
 
 
 overflow:hidden;
@@ -47,6 +47,7 @@ overflow:hidden;
   height: 100px;
   margin-top:20px;
   transition: all 0.5s ease;
+  
 
 
 .banner{
@@ -60,8 +61,9 @@ transition: all 0.5s ease;
 
 .container{
     display:flex;
-    width:1500px;
+   
     border:5px solid green;
+  
 }
 
 
@@ -212,9 +214,9 @@ class Scenathon extends Component {
         return (
 
             <Styles>
-            <header ref={this.fableRef}>
+            <div class="header" ref={this.fableRef}>
         <img class="banner" id="banner"></img>
-        </header>
+        </div>
             <div className="container-fluid" style={{display: 'flex'}}>
                <div>
                  <Aside onChange={this.handleChange}/>  

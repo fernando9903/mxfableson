@@ -16,6 +16,7 @@ import ReactHintFactory from 'react-hint'
 import 'react-hint/css/index.css';
 import Scenathon from './pages/Scenathon';
 import Aside from './componentes/Aside';
+import NewSidemenu from './componentes/NewSidemenu';
 import {
   BrowserRouter as Router,
   Switch,
@@ -74,35 +75,8 @@ export class App extends React.Component {
     console.groupEnd();
   };
   
-  /*
-componentDidMount(){
-  const script = Navbar.document.createElement("script");
 
-    script.src = "NavbarAnimation.js";
-    script.async = true;
 
-    Navbar.document.body.appendChild(script);
-}
- 
-  componentWillMount(){
-    window.removeEventListener('scroll', this.handleScroll);
-  }
-
-  componentWillUnmount(){
-    window.addEventListener('scroll', this.handleScroll);
-  }
-
-  handleScroll(e) {
-    let lastScrollTop = 0;
-    const currentScrollTop = Navbar.scrollTop;
-    if (!this.state.hidden && currentScrollTop > lastScrollTop) {
-      this.setState({ hidden: true });
-    } else if(this.state.hidden) {
-      this.setState({ hidden: false });
-    }
-    lastScrollTop = currentScrollTop;
-  }
-  */
   
   render(){
     const { run, stepIndex, steps } = this.state;
@@ -127,7 +101,7 @@ componentDidMount(){
           <Jumbotron_2 />
         </div>
 
-
+<NewSidemenu/>
 
 <Scenathon fableRef={this.references.scenathon2020}/>
 {/*

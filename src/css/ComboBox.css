@@ -1,7 +1,8 @@
 .contenedor-selects{
     margin-bottom:15px;
+    margin-top:20px;
    display:flex;
-   justify-content:center;
+   justify-content:flex-end;
    max-width:100%
   
  }
@@ -14,14 +15,14 @@
      color:#94B046;
    }
  select, .selectBox{
-   background-color:#A7D3FB;
+   background-color:#306973;
    color:white;
-   width:255px;
-   border-radius:20px;
-   height:40px;
+   width:200px;
+   border-radius:7px;
+   height:30px;
    border:0px;
    outline:0px;
-   font-size:25px;
+   font-size:15px;
    text-align:left;
    padding:0 2%;
    margin-left:7px;
