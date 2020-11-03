@@ -15,7 +15,7 @@
      color:#94B046;
    }
  select, .selectBox{
-   background-color:#306973;
+   background-color:#72a5ad;
    color:white;
    width:200px;
    border-radius:7px;
@@ -27,18 +27,38 @@
    padding:0 2%;
    margin-left:7px;
    margin-right:7px;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
   
   
  }
+select:hover{
+  background-color:#306973;
+  }
 
  option{
     border:0px;
    outline:0px;
+   background-color:white;  
+   text-shadow: .5px .5px 5px #000000;  
+   color:#2b2b2b;
+   margin-top:10px;
+
+   
+ }
+
+ option:hover{
+  background-color:pink;  
+  background:pink;
+  color:pink;
  }
    option , .selectOption{
      border:0px;
      outline:0px;
      margin-left:10px;
+   
+   
    }
  
  

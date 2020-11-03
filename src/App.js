@@ -5,7 +5,6 @@ import Header from "./componentes/Header";
 import About1 from "./componentes/About1";
 import About2 from "./componentes/About2";
 import Tour from "./componentes/Tour";
-import Touraux from "./componentes/Touraux";
 import About from './pages/About';
 import { Jumbotron } from './componentes/Jumbotron'
 import { Jumbotron_2}  from './componentes/Jumbotron_2'

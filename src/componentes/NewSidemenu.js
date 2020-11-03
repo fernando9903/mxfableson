@@ -23,6 +23,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+  
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -46,12 +47,13 @@ const useStyles = makeStyles((theme) => ({
     display: 'none',
   },
   drawer: {
-    width: drawerWidth,
+    width: 700,
     flexShrink: 0,
     whiteSpace: 'nowrap',
+    
   },
   drawerOpen: {
-    width: drawerWidth,
+    width:330,
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -111,7 +113,7 @@ export default function MiniDrawer() {
           }),
         }}
       >
-      <div display="flex" justifyContent="space-between">
+      <div display="flex">
 
       <Toolbar>
           <IconButton
@@ -120,7 +122,7 @@ export default function MiniDrawer() {
             onClick={handleDrawerOpen}
             edge="start"
             className={clsx(classes.menuButton, {
-              [classes.hide]: open,
+              [classes.hide]: open, position:"absolute"
             })}
           >
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
@@ -138,7 +140,7 @@ export default function MiniDrawer() {
 
       </div>
       
-       <Aside/>
+       <Aside />
       </Drawer>
     </div>
   );
