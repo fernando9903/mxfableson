@@ -8,7 +8,7 @@ import About3 from "./components/About3";
 import Tour from "./components/Tour";
 import About from './pages/About';
 import Jumbotron from './components/Jumbotron'
-import Jumbotron2  from './components/Jumbotron2'
+//import Jumbotron2  from './components/Jumbotron2'
 import Jumbotron3 from './components/Jumbotron3'
 import JumbotronFin from './components/JumbotronFin'
 import ReactHintFactory from 'react-hint'
@@ -17,6 +17,8 @@ import Scenathon from './pages/Scenathon';
 import Joyride, { ACTIONS, EVENTS, STATUS } from 'react-joyride';
 import BackgroundBlue from '../src/assets/background.jpg';
 import steps from './components/TOUR_STEPS';
+import Sidebar from './components/Sidebar';
+{/*import SwipeableDrawe from './components/SwipeableDrawer';*/}
 
 const ReactHint = ReactHintFactory(React)
 
@@ -28,13 +30,14 @@ const App = (props) => {
     setCurrentValue(value)
   }
     console.groupEnd();
-
+  
     const references = {
-      fable: React.createRef(),
-      scenathon2020: React.createRef(),
-      scenathon: React.createRef(),
-      home: React.createRef()
-    }
+    fable: React.createRef(),
+    scenathon2020: React.createRef(),
+    scenathon: React.createRef(),
+    home: React.createRef()
+  }
+
     
 
     return (
@@ -47,15 +50,17 @@ const App = (props) => {
           <Navbar references={references}/>
         </div>
 
-        <div className= "About1" id="About1">
+            <Jumbotron/>
+
+        <div className="About1" id="About1">
           <About1 aboutRef={references.fable}/>
         </div>
-        <div id="Jumbotron2" >
-          <Jumbotron2 />
+        <div id="Jumbotron_2" >
+          {/*<Jumbotron_2 />*/}
         </div>
 
 
-        <div className="Scenathon2020">
+        <div  className="Scenathon2020">
           <Scenathon fableRef={references.scenathon2020} className="Scenathon2020" id="Scenathon2020"/>
         </div>
 
@@ -66,6 +71,11 @@ const App = (props) => {
         <div id="JumbotronFin" data-rh="Copyright" data-rh-at="top" id="final">
           <JumbotronFin/>
         </div>
+
+        {/*<div>
+          <SwipeableDrawe/>
+          <Sidebar/>
+        </div>*/}
 
 
 

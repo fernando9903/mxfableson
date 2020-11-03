@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import BarChart from "../components/BarChart.jsx";
 import ComboBox from '../components/ComboBox';
 import ChartCharacteristics from '../data/ChartCharacteristics.json';
+import Tour from '../components/Tour'
 const DrawLandCover = () => {
 
 
@@ -132,13 +133,29 @@ const DrawLandCover = () => {
     });
     
       }
+
+      const steps = [
+        {
+          target: ".graph",
+          content: "Distribution of land cover area in 1000 ha.",
+          title: "Land Cover",
+            styles: {
+              //this styles override the styles in the props  
+              options: {
+                textColor: "black"
+              }
+            },
+            locale: { 
+              next: <span>End</span>,
+            },
+            placement: "top"
+        }
+      ]
     
-
-
-
-
     return (
-     <div>
+
+    <div className="graph">
+      <Tour stepsP={steps}/>
 
     <div >
     <ComboBox onChange={handleChange}/>

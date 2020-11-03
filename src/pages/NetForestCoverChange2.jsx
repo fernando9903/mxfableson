@@ -168,7 +168,7 @@ const DrawNfch2 = () => {
           <TradeReportMap countriesData = {data}/>
             {/* 
                 <LeafletMap
-                  countriesData = {dataAux}
+                  countriesData = {data}
                 />
   */}
           </div>
