@@ -88,7 +88,6 @@ const DrawFreshWaterUse = () => {
 
   }
 
-
   const converter = () => {
 
 
@@ -98,6 +97,7 @@ const DrawFreshWaterUse = () => {
 
     var dataSet = []
 
+    var dataSet = []
 
     if (json !== null) {
 

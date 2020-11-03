@@ -99,23 +99,23 @@ const DrawBiodiversity = (props) => {
     var dataBiodiversity_land = [];
     var biodiversities = [];
     var labels = [];
-    var nameCounty = ""
+    var nameCountry = ""
 
     if (json.length !==0) {
-      nameCounty=json[0].name;
+      nameCountry=json[0].name;
       json.forEach(item => {
         if (!labels.includes(item.Year)) {
           labels.push(item.Year);
         }
         
-        if (nameCounty !== item.Country) {
+        if (nameCountry !== item.Country) {
 
           if(count!==dataBiodiversity_land.length){
             var biodiversity = new Biodiversity(CountryCharacteristics[nameCounty], dataBiodiversity_land);
             biodiversities.push(biodiversity);
           }
           count = 0;
-          nameCounty = item.Country;
+          nameCountry = item.Country;
           dataBiodiversity_land = [];
        
         }
@@ -153,7 +153,6 @@ const DrawBiodiversity = (props) => {
   ]
 
 
-
   return (
     <Container fluid >
       <Tour stepsP={steps}/>
@@ -181,6 +180,3 @@ const DrawBiodiversity = (props) => {
     }
 
 export default DrawBiodiversity;
-
-
-
