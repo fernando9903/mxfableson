@@ -50,7 +50,7 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar, onChange }
           <SubMenu title="Dashboard" >
 
 
-               <MenuItem onClick={()=>handleChange("Global Target Summary")}>Global Target Summary</MenuItem>
+           <MenuItem onClick={()=>handleChange("Global Target Summary")}>Global Target Summary</MenuItem>
         
             <SubMenu icon title="Net Forest Cover Change">
               <MenuItem class="submenu" onClick={()=>handleChange("Net Forest Cover Change 1")}>Net Forest Cover Change 1</MenuItem>

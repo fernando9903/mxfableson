@@ -31,7 +31,7 @@ import BannerLifeOnLand from '../assets/banners/Mesa de trabajo 19.png';
 import BannerCleanWater from '../assets/banners/Mesa de trabajo 8.png';
 import BannerZeroHunger from '../assets/banners/Mesa de trabajo 2.png';
 import BannerClimateAction from '../assets/banners/Mesa de trabajo 16.png';
-
+import BannerCustom from '../assets/banners/Mesa de trabajo 21.png';
 {/*import NetForestCoverChangeInfoA from '../pages/NetForestCoverChangeInfo1';
 import NetForestCoverChangeInfo2 from '';
 import FreshWaterUseInfo1 from '';
@@ -146,6 +146,12 @@ class Scenathon extends Component {
             case 'Global Target Summary': 
                 this.combobox=<ComboBox onChange={this.handleChange}/>
                this.dash=<GlobalTargets combinacion={this.state}/>;
+               try{
+                document.getElementById("banner").src=BannerCustom;
+               }catch(Error){
+                   
+               }
+               
               break;
             case 'Net Forest Cover Change 1': 
             this.combobox=<ComboBox onChange={this.handleChange}/>

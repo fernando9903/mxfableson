@@ -23,6 +23,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+
   
   },
   appBar: {
@@ -47,15 +48,14 @@ const useStyles = makeStyles((theme) => ({
     display: 'none',
   },
   drawer: {
-    width: 700,
-    flexShrink: 0,
-    whiteSpace: 'nowrap',
+    width: 800,
+    flexShrink: 0
     
   },
   drawerGeneralStyles: {
     position: 'relative',
     display: 'block',
-    height: '100vh'
+    height: '190vh'
   },
   drawerOpen: {
     width:330,
@@ -76,12 +76,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   toolbar: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
+  
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
+
   },
   content: {
     flexGrow: 1,
@@ -128,6 +125,7 @@ export default function MiniDrawer(props) {
 
       <Toolbar>
           <IconButton
+            position="absolute"
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
@@ -136,7 +134,7 @@ export default function MiniDrawer(props) {
               [classes.hide]: open, position:"absolute"
             })}
           >
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
          
         </Toolbar>
