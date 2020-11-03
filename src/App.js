@@ -61,8 +61,8 @@ const App = (props) => {
           {<Jumbotron2 />}
         </div>
 
-
-        <NewSidemenu/>
+        
+        
         <div className="Scenathon2020">
           <Scenathon fableRef={references.scenathon2020} className="Scenathon2020" id="Scenathon2020"/>
         </div>
