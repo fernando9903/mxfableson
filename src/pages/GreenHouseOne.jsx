@@ -1,7 +1,8 @@
 import React from "react";
-import SuperGraph from "../componentes/SuperGraph";
+import SuperGraph from "../components/SuperGraph";
 import data from '../data/Greenhouse1.json';
 import { Container, Row, Col } from "react-bootstrap";
+import Tour from '../components/Tour'
 const drawGreenhouse1 = (props) => {
 
   var dataGraphOne;
@@ -97,9 +98,29 @@ const drawGreenhouse1 = (props) => {
       break;
   }
 
+  const steps = [
+    {
+      target: ".graph",
+      content: "Computed annual global greenhouse gas emissions from crops and livestock (left), and from land use and peat oxidation (right) in Gt.",
+      title: "Greenhouse Gas (GHG) emissions 1",
+        styles: {
+          //this styles override the styles in the props  
+          options: {
+            textColor: "black"
+          }
+        },
+        locale: { 
+          next: <span>End</span>,
+        },
+        placement: "top"
+    }
+  ]
+
   return (
     <Container fluid>
       <Row>
+        <Tour stepsP={steps}/>
+        <div className="graph">
         <Col >
           <div style={{height: "100vh" ,width:"35vw"} }><SuperGraph data={dataGraphOneAux}
             title="Green House 1"
@@ -109,7 +130,8 @@ const drawGreenhouse1 = (props) => {
         <Col > <div style={{height: "100vh" ,width:"35vw"} }><SuperGraph data={dataGraphTwoAux}
           title="Green House 2"
           aspectRatio={false} 
-            labelposition="top" /> </div></Col>
+          labelposition="top" /> </div></Col>
+        </div>
       </Row>
     </Container>
  ); 

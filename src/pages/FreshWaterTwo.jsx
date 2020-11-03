@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import BarChart from "../componentes/BarChart";
+import BarChart from "../components/BarChart";
 
 import {Container,Row,Col,Jumbotron} from "react-bootstrap";
-import ComboBox from '../componentes/ComboBox';
+import ComboBox from '../components/ComboBox';
 import LeafletMap from './LeafletMap';
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
 
@@ -492,7 +492,7 @@ const convertir=(props) => {
         },
         {
           type: 'bar',
-          label: 'ColombiaRest of Sub-Saharan Africa',
+          label: 'Rest of Sub-Saharan Africa',
           data: Fresh_water_Rest_of_Sub_Saharan_Africa,
           fill: false,
           borderColor: '#EC932F',

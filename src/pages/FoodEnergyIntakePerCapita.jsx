@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import MixedChart from "../componentes/MixedChart.jsx";
+import MixedChart from "../components/MixedChart.jsx";
 import ChartCharacteristics from '../data/ChartCharacteristics.json';
-import ComboBox2 from "../componentes/ComboBox2.jsx";
+import ComboBox2 from "../components/ComboBox2.jsx";
+import Tour from "../components/Tour.js";
 const FoodEnergyIntakePerCapita = (props) => {
 
   function Food(ChartCharacteristics,data) {
@@ -215,6 +216,25 @@ setState({
       break;
     }
     */}
+
+    const steps = [
+      {
+        target: ".graph",
+        content: "Energy intake and the minimum dietary energy requirement (MDER) per capita, in kilocalories per day.",
+        title: "Food energy intake per capita 1",
+          styles: {
+            //this styles override the styles in the props  
+            options: {
+              textColor: "black"
+            }
+          },
+          locale: { 
+            next: <span>End</span>,
+          },
+          placement: "top"
+      }
+    ]
+
   return (
 
     <div>
@@ -224,8 +244,8 @@ setState({
         {converter()}
       </div>
 
-      
-    <div  style={{height: "100vh" ,width:"70vw"} }>
+      <Tour stepsP={steps}/>
+    <div className="graph" style={{height: "100vh" ,width:"70vw"} }>
       <MixedChart data={data}
     aspectRatio={false}
     labelposition="top"

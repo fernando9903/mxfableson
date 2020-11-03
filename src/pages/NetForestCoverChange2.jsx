@@ -1,5 +1,5 @@
 import React from "react";
-import BarChart from "../componentes/BarChart";
+import BarChart from '../components/BarChart';
 import data from '../data/NetForestCoverChange2.json';
 import "../../node_modules/react-grid-layout/css/styles.css";
 import "../../node_modules/react-resizable/css/styles.css";
@@ -7,7 +7,6 @@ import {Container,Row,Col,Jumbotron} from "react-bootstrap";
 import GridLayout from 'react-grid-layout';
 
 import LeafletMap from './LeafletMap';
-
 //nfch=NetForestCoverChange
 const drawNfch2 = (props) => {
  
@@ -49,6 +48,8 @@ const drawNfch2 = (props) => {
   
   console.log('NET DATA AUX');
   console.log(dataAux);
+
+
 return(
 
 
@@ -64,9 +65,12 @@ return(
               <Col>
 
               <div style={{borderStyle:'solid', textAlign:'center', height: "70vh",width:"35vw"}}>
-             
+                <LeafletMap
+                  countriesData = {dataAux}
+                />
 
               </div>
+
               </Col>
             </Row>
           </Container>
@@ -334,7 +338,7 @@ const convertir=(props)=> {
             },
             {
               type: 'bar',
-              label: 'Rest of European Union ',
+              label: 'Rest of European Union',
               data: rest_of_European_Union,
               fill: false,
               borderColor: '#EC932F',

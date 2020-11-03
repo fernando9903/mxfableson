@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import BarChart from "../componentes/BarChart.jsx";
-import ComboBox2 from '../componentes/ComboBox2'
+import BarChart from "../components/BarChart.jsx";
+import ComboBox2 from '../components/ComboBox2'
 import ChartCharacteristics from '../data/ChartCharacteristics.json';
-import ComboBox from '../componentes/ComboBox'
+import ComboBox from '../components/ComboBox'
 
 const DrawProtected = () => {
 

@@ -1,7 +1,8 @@
 import React from "react";
-import MixedChart from "../componentes/MixedChart.jsx";
+import MixedChart from "../components/MixedChart.jsx";
 import data from '../data/NetForestCoverChange1.json';
 import {Container,Row,Col} from "react-bootstrap";
+import Tour from '../components/Tour';
 
 import { Responsive as ResponsiveGridLayout } from 'react-grid-layout';
 //filter map
@@ -49,11 +50,36 @@ const drawNfch = (props) => {
     }
     break;
   }
+
+  const steps = [
+    {
+      target: ".graph",
+      content: "Net Forest Change (loss and gain) describes the sum of all changes in forest area over a specific period of time.",
+      title: "Net Forest Change 1",
+        styles: {
+          //this styles override the styles in the props  
+          options: {
+            textColor: "black"
+          }
+        },
+        locale: { 
+          next: <span>End</span>,
+        },
+        placement: "top"
+    }
+  ]
+
+
   return <div style={{height: "100vh",width:"70vw"}}>
-<MixedChart data={dataAux}
+
+<Tour stepsP={steps}/>
+
+<div style={{height: "100vh",width:"70vw"}} className="graph">
+<MixedChart style={{height: "100vh",width:"70vw"}} data={dataAux}
   title="Net Forest Cover Change"
   aspectRatio={false}
-  labelposition="bottom"  />
+  labelposition="bottom"/>
+  </div>
   </div>;
 }
 

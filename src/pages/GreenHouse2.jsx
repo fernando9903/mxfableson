@@ -1,7 +1,10 @@
 import React from "react";
-import BarChart from "../componentes/BarChart";
+import BarChart from "../components/BarChart";
 import data from '../data/Greenhouse2.json';
 import { Container, Row, Col } from "react-bootstrap";
+import Tour from '../components/Tour'
+
+import LeafletMap from './LeafletMap';
 //nfch=NetForestCoverChange
 const greenHouse = (props) => {
 
@@ -100,11 +103,29 @@ const greenHouse = (props) => {
       break;
   }
 
-
+  const steps = [
+    {
+      target: ".graph",
+      content: "Average annual distribution of CO2e emissions in Gt per country gobally derived from crops and livestock (left), and from land use change and peat oxidation in Gt CO2e.(right)",
+      title: "Greenhouse Gas (GHG) emissions 2",
+        styles: {
+          //this styles override the styles in the props  
+          options: {
+            textColor: "black"
+          }
+        },
+        locale: { 
+          next: <span>End</span>,
+        },
+        placement: "top"
+    }
+  ]
 
   return (
     <Container fluid>
       <Row>
+        <Tour stepsP={steps}/>
+        <div className="graph">
         <Col><div style={{height: "100vh" ,width:"35vw"} }>
           <BarChart data={dataGraphOneAux}
             title="Green House 2" aspectRatio={false}
@@ -117,7 +138,18 @@ const greenHouse = (props) => {
             labelposition="bottom" />
         </div>
         </Col>
+        </div>
       </Row>
+
+      Graph 1
+      <LeafletMap 
+        countriesData = {dataGraphOneAux}
+      />
+      Graph 2
+      <LeafletMap 
+        countriesData = {dataGraphTwoAux}
+      />
+
     </Container>);
 
 }
@@ -207,7 +239,7 @@ const convertir = (props) => {
       {
         //Aforestation ejemplo
         type: 'bar',
-        label: 'Usa',
+        label: 'USA',
         data: usa,
         fill: false,
         backgroundColor: '#faa75a',
@@ -217,7 +249,7 @@ const convertir = (props) => {
         yAxisID: 'y-axis-1'
       }, {
         type: 'bar',
-        label: 'Uk',
+        label: 'United Kingdom',
         data: UK,
         fill: false,
         borderColor: '#EC932F',
@@ -282,7 +314,7 @@ const convertir = (props) => {
       },
       {
         type: 'bar',
-        label: 'Rest of Sub Saharan Africa',
+        label: 'Rest of Sub-Saharan Africa',
         data: Rest_of_Sub_Saharan_Africa,
         fill: false,
         borderColor: '#EC932F',
@@ -295,7 +327,7 @@ const convertir = (props) => {
       },
       {
         type: 'bar',
-        label: 'Rest of North Africa Middle East andcentral Asia',
+        label: 'Rest of North Africa Middle East and central Asia',
         data: Rest_of_North_Africa_Middle_East_and_central_Asia,
         fill: false,
         borderColor: '#EC932F',
