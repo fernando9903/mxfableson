@@ -8,7 +8,8 @@ import About3 from "./components/About3";
 import Tour from "./components/Tour";
 import About from './pages/About';
 import Jumbotron from './components/Jumbotron'
-//import Jumbotron2  from './components/Jumbotron2'
+import Jumbotron2  from './components/Jumbotron_2'
+import Jumbotron3  from './components/Jumbotron_3'
 import JumbotronFin from './components/JumbotronFin'
 import ReactHintFactory from 'react-hint'
 import 'react-hint/css/index.css';
@@ -57,7 +58,7 @@ const App = (props) => {
           <About1 aboutRef={references.fable}/>
         </div>
         <div id="Jumbotron_2" >
-          {/*<Jumbotron_2 />*/}
+          {<Jumbotron2 />}
         </div>
 
 
@@ -65,7 +66,9 @@ const App = (props) => {
         <div className="Scenathon2020">
           <Scenathon fableRef={references.scenathon2020} className="Scenathon2020" id="Scenathon2020"/>
         </div>
-
+        <div id="Jumbotron_3" >
+          {<Jumbotron3 />}
+        </div>
         <div className="scenathon-info">
           <About2 fableRef={references.scenathon}/>
         </div>

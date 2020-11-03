@@ -28,7 +28,7 @@ const Styles = styled.div`
     }`;
 
 
-export const Jumbotron_3 = () => {
+export default () => {
     return(
 
     <Styles>

@@ -245,6 +245,7 @@
    background: #306973;
         outline: none;
         color: white ;
+        box-shadow: .5px .5px 5px #000000 ;
        
          }
       .pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item > .pro-icon-wrapper {
