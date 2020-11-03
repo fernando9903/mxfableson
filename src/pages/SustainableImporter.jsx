@@ -76,8 +76,8 @@ const SustainableExporter =()=>
 
   const converter=()=>
   {
-    
-    var count = 0;
+     var start = Date.now();
+  var count = 0;
   var dataImport_quantity=[];
   var datasetsCharts=[];
 
@@ -105,15 +105,26 @@ const SustainableExporter =()=>
           dataImport_quantity=[];
           }
           dataImport_quantity.push(item.Import_quantity);
-          count = item.Import_quantity === "0.00" ? count + 1 : count;
+         count = item.Import_quantity === "0.00" ? count + 1 : count;
         });
     }
-   
+    //const isBelowThreshold = (currentValue) => currentValue === '0.00';
+
+  //  datasetsCharts.map((item)=>{
+    
+  //  if(item.data.every(isBelowThreshold)){
+    //  datasetsCharts = datasetsCharts.filter(
+      //  e => e !== item)
+    //}
+ // });
    var data = {
       labels:labels,
       datasets:datasetsCharts
   };
    dataChart=data;
+   var end = Date.now();
+  
+   console.log(end-start);
   }
 
   return (

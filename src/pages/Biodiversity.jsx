@@ -8,7 +8,8 @@ import CountryCharacteristics from '../data/CountryCharacteristics.json';
 
 
 //nfch=NetForestCoverChange
-const DrawBiodiversity = (props) => {
+const DrawBiodiversity = () => 
+{
 
 
 
@@ -173,11 +174,6 @@ const DrawBiodiversity = (props) => {
 
   );
 }
-
-
-
-
-
 export default DrawBiodiversity;
 
 
