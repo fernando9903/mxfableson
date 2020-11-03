@@ -3,9 +3,9 @@ import BarChart from "../components/BarChart";
 
 import { Container, Row, Col } from "react-bootstrap";
 import LeafletMap from './LeafletMap';
-import Tour from '../components/Tour';
 import ComboBox from '../components/ComboBox';
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
+
 
 //nfch=NetForestCoverChange
 const DrawBiodiversity = (props) => {
@@ -132,51 +132,52 @@ const DrawBiodiversity = (props) => {
     data = dataAux;
   }
 
-      
-
-    const steps = [
-    {
-      target: ".graph",
-      content: "",
-      title: "Biodiversity",
-        styles: {
-          //this styles override the styles in the props  
-          options: {
-            textColor: "black"
-          }
-        },
-        locale: { 
-          next: <span>End</span>,
-        },
-        placement: "top"
-    }
-  ]
-
 
   return (
     <Container fluid >
-      <Tour stepsP={steps}/>
-      <div className="graph">
-    
-            <ComboBox style={{margin:"300px"}} onChange={handleChange}/>
-                <Row>
-                  <Col>
-                    <div  style={{height: "100vh", width:"35vw", padding: "20px"}}>    
-                      <BarChart data={data} title="Biodiversity"/>
-                    <div/>
-                      {converter()}
-                    </div>
-                  </Col>
-                  <Col>
-                    <div className="map" style={{borderStyle:'solid', textAlign:'center', height: "70vh",width:"35vw"}}>
-                      <LeafletMap countriesData = {data}/>              
-                    </div>
-                  </Col>
-                </Row>
+      <div >
+        <ComboBox onChange={handleChange} />
+        {converter()}
       </div>
-    </Container>
+      <Row  >
+        <Col>
+
+          <div style={{ height: "100vh", width: "35vw" }}>
+            <BarChart data={data} title="Biodiversity"
+              aspectRatio={false}
+              labelString='ha per year'
+              fontSize='25'
+              labelwidth={50}
+              labelSize={16}
+              TitleSize={40}
+
+              labelposition="bottom" />
+          </div>
+
+        </Col>
+        <Col>
+
+          <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "35vw" }}>
+
+            {/* 
+              <LeafletMap
               
-    );
-    }
+                
+                countriesData = {data}
+              
+              />
+              */}
+          </div>
+        </Col>
+      </Row>
+
+    </Container>
+
+  );
+}
+
+
+
+
 
 export default DrawBiodiversity;
