@@ -160,6 +160,10 @@ const DrawFreshWater2 = () => {
               title="Fresh Water Use 2"
               labelposition="bottom"
               labelSize={15}
+              labelwidth={50}
+              labelSize={16}
+              TitleSize={35}
+          
               aspectRatio={false} />
 
           </div>
