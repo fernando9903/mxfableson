@@ -37,8 +37,8 @@ const DrawFreshWater2 = () => {
     const getFreshWaterTwo = async () => {
 
       try {
-        const body = state;
-        const response = await fetch("https://server-fableson.wl.r.appspot.com/freshwater2" + JSON.stringify(body));
+       
+        const response = await fetch("https://fable2020.herokuapp.com/freshwater2"+JSON.stringify(state));
         const jsonAux = await response.json();
         setJson(jsonAux);
       } catch (error) {
@@ -84,27 +84,34 @@ const DrawFreshWater2 = () => {
   }
 
   const converter = () => {
-    var dataSum = [];
+
+
+
+    var dataBlueWater = [];
+    var count = 0;
+
     var freshWater = [];
     var labels = [];
-    var nameCounty = state.select.GraficaType === "regions" ? "R_AFR" : "Argentina";
-
-    if (json != null) {
+    var nameCounty = ""
+    if (json.length !==0) {
+      nameCounty=json[0].name;
       json.forEach(item => {
         if (!labels.includes(item.Year)) {
           labels.push(item.Year);
         }
-        dataSum.push(item.sum);
+       
         if (nameCounty !== item.Country) {
-
-          var fresh = new FreshWaterTwo(CountryCharacteristics[nameCounty], dataSum);
+          if(count!==dataBlueWater.length)
+          {
+          var fresh = new FreshWaterTwo(CountryCharacteristics[nameCounty], dataBlueWater);
           freshWater.push(fresh);
+          }
           nameCounty = item.Country;
-
-
-          dataSum = [];
-          dataSum.push(item.sum);
+          dataBlueWater = [];
+          dataBlueWater.push(item.sum);
         }
+        dataBlueWater.push(item.BlueWater);
+        count = item.BlueWater === "0.00"? count + 1 : count;
       });
 
 

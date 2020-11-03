@@ -84,6 +84,7 @@ import {Bar} from 'react-chartjs-2';
       }
     };
     
+
     return (
     
   <Bar data={props.data}
