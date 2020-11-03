@@ -229,7 +229,7 @@ class Scenathon extends Component {
         </div>
             <div className="container-fluid" style={{display: 'flex'}}>
                <div>
-                    <NewSidemenu/>
+                    <NewSidemenu onChange={this.handleChange}/>
                  {/* <Aside onChange={this.handleChange}/>   */}
                </div>
             
