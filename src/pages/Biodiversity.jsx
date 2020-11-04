@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import BarChart from "../components/BarChart";
+import BarChart3 from "../components/BarChart3";
 
 import { Container, Row, Col } from "react-bootstrap";
 import LeafletMap from './LeafletMap';
@@ -146,13 +146,15 @@ const DrawBiodiversity = () =>
         <Col>
 
           <div style={{ textAlign: 'center', height: "120vh", width: "35vw" }}>
-            <BarChart data={data} title="Biodiversity"
+            <BarChart3 data={data} title="Share of total land which is protected
+"
               aspectRatio={false}
               labelString='ha per year'
               fontSize='25'
               labelwidth={50}
               labelSize={16}
-              TitleSize={40}
+              TitleSize={30}
+              fontColor='#3a4aab'
               labelposition="bottom" />
           </div>
 
