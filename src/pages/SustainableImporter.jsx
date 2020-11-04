@@ -147,27 +147,15 @@ const SustainableExporter =()=>
                   
                   </Col>
                   <Col>
-    
-                  <div style={{borderStyle:'solid', textAlign:'center', height: "70vh",width:"35vw"}}>
-                
-                 {/** 
-                  <TradeReportMap countriesData = {dataChart} />
-                   */}
-
+                  <br/><br/>
+                  <div style={{borderStyle:'solid', textAlign:'center', height: "70vh",width:"30vw"}}>
                    <TradeReportMap countriesData = {dataChart}/>
                
                   
                   </div>
                   </Col>
                 </Row>
-                {/* 
-                <LeafletMap
-                  
-                    
-                   // countriesData = {dataAux}
-                  
-                  />
-                  */}
+               
               </Container>          
     );
 
