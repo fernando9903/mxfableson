@@ -8,6 +8,7 @@ import Aside from '../components/Aside';
 import Dashboard from '../components/Dashboard'
 import NewSidemenu from '../components/NewSidemenu';
 
+
 //dashboards
 import NetForestCoverChange from '../pages/NetForestCoverChange'
 import Biodiversity from '../pages/Biodiversity'
@@ -21,7 +22,7 @@ import NetForestCoverChange2 from '../pages/NetForestCoverChange2'
 import GreenHouse2 from '../pages/GreenHouse2'
 import GreenHouseOne from '../pages/GreenHouseOne'
 import FreshWaterTwo from '../pages/FreshWaterTwo'
-
+//assets
 import styled from 'styled-components';
 import BannerLifeOnLand from '../assets/banners/Mesa de trabajo 19.png';
 import BannerCleanWater from '../assets/banners/Mesa de trabajo 8.png';
@@ -31,6 +32,7 @@ import SustainableImporter from '../pages/SustainableImporter'
 import SustainableNetExporter from './SustainableNetExporter'
 import CurrenTrendExporter from './CurrenTrendExporter'
 import CurrenTrendImporter from './CurrenTrendImporter'
+import BannerCustom from '../assets/banners/Mesa de trabajo 21.png';
 
 
 const Styles = styled.div`

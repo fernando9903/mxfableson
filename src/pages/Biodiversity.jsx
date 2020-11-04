@@ -4,11 +4,14 @@ import BarChart from "../components/BarChart";
 import { Container, Row, Col } from "react-bootstrap";
 import LeafletMap from './LeafletMap';
 import ComboBox from '../components/ComboBox';
+
+import TradeReportMap from './TradeReportMap'
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
 
 
 //nfch=NetForestCoverChange
-const DrawBiodiversity = (props) => {
+const DrawBiodiversity = () => 
+{
 
 
 
@@ -111,7 +114,7 @@ const DrawBiodiversity = (props) => {
         if (nameCountry !== item.Country) {
 
           if(count!==dataBiodiversity_land.length){
-            var biodiversity = new Biodiversity(CountryCharacteristics[nameCounty], dataBiodiversity_land);
+            var biodiversity = new Biodiversity(CountryCharacteristics[nameCountry], dataBiodiversity_land);
             biodiversities.push(biodiversity);
           }
           count = 0;
@@ -139,10 +142,10 @@ const DrawBiodiversity = (props) => {
         <ComboBox onChange={handleChange} />
         {converter()}
       </div>
-      <Row  >
+      <Row>
         <Col>
 
-          <div style={{ height: "100vh", width: "35vw" }}>
+          <div style={{ textAlign: 'center', height: "120vh", width: "35vw" }}>
             <BarChart data={data} title="Biodiversity"
               aspectRatio={false}
               labelString='ha per year'
@@ -150,23 +153,14 @@ const DrawBiodiversity = (props) => {
               labelwidth={50}
               labelSize={16}
               TitleSize={40}
-
               labelposition="bottom" />
           </div>
 
         </Col>
         <Col>
-
-          <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "35vw" }}>
-
-            {/* 
-              <LeafletMap
-              
-                
-                countriesData = {data}
-              
-              />
-              */}
+<br/><br/><br/>
+          <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "30vw" }}>
+          <TradeReportMap countriesData = {data}/>
           </div>
         </Col>
       </Row>
@@ -175,9 +169,4 @@ const DrawBiodiversity = (props) => {
 
   );
 }
-
-
-
-
-
 export default DrawBiodiversity;

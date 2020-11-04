@@ -44,4 +44,4 @@ export default (props) => {
     </Styles>
     )
 };
-export default Jumbotron;
+
