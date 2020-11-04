@@ -168,7 +168,7 @@ const DrawNfch2 = () => {
          
         </Col>
         <Col>
-
+<br/><br/>
           <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "30vw" }}>
           <TradeReportMap countriesData = {data}/>
       
