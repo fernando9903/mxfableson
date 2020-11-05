@@ -14,18 +14,21 @@ function ComboBox(props) {
     <div className="contenedor-selects">
       <br></br>
       <select class="selectBox" name="scenathon_id" onChange={onChange}>
+      <option value="" disabled selected hidden>Scenario</option>
         <option class="selectOption" value="6">Sustainaible</option>
         <option class="selectOption" value="5">Current trend</option>
 
       </select>
       <br></br>
       <select class="selectBox" name="Iteration" onChange={onChange}>
-        <option class="selectOption" value="after">after</option>
-        <option class="selectOption" value="before">before</option>
+      <option value="" disabled selected hidden>Iteration</option>
+        <option class="selectOption" value="after">After Iteration</option>
+        <option class="selectOption" value="before">Before Iteration</option>
       </select>
       <br></br>
       <Form>
         <select class="selectBox" name="Year" onChange={onChange} >
+        <option value="" disabled selected hidden>Year</option>
           <option class="selectOption" value="2000">2000</option>
           <option class="selectOption" value="2005">2005</option>
           <option class="selectOption" value="2010">2010</option>

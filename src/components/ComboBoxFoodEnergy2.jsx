@@ -13,17 +13,20 @@ function ComboBoxFoodEnergy2 (props) {
             <div className="contenedor-selects">
                 <br></br>
                 <select   class="selectBox" name="scenathon_id" onChange={onChange}>
+                <option value="" disabled selected hidden>Scenario</option>
                 <option  class="selectOption" value="6">Sustainaible</option>
                    
                     
                 </select>
                 <br></br>
                 <select  class="selectBox" name="Iteration" onChange={onChange}>
-                <option value="4">after</option>
-                    <option class="selectOption" value="3">before</option>
+                <option value="" disabled selected hidden>Trade Adjustment</option>
+                <option value="4">After Iteration</option>
+                    <option class="selectOption" value="3">Before Iteration</option>
                 </select>
                 <br></br>
                  <select  class="selectBox" name="Year" onChange={onChange}>
+                 <option value="" disabled selected hidden>Year</option>
                     <option  class="selectOption" value="2000">2000</option>
                     <option   class="selectOption"value="2005">2005</option>
                     <option  class="selectOption"value="2010">2010</option>

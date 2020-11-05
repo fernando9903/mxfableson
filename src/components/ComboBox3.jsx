@@ -16,6 +16,7 @@ function ComboBox (props) {
                 <br></br>
                 <Form>
                   <select class="selectBox" name="Scenario" onChange={onChange} >
+                  <option value="" disabled selected hidden>Scenario</option>
                     <option class="selectOption" value="Sustainaible">Sustainaible</option>
                     <option  class="selectOption" value="Current_trend">Current trend</option>
                   </select>
@@ -29,6 +30,7 @@ function ComboBox (props) {
                 <br></br>
                 <Form>
                   <select  class="selectBox" name="Iteration" onChange={onChange} >
+                  <option value="" disabled selected hidden>Trade adjustment</option>
                     <option class="selectOption" value="iteration_4">iteration:4</option>
                     <option class="selectOption" value="iteration_3">iteration:3</option>
                   </select>
@@ -41,6 +43,7 @@ function ComboBox (props) {
                 <br></br>
                 <Form>
                   <select  class="selectBox"name="GraficaType" onChange={onChange} >
+                  <option value="" disabled selected hidden>here</option>
                     <option class="selectOption"value="regions">ALL ROW regions</option>
                     <option  class="selectOption" value="countries">ALL FABLE countries</option>
                   </select>

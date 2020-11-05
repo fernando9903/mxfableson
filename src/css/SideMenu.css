@@ -277,7 +277,7 @@
         .pro-sidebar .pro-menu  .pro-sub-menu .pro-sub-menu .pro-menu-item> .pro-inner-item:hover{
           box-shadow: 0px 0px 0px #000000 ;
           color: #306973;
-          background: white; 
+          background:transparent; 
           font-weight: bold;
         }
           
