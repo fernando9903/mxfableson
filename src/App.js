@@ -70,9 +70,6 @@ const App = (props) => {
         </div>
 
       
-        <div className="scenathon-info">
-          <About2 fableRef={references.scenathon}/>
-        </div>
         <div id="Jumbotron_3" >
           {<Jumbotron3 />}
         </div>

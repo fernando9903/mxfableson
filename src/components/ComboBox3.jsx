@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Form } from 'react-bootstrap';
 import '../css/ComboBox.css';
 
+import '../css/CheckBox.css';
 
 
 function ComboBox (props) {
@@ -17,8 +18,8 @@ function ComboBox (props) {
                 <Form>
                   <select class="selectBox" name="Scenario" onChange={onChange} >
                   <option value="" disabled selected hidden>Scenario</option>
-                    <option class="selectOption" value="Sustainaible">Sustainaible</option>
-                    <option  class="selectOption" value="Current_trend">Current trend</option>
+                    <option  value="Sustainaible">Sustainaible</option>
+                    <option  value="Current_trend">Current trend</option>
                   </select>
                 </Form>
 
@@ -30,9 +31,9 @@ function ComboBox (props) {
                 <br></br>
                 <Form>
                   <select  class="selectBox" name="Iteration" onChange={onChange} >
-                  <option value="" disabled selected hidden>Trade adjustment</option>
-                    <option class="selectOption" value="iteration_4">iteration:4</option>
-                    <option class="selectOption" value="iteration_3">iteration:3</option>
+                  <option value="" disabled selected hidden>Iteration</option>
+                    <option  value="iteration_4">Iteration:4</option>
+                    <option  value="iteration_3">Iteration:3</option>
                   </select>
                 </Form>
 
@@ -43,11 +44,26 @@ function ComboBox (props) {
                 <br></br>
                 <Form>
                   <select  class="selectBox"name="GraficaType" onChange={onChange} >
-                  <option value="" disabled selected hidden>here</option>
-                    <option class="selectOption"value="regions">ALL ROW regions</option>
-                    <option  class="selectOption" value="countries">ALL FABLE countries</option>
+                  <option value="" disabled selected hidden>Group</option>
+                    <option value="regions">ALL ROW regions</option>
+                    <option value="countries">ALL FABLE countries</option>
                   </select>
                 </Form>
+
+                <div class="comboBoxContainer">
+                
+                <label class="container">
+                <input value="regions" type="checkbox"/>
+                <p>ALL ROW regions</p>
+                <span class="checkmark"></span>
+                </label>
+
+                <label class="container">
+                <input  value="countries" type="checkbox"/>
+                <p>ALL FABLE countries</p>
+                <span class="checkmark"></span>
+                </label>
+              </div>
 
                  {/*<select  name="GraficaType" onChange={onChange}>
                     <option value="regions">ALL ROW regions</option>
