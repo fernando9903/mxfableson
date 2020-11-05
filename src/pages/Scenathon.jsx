@@ -68,7 +68,7 @@ transition: all 0.5s ease;
 
 
 #container-fluid{
-    
+  
    background: url(${DashboardCover});
    background-size:cover;
 }
@@ -242,7 +242,7 @@ class Scenathon extends Component {
                 <div class="header" ref={this.fableRef}>
                     <img class="banner" id="banner" alt=""></img>
                 </div>
-                <div id="container-fluid" className="container-fluid" style={{ display: 'flex' }}>
+                <div id="container-fluid" className="container-fluid" style={{ display: 'flex' , padding:'0 0'}} >
 
                     <div>
                         <NewSidemenu onChange={this.handleChange} />
