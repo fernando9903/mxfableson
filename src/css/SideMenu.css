@@ -28,7 +28,6 @@
     transform: rotate(-5deg); } }
 
 .pro-sidebar {
-  color: gray;
   width: 270px;
   min-width: 270px;
   text-align: left;
@@ -37,6 +36,13 @@
   z-index: 1009;
   margin-left:55px;
  }
+
+ .pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item {
+  color: rgb(51, 51, 51);
+  }
+  .pro-sidebar .pro-menu  .pro-sub-menu .pro-sub-menu .pro-menu-item> .pro-inner-item{
+    color: gray;
+  }
 
   .pro-sidebar > .pro-sidebar-inner {
     background: #FFFFFF;
