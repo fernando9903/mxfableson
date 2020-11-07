@@ -151,8 +151,8 @@ const DrawBiodiversity = () =>
               aspectRatio={false}
               labelString='ha per year'
               fontSize='25'
-              labelwidth={50}
-              labelSize={16}
+              labelwidth={20}
+              labelSize={15}
               TitleSize={30}
               fontColor='#3a4aab'
               labelposition="bottom" />
