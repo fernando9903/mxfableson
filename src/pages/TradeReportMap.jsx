@@ -4,7 +4,7 @@ import mapDataTest from './../data/CountriesTest.json';
 import 'leaflet/dist/leaflet.css'; //This style is for the scroll and plus controls of the map
 import '../css/LeafletMap.css';
 import * as L from 'leaflet';
-import hash from 'object-hash';
+
 
 
 
@@ -393,8 +393,6 @@ const TradeReportMap = (props) => {
     const colorChange = (event) => {
         this.setState({ color: event.target.value });
     }
-
-    //a;sldma;lsm;aslma;l
 
     var corner1 = L.latLng(-90, -200)
     var corner2 = L.latLng(90, 200)

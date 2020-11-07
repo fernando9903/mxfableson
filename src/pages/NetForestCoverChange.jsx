@@ -82,7 +82,8 @@ const DrawNfch = () => {
         styles: {
           //this styles override the styles in the props  
           options: {
-            textColor: "black"
+            textColor: "black",
+            backgroundColor: '#fff',
           }
         },
         locale: { 

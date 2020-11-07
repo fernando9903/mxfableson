@@ -76,7 +76,7 @@ var nameCounty = ""
 
 if (json.length !==0) {
   nameCounty=json[0].name;
-  console.log(json)
+  
 json.forEach(item => {
   if (!labels.includes(item.Year)) 
   {
@@ -201,12 +201,12 @@ return (
        
     
           <BarChart data={dataChart1}
-            title="Greenhouse Gas 2" 
+            title="             Annual GHG emissions from crops and livestock in Gt CO2e." 
             aspectRatio={false}
             labelposition="bottom"
-            labelwidth={50}
-            labelSize={16}
-            TitleSize={40} />
+            labelwidth={20}
+            labelSize={15}
+          TitleSize={20} />
           
         </div>
         </Col>
@@ -224,11 +224,11 @@ return (
         <div style={{ textAlign: 'center',height: "120vh" ,width:"35vw"} }>
         
           <BarChart data={dataChart2}
-            title="Greenhouse Gas 2" aspectRatio={false}
+            title="                      Average annual GHG emissions from land use change and peat oxidation in Gt CO2e." aspectRatio={false}
             labelposition="bottom" 
-            labelwidth={50}
-            labelSize={10}
-            TitleSize={45}
+            labelwidth={20}
+            labelSize={15}
+            TitleSize={20}
         />
               
         </div >
