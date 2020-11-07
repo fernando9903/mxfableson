@@ -36,7 +36,7 @@ const Styles = styled.div`
 .router-container {
    
   .navbar-brand{
-    margin-left:30px;
+    margin-left:40px;
   }
   
   }
@@ -88,6 +88,12 @@ const NavBar = (props) => {
     });
   }
 
+
+  const openExternalUrL = () => {
+    window.open("https://scenathon.org/", "_self")
+  }
+  
+
   return (
     <Styles>
 
@@ -137,9 +143,6 @@ const NavBar = (props) => {
                 <ReactBootStrap.Navbar.Brand  classname="navbar-link" id="navbar-link-home">Home</ReactBootStrap.Navbar.Brand>
               </Link>
               
-              <Link to="/sasa">
-                <ReactBootStrap.Navbar.Brand classname="navbar-link" id="navbar-link-tour" href="#tour">Tour</ReactBootStrap.Navbar.Brand>
-              </Link>
               <Link onClick={() => {handleClick(props.references.fable)}}>
                 <ReactBootStrap.Navbar.Brand classname="navbar-link" id="navbar-link-fable">Fable</ReactBootStrap.Navbar.Brand>
               </Link>
@@ -149,8 +152,8 @@ const NavBar = (props) => {
               <Link onClick={() => {handleClick(props.references.scenathon2020)}}>
                 <ReactBootStrap.Navbar.Brand classname="navbar-link" id="navbar-link-scenathon2020">Scenathon 2020</ReactBootStrap.Navbar.Brand>
               </Link>
-              <Link to="/Scenathon2020">
-                <ReactBootStrap.Navbar.Brand classname="navbar-link" id="navbar-link-scenathon2019" href="#scenathon2019">Scenathon 2019</ReactBootStrap.Navbar.Brand>
+              <Link onClick={() => {openExternalUrL()}}>
+               <ReactBootStrap.Navbar.Brand classname="navbar-link" id="navbar-link-scenathon2019" href="#scenathon2019">Scenathon 2019</ReactBootStrap.Navbar.Brand>
               </Link>
               <Link to="/Login">
                 <ReactBootStrap.Navbar.Brand classname="navbar-link" id="navbar-link-scenathon2019" href="#scenathon2019">Login</ReactBootStrap.Navbar.Brand>
@@ -224,25 +227,14 @@ window.onscroll = function () {
     document.getElementById("IIASA_LOGO").src = IIASA_LOGO_COLOR;
     document.getElementById("SDSN_LOGO").src = SDSN_LOGO_COLOR;
     document.getElementById("FoodAndLand_LOGO").src = FoodAndLand_LOGO_COLOR;
-    
-    //change switch of color using getByClassName method
     document.getElementById("navbar-link-home").style.color="#306973";
 
-    document.getElementById("navbar-link-tour").style.color="#306973";
+   
     document.getElementById("navbar-link-fable").style.color="#306973";
     document.getElementById("navbar-link-scenathon2020").style.color="#306973";
     document.getElementById("navbar-link-scenathon2019").style.color="#306973";
     document.getElementById("navbar-link-scenathon").style.color="#306973";
     
-
-
-  /*
-   let navbarLinks = document.get
-    // Loop over them
-    for (var i = 0; i < navbarLinks.length; i++) {
-      navbarLinks[i].style.backgroundColor("black");
-    }
-    */
   }
   if (currentScrollPos === 0) {
  
@@ -253,7 +245,6 @@ window.onscroll = function () {
 
    //change switch of color using getByClassName method
    document.getElementById("navbar-link-home").style.color="white";
-   document.getElementById("navbar-link-tour").style.color="white";
    document.getElementById("navbar-link-fable").style.color="white";
    document.getElementById("navbar-link-scenathon2020").style.color="white";
    document.getElementById("navbar-link-scenathon2019").style.color="white";

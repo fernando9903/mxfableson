@@ -3,6 +3,9 @@ import React from 'react';
 import { Form } from 'react-bootstrap';
 
 import '../css/ComboBox.css';
+import '../css/CheckBox.css';
+import CheckBoxes from '../components/CheckBoxes.js'
+
 
 function ComboBox(props) {
 
@@ -119,6 +122,8 @@ onChange(checkbox.current);
 
     )
 
+
 }
+
 export default ComboBox;
 
