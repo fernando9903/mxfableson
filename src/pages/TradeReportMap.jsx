@@ -1,5 +1,5 @@
 import React from 'react';
-import { Map, GeoJSON} from 'react-leaflet';
+import { Map, GeoJSON } from 'react-leaflet';
 import mapDataTest from './../data/CountriesTest.json';
 import 'leaflet/dist/leaflet.css'; //This style is for the scroll and plus controls of the map
 import '../css/LeafletMap.css';

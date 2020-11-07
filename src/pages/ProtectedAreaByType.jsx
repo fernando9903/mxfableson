@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import BarChart from "../components/BarChart.jsx";
-
 import ComboBox2 from '../components/ComboBox2'
 import ChartCharacteristics from '../data/ChartCharacteristics.json';
 import ComboBox from '../components/ComboBox'
 
+import Tour from '../components/Tour'
 const DrawProtected = () => {
 
 
@@ -128,10 +128,32 @@ var iteration = state.select.Iteration;
 
         
     }
+
+    
+    const steps = [
+      {
+        target: ".graph",
+        content: "Different types of protected areas and their extension.",
+        title: "Protected Area By Type",
+          styles: {
+            //this styles override the styles in the props  
+            options: {
+              textColor: "black"
+            }
+          },
+          locale: { 
+            next: <span>End</span>,
+          },
+          placement: "top"
+      }
+    ]
+
  
 
     return (
-    <div style={{height: "100vh",width:"70vw"}}>
+
+      <div className="graph" style={{height: "100vh",width:"70vw"}}>
+      <Tour stepsP={steps}/>
       
       <ComboBox onChange={handleChange}/>
      {converter()}

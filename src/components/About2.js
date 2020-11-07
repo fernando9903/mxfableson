@@ -18,7 +18,7 @@ margin-top:20px;
 .about-title{
     text-align:left;
     color:#306973;
-    font-size:35px;
+    font-size:32px;
     font-weight: bold;
     margin-bottom:30px;
     margin-left:95px;
@@ -27,7 +27,7 @@ margin-top:20px;
 .about-content{
     color:#4E4E4E;
     text-align:justify;
-    font-size:20px;
+    font-size:15px;
     margin-left:95px;
 }
 }
@@ -36,7 +36,7 @@ margin-top:20px;
 
 const About2=(props)=>{
 return(
-<Styles ref={props.aboutReference}>
+<Styles ref={props.fableRef}>
 <div className="about-container">
 <div className="about-title">Scenathons: Interactive Scenerario and <br/> Pathway Planning Development</div>
 <div className="about-content">Scenathons were conceived at IIASA as participatory decision-making exercises that integrate models, stakeholders, and technology to collectively solve complex, large-scale multi-objective problems. <br/><br/>
