@@ -381,27 +381,27 @@ group=e.value
         <Col >
           <div style={{ textAlign: 'center', height: "120vh", width: "30vw" }}>
           
-            <SuperGraph data={dataGraphOne}
-            title="Green House 1"
+
+            <SuperGraph data={dataGraphOneAux}
+            title="            Annual GHG emissions from cops and livestock in Gt CO2e."
             aspectRatio={false} 
             labelposition="bottom"
-            labelwidth={50}
-            labelSize={24}
-            TitleSize={35}/> 
-             
+            labelwidth={20}
+            labelSize={15}
+          TitleSize={18}/> 
             </div>
             </Col>
         <Col > 
         <div style={{ textAlign: 'center', height: "120vh", width: "30vw" }}>
-           
-          <SuperGraph data={dataGraphTwo}
-          title="Green House 2"
+
+          <SuperGraph data={dataGraphTwoAux}
+          title="                Average annual GHG emissions from land use change and peat oxidation in Gt CO2e."
           aspectRatio={false} 
             labelposition="bottom" 
-            labelwidth={50}
-            labelSize={24}
-            TitleSize={35}/> 
-          
+            labelwidth={20}
+            labelSize={15}
+          TitleSize={18}/> 
+
             </div>
             </Col>
       </Row>
