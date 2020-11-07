@@ -4,7 +4,7 @@ import mapDataTest from './../data/CountriesTest.json';
 import 'leaflet/dist/leaflet.css'; //This style is for the scroll and plus controls of the map
 import '../css/LeafletMap.css';
 import * as L from 'leaflet';
-import hash from 'object-hash';
+
 
 
 
@@ -400,7 +400,7 @@ var popup=null;
         this.setState({color: event.target.value});
     }
 
-//a;sldma;lsm;aslma;l
+
 
   var  corner1 = L.latLng(-90, -200)
   var  corner2 = L.latLng(90, 200)
@@ -413,20 +413,17 @@ var popup=null;
                 <Map style={{height: '80vh'}} zoom={2} center={[20, 100]} maxBoundsViscosity = {1.0} maxBounds = {bounds}>
                 { 
             converter(),
-           mapa= props.countriesData.datasets.length!==0?<GeoJSON style={countryStyle} 
-           key={hash(props.countriesData.datasets)} 
+            
+           mapa= props.countriesData.datasets.length!==0?
+          
+           <GeoJSON 
+           style={countryStyle} 
+           key={new Date().getMilliseconds()} 
            data={mapDataTest.features}
             onEachFeature={onEachCountry}/>:null
                     }  
 
-                    {/** 
-                    <TileLayer
-                        /*url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"
-                        attribution='<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>'
-                        id="mapbox.streets"
-                        noWrap='true'
-                        */
-                        /*/>*/}
+                
                 </Map>
                 
             </div>

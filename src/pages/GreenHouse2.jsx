@@ -76,7 +76,7 @@ var nameCounty = ""
 
 if (json.length !==0) {
   nameCounty=json[0].name;
-  console.log(json)
+  
 json.forEach(item => {
   if (!labels.includes(item.Year)) 
   {

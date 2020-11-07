@@ -155,6 +155,9 @@ const NavBar = (props) => {
               <Link onClick={() => {openExternalUrL()}}>
                <ReactBootStrap.Navbar.Brand classname="navbar-link" id="navbar-link-scenathon2019" href="#scenathon2019">Scenathon 2019</ReactBootStrap.Navbar.Brand>
               </Link>
+              <Link to="/Login">
+                <ReactBootStrap.Navbar.Brand classname="navbar-link" id="navbar-link-scenathon2019" href="#scenathon2019">Login</ReactBootStrap.Navbar.Brand>
+              </Link>
 
             </div>
 
