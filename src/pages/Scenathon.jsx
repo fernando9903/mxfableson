@@ -148,7 +148,7 @@ class Scenathon extends Component {
                
               break;
             case 'Net Forest Cover Change 1': 
-            this.combobox=<ComboBox onChange={this.handleChange}/>
+            this.combobox=null;  
               this.dash=<NetForestCoverChange combinacion={this.state}/>;
               break;
             case 'Net Forest Cover Change 2':
