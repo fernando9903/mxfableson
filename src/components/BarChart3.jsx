@@ -75,7 +75,7 @@ const BarChart3 = (props) => {
           },
           ticks: {
             callback: function(label, index, labels) {
-                return label+'$';
+                return label+'%';
             },
            
          
