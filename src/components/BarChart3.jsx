@@ -64,7 +64,7 @@ const BarChart3 = (props) => {
           position: 'left',
           id: 'y-axis-1',
           gridLines: {
-            display: true,
+            display: true,  
           }, scaleLabel: {
             display: true,
             labelString:props.labelString===undefined?'':props.labelString,
@@ -105,7 +105,9 @@ const BarChart3 = (props) => {
   };
 
     let data=props.data;
-          return (
+
+
+           return (
 
               <Bar data={data}
                     options={options}/>

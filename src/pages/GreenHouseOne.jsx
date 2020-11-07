@@ -1,40 +1,262 @@
-import React, { useState} from "react";
+import React, { useState, useEffect } from "react";
 import SuperGraph from "../components/SuperGraph";
 import data from '../data/Greenhouse1.json';
 import ComboBox from '../components/ComboBox';
 import { Container, Row, Col } from "react-bootstrap";
 import Tour from '../components/Tour'
+import ChartCharacteristics from '../data/ChartCharacteristics.json';
 
 const DrawGreenhouse1 = (props) => {
 
+  var datasetsGraphOne=[];
   var dataGraphOne=null;
   var dataGraphTwo=null;
-  var dataGraphOneAux = null;
-  var dataGraphTwoAux=null;
- 
+  var datasetsGraphTwo = [];
 
+ 
+  function GreenHouseBartChart(ChartCharacteristics, data) {
+    this.data = data;
+   
+    this.type = ChartCharacteristics[0]["type"];
+    this.label = ChartCharacteristics[0]["label"];
+    this.borderColor = ChartCharacteristics[0]["borderColor"];
+    this.backgroundColor = ChartCharacteristics[0]["backgroundColor"];
+    this.yAxisID = ChartCharacteristics[0]["yAxisID"];
+  }
+
+  function GreenHouseBartLine(ChartCharacteristics, data) {
+    this.data = data;
+    this.type = ChartCharacteristics[0]["type"];
+    this.label = ChartCharacteristics[0]["label"];
+    this.fill = ChartCharacteristics[0]["fill"];
+    this.radius = ChartCharacteristics[0]["radius"];
+    this.borderColor = ChartCharacteristics[0]["borderColor"];
+    this.backgroundColor = ChartCharacteristics[0]["backgroundColor"];
+    this.hoverBackgroundColor = ChartCharacteristics[0]["hoverBackgroundColor"];
+    this.hoverBorderColor = ChartCharacteristics[0]["hoverBorderColor"];
+    this.yAxisID = ChartCharacteristics[0]["yAxisID"];
+
+  }
+
+  function GreenHouseBartScatter(ChartCharacteristics, data) {
+    this.data = data;
+    this.type = ChartCharacteristics[0]["type"];
+    this.label = ChartCharacteristics[0]["label"];
+    this.fill = ChartCharacteristics[0]["fill"];
+    this.radius = ChartCharacteristics[0]["radius"];
+    this.borderColor = ChartCharacteristics[0]["borderColor"];
+    this.backgroundColor = ChartCharacteristics[0]["backgroundColor"];
+    this.pointBorderColor = ChartCharacteristics[0]["pointBorderColor"];
+    this.pointBackgroundColor = ChartCharacteristics[0]["pointBackgroundColor"];
+    this.pointHoverBackgroundColor = ChartCharacteristics[0]["pointHoverBackgroundColor"];
+    this.pointHoverBorderColor = ChartCharacteristics[0]["pointHoverBorderColor"];
+    this.yAxisID = ChartCharacteristics[0]["yAxisID"];
+   
+
+  }
   const [state, setState] = useState({
     select: {
       GraficaType:'group',
       scenathon_id:'6',
-      Iteration:'after',
+      Iteration:'4',
     }
    
   });
+  const [json, setJson] = useState([]);
+  var dataChart1 = null;
+  var dataChart2 = null;
 
-  const handleChange = e => {
-  
-    setState({
-        select: {
-            //el next code evitara que se sobrescriba cuando reciba un valor new
-            ...state.select,
+
+  useEffect(() => {
+    const getGreenHouseTwo = async () => {
+   
+
+   
+      try {
             
-            [e.target.name]: e.target.value
-        },
-       
-    })
+      const response = await fetch("http://localhost:3456/gas1"+JSON.stringify(state));
+       const  jsonAux =  await response.json();
+    
+      setJson(jsonAux);
+     
+  
+      } catch (error) {
+        console.error(error)
+      }
+  
+  
+  
+    }
+  
+    getGreenHouseTwo();
+    
+  }, [state]);
+
+
+
+const converter=()=>
+{
+  //variables chartOne
+  var Livestock_CH4=[];
+  var Livestock_N20=[];
+  var Crop_N20=[];
+  var Crop_CH4=[];
+  var Crop_CO2=[];
+  var Total_GHG_agric=[];
+  var FAO_GHGagric=[];
+  var ghg_agri_target=[];
+//variables chartTwo
+var deforestation=[];
+var Other_LUC=[];
+var sequestration=[];
+var peat = [];
+var total_GHG_land=[];
+var FAO_GHG_LU=[];
+var GHG_LU_target=[];
+  
+  var labels=[];
+
+  if (json.length !==0) 
+  {
+   
+    console.log(json)
+
+    json.forEach(item => {
+      if (!labels.includes(item.Year)) 
+      {
+        labels.push(item.Year);
+      }
+       //chart one
+      Livestock_CH4.push(item.Livestock_CH4);
+      Livestock_N20.push(item.Livestock_N20);
+      Crop_N20.push(item.Crop_N20);
+      Crop_CH4.push(item.Crop_CH4);
+      Crop_CO2.push(item.Crop_CO2);
+
+      Total_GHG_agric.push(item.Total_GHG_agric);
+      FAO_GHGagric.push(item.FAO_GHGagric);
+      ghg_agri_target.push(item.ghg_agri_target);
+     //chart TWO
+     deforestation.push(item.deforestation)
+     Other_LUC.push(item.Other_LUC)
+     sequestration.push(item.sequestration)
+     peat.push(item.peat)
+
+     total_GHG_land.push(item.total_GHG_land)
+     FAO_GHG_LU.push(item.fao_ghg_lu)
+     GHG_LU_target.push(item.GHG_LU_target)
+
+    });
+    //chart one
+    var grenHouse =new  GreenHouseBartChart(ChartCharacteristics["Livestock_CH4"],Livestock_CH4);
+    datasetsGraphOne.push(grenHouse);
+    grenHouse =new  GreenHouseBartChart(ChartCharacteristics["Livestock_N20"],Livestock_CH4);
+    datasetsGraphOne.push(grenHouse);
+    grenHouse =new  GreenHouseBartChart(ChartCharacteristics["Crop_N20"],Livestock_CH4);
+    datasetsGraphOne.push(grenHouse);
+    grenHouse =new  GreenHouseBartChart(ChartCharacteristics["Crop_CH4"],Livestock_CH4);
+    datasetsGraphOne.push(grenHouse);
+    grenHouse =new  GreenHouseBartChart(ChartCharacteristics["Crop_CO2"],Livestock_CH4);
+    datasetsGraphOne.push(grenHouse);
+
+    grenHouse =new  GreenHouseBartLine(ChartCharacteristics["Total_GHG_agric"],Total_GHG_agric);
+    datasetsGraphOne.push(grenHouse);
+
+    grenHouse =new  GreenHouseBartScatter(ChartCharacteristics["FAO_GHGagric"],FAO_GHGagric);
+    datasetsGraphOne.push(grenHouse);
+    grenHouse =new  GreenHouseBartScatter(ChartCharacteristics["ghg_agri_target"],ghg_agri_target);
+    datasetsGraphOne.push(grenHouse);
+
+    //chart two
+    grenHouse =new  GreenHouseBartChart(ChartCharacteristics["deforestation"],deforestation);
+    datasetsGraphTwo.push(grenHouse);
+    grenHouse =new  GreenHouseBartChart(ChartCharacteristics["Other_LUC"],Other_LUC);
+    datasetsGraphTwo.push(grenHouse);
+    grenHouse =new  GreenHouseBartChart(ChartCharacteristics["sequestration"],sequestration);
+    datasetsGraphTwo.push(grenHouse);
+    grenHouse =new  GreenHouseBartChart(ChartCharacteristics["peat"],peat);
+    datasetsGraphTwo.push(grenHouse);
+
+    grenHouse =new  GreenHouseBartLine(ChartCharacteristics["total_GHG_land"],total_GHG_land);
+    datasetsGraphTwo.push(grenHouse);
+
+    grenHouse =new  GreenHouseBartScatter(ChartCharacteristics["FAO_GHG_LU"],FAO_GHG_LU);
+    datasetsGraphTwo.push(grenHouse);
+    grenHouse =new  GreenHouseBartScatter(ChartCharacteristics["GHG_LU_target"],GHG_LU_target);
+    datasetsGraphTwo.push(grenHouse);
+
+
+
+
+
+    var dataAux = {
+      labels:labels,
+      datasets:datasetsGraphOne
+  };
+  dataGraphOne=dataAux;
+
+ var dataCharTwo = {
+    labels:labels,
+    datasets:datasetsGraphTwo
+};
+
+dataGraphTwo=dataCharTwo;
+
+console.log("data 1")
+console.log(dataGraphOne)
+console.log("data 2")
+console.log(dataGraphTwo)
+
+  }
+}
+
+
+
+
+
+
+const handleChange = e => {
+
+  var group = state.select.GraficaType;
+  var scenathon = state.select.scenathon_id;
+  var iteration = state.select.Iteration;
+if(e.name === "GraficaType")
+{
+group=e.value 
+}else if (e.target.name === "scenathon_id") {
+    switch (e.target.value) {
+      case '6':
+        iteration = state.select.Iteration === "1" ? "3" : "4";
+        scenathon = "6";
+        break;
+      case '5':
+        scenathon = "5";
+        iteration = state.select.Iteration === "3" ? "1" : "2";
+        break;
+      default: iteration = state.select.Iteration === "1" ? "3" : "4";
+    }
+  } else {
+
+  
+    iteration =scenathon === "6" ? e.target.value === "after" ? "4" : "3" : e.target.value === "after" ? "2" : "1" ;
+  }
+
+  setState({
+    select: {
+      GraficaType: group,
+      scenathon_id: scenathon,
+      Iteration: iteration,
+
     }
 
+
+  });
+
+ 
+}
+
+
+{/** 
   //Cambiar por las combinaciones de los json falta ya que son dos graficas en el json 
   switch (state.select.GraficaType) {
     case 'group':
@@ -127,8 +349,7 @@ const DrawGreenhouse1 = (props) => {
       break;
       default:dataGraphOne = data.graphOne_combinationTwo;
       dataGraphTwo = data.graphTwo_combinationTwo;
-  }
-
+  }*/}
   const steps = [
     {
       target: ".graph",
@@ -147,15 +368,20 @@ const DrawGreenhouse1 = (props) => {
     }
   ]
 
+
+
+
   return (
     <Container fluid>
       <Tour stepsP={steps}/>
       <ComboBox onChange={handleChange}/>
+      {converter()}
       <div className="graph">
       <Row>
         <Col >
           <div style={{ textAlign: 'center', height: "120vh", width: "30vw" }}>
           
+
             <SuperGraph data={dataGraphOneAux}
             title="            Annual GHG emissions from cops and livestock in Gt CO2e."
             aspectRatio={false} 
@@ -167,6 +393,7 @@ const DrawGreenhouse1 = (props) => {
             </Col>
         <Col > 
         <div style={{ textAlign: 'center', height: "120vh", width: "30vw" }}>
+
           <SuperGraph data={dataGraphTwoAux}
           title="                Average annual GHG emissions from land use change and peat oxidation in Gt CO2e."
           aspectRatio={false} 
@@ -174,6 +401,7 @@ const DrawGreenhouse1 = (props) => {
             labelwidth={20}
             labelSize={15}
           TitleSize={18}/> 
+
             </div>
             </Col>
       </Row>
@@ -183,6 +411,7 @@ const DrawGreenhouse1 = (props) => {
 }
 
 //These are the values of graph one
+{/** 
 const convertir_data = (props) => {
 
   var graphTwo_Total_GHG_land = [];
@@ -344,6 +573,7 @@ const convertir = (props) => {
       total_GHG_agri.push(item.Total_GHG_agric);
       target_GHG_agri.push(item.Target_GHG_agri);
       FAO_LU_global.push(item.FAO_Agric_global);
+      
       livestock_N2O.push(item.livestock_N2O);
       livestock_CH4.push(item.livestock_CH4);
       crop_CH4.push(item.crop_CH4);
@@ -481,5 +711,5 @@ const convertir = (props) => {
   return data
 
 }
-
+*/}
 export default DrawGreenhouse1

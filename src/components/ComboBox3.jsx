@@ -4,7 +4,7 @@ import { Form } from 'react-bootstrap';
 import '../css/ComboBox.css';
 
 import '../css/CheckBox.css';
-
+import CheckBoxes from '../components/CheckBoxes.js'
 
 function ComboBox (props) {
 
@@ -45,36 +45,20 @@ function ComboBox (props) {
                 <Form>
                   <select  class="selectBox"name="GraficaType" onChange={onChange} >
                   <option value="" disabled selected hidden>Group</option>
+                  <option  value="group">Group</option>
                     <option value="regions">ALL ROW regions</option>
                     <option value="countries">ALL FABLE countries</option>
                   </select>
                 </Form>
 
-                <div class="comboBoxContainer">
-                
-                <label class="container">
-                <input value="regions" type="checkbox"/>
-                <p>ALL ROW regions</p>
-                <span class="checkmark"></span>
-                </label>
-
-                <label class="container">
-                <input  value="countries" type="checkbox"/>
-                <p>ALL FABLE countries</p>
-                <span class="checkmark"></span>
-                </label>
-              </div>
-
-                 {/*<select  name="GraficaType" onChange={onChange}>
-                    <option value="regions">ALL ROW regions</option>
-                    <option value="countries">ALL FABLE countries</option>
-              </select>*/}
-                <br></br>
+               <CheckBoxes/>
             </div>
 
 
         )
     
 }
+
+
 export default ComboBox;
 
