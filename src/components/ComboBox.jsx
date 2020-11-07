@@ -36,7 +36,7 @@ function ComboBox(props) {
 
                 break;
             case "regions":
-                
+                checkbox=regionscheckbox;
 
                 if (!regionscheckbox.current.checked && countriescheckbox.current.checked && groupcheckbox.current.checked) {
                     groupcheckbox.current.checked = false;
@@ -50,7 +50,7 @@ function ComboBox(props) {
                 }
                 break;
             case "countries":
-                
+                checkbox=countriescheckbox;
                 if (!countriescheckbox.current.checked && regionscheckbox.current.checked && groupcheckbox.current.checked) {
                     groupcheckbox.current.checked = false;
                     checkbox=regionscheckbox;

@@ -131,42 +131,45 @@ dataAux = {
 
 
 
-    const handleChange = e => {
+  const handleChange = e => {
 
-      var group = state.select.GraficaType;
-      var scenathon = state.select.scenathon_id;
-      var iteration = state.select.Iteration;
+    var group = state.select.GraficaType;
+    var scenathon = state.select.scenathon_id;
+    var iteration = state.select.Iteration;
+  if(e.name === "GraficaType")
+  {
+  group=e.value 
+  }else if (e.target.name === "scenathon_id") {
+      switch (e.target.value) {
+        case '6':
+          iteration = state.select.Iteration === "1" ? "3" : "4";
+          scenathon = "6";
+          break;
+        case '5':
+          scenathon = "5";
+          iteration = state.select.Iteration === "3" ? "1" : "2";
+          break;
+        default: iteration = state.select.Iteration === "1" ? "3" : "4";
+      }
+    } else {
   
-      if (e.target.name === "scenathon_id") {
-        switch (e.target.value) {
-          case '6':
-            iteration = state.select.Iteration === "1" ? "3" : "4";
-            scenathon = "6";
-            break;
-          case '5':
-            scenathon = "5";
-            iteration = state.select.Iteration === "3" ? "1" : "2";
-            break;
-            default:iteration = state.select.Iteration === "1" ? "3" : "4";
-        }
-      } else {
+    
+      iteration =scenathon === "6" ? e.target.value === "after" ? "4" : "3" : e.target.value === "after" ? "2" : "1" ;
+    }
   
-        group = e.target.name === "GraficaType" ? e.target.value : state.select.GraficaType;
-        iteration = e.target.name === "Iteration" ? scenathon === "6" ? e.target.value === "after" ? "4" : "3" : e.target.value === "after" ? "2" : "1" : state.select.Iteration;
+    setState({
+      select: {
+        GraficaType: group,
+        scenathon_id: scenathon,
+        Iteration: iteration,
+  
       }
   
-      setState({
-        select: {
-          GraficaType: group,
-          scenathon_id: scenathon,
-          Iteration: iteration,
   
-        }
+    });
   
-  
-      });
-  
-    }
+   
+  }
   
     const steps = [
       {

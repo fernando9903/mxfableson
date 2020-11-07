@@ -26,7 +26,6 @@ const DrawProtected = () => {
 
 
   const [json, setJson] = useState([]);
-
   var data = null;
 
 
@@ -63,7 +62,9 @@ const DrawProtected = () => {
     var areaOther = [];
     var areaOtherNta = [];
     var areas = [];
-    if (json != null) {
+    if (json.length !==0) 
+    {
+     
       json.forEach(item => {
         if (!labels.includes(item.Year)) {
               labels.push(item.Year);

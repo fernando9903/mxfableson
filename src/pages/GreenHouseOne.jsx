@@ -52,7 +52,6 @@ const DrawGreenhouse1 = (props) => {
     this.pointHoverBorderColor = ChartCharacteristics[0]["pointHoverBorderColor"];
     this.yAxisID = ChartCharacteristics[0]["yAxisID"];
    
-
   }
   const [state, setState] = useState({
     select: {
@@ -68,7 +67,7 @@ const DrawGreenhouse1 = (props) => {
 
 
   useEffect(() => {
-    const getGreenHouseTwo = async () => {
+    const getGreenHouseOne = async () => {
    
 
    
@@ -88,7 +87,7 @@ const DrawGreenhouse1 = (props) => {
   
     }
   
-    getGreenHouseTwo();
+    getGreenHouseOne();
     
   }, [state]);
 
@@ -148,6 +147,18 @@ var GHG_LU_target=[];
 
     });
     //chart one
+   
+
+   
+
+    grenHouse =new  GreenHouseBartScatter(ChartCharacteristics["FAO_GHGagric"],FAO_GHGagric);
+    datasetsGraphOne.push(grenHouse);
+    grenHouse =new  GreenHouseBartScatter(ChartCharacteristics["ghg_agri_target"],ghg_agri_target);
+    datasetsGraphOne.push(grenHouse);
+
+    grenHouse =new  GreenHouseBartLine(ChartCharacteristics["Total_GHG_agric"],Total_GHG_agric);
+    datasetsGraphOne.push(grenHouse);
+
     var grenHouse =new  GreenHouseBartChart(ChartCharacteristics["Livestock_CH4"],Livestock_CH4);
     datasetsGraphOne.push(grenHouse);
     grenHouse =new  GreenHouseBartChart(ChartCharacteristics["Livestock_N20"],Livestock_CH4);
@@ -159,15 +170,19 @@ var GHG_LU_target=[];
     grenHouse =new  GreenHouseBartChart(ChartCharacteristics["Crop_CO2"],Livestock_CH4);
     datasetsGraphOne.push(grenHouse);
 
-    grenHouse =new  GreenHouseBartLine(ChartCharacteristics["Total_GHG_agric"],Total_GHG_agric);
-    datasetsGraphOne.push(grenHouse);
-
-    grenHouse =new  GreenHouseBartScatter(ChartCharacteristics["FAO_GHGagric"],FAO_GHGagric);
-    datasetsGraphOne.push(grenHouse);
-    grenHouse =new  GreenHouseBartScatter(ChartCharacteristics["ghg_agri_target"],ghg_agri_target);
-    datasetsGraphOne.push(grenHouse);
-
     //chart two
+  
+
+   
+    grenHouse =new  GreenHouseBartScatter(ChartCharacteristics["FAO_GHG_LU"],FAO_GHG_LU);
+    datasetsGraphTwo.push(grenHouse);
+    grenHouse =new  GreenHouseBartScatter(ChartCharacteristics["GHG_LU_target"],GHG_LU_target);
+    datasetsGraphTwo.push(grenHouse);
+
+    grenHouse =new  GreenHouseBartLine(ChartCharacteristics["total_GHG_land"],total_GHG_land);
+    datasetsGraphTwo.push(grenHouse);
+
+
     grenHouse =new  GreenHouseBartChart(ChartCharacteristics["deforestation"],deforestation);
     datasetsGraphTwo.push(grenHouse);
     grenHouse =new  GreenHouseBartChart(ChartCharacteristics["Other_LUC"],Other_LUC);
@@ -175,14 +190,6 @@ var GHG_LU_target=[];
     grenHouse =new  GreenHouseBartChart(ChartCharacteristics["sequestration"],sequestration);
     datasetsGraphTwo.push(grenHouse);
     grenHouse =new  GreenHouseBartChart(ChartCharacteristics["peat"],peat);
-    datasetsGraphTwo.push(grenHouse);
-
-    grenHouse =new  GreenHouseBartLine(ChartCharacteristics["total_GHG_land"],total_GHG_land);
-    datasetsGraphTwo.push(grenHouse);
-
-    grenHouse =new  GreenHouseBartScatter(ChartCharacteristics["FAO_GHG_LU"],FAO_GHG_LU);
-    datasetsGraphTwo.push(grenHouse);
-    grenHouse =new  GreenHouseBartScatter(ChartCharacteristics["GHG_LU_target"],GHG_LU_target);
     datasetsGraphTwo.push(grenHouse);
 
 
@@ -202,10 +209,6 @@ var GHG_LU_target=[];
 
 dataGraphTwo=dataCharTwo;
 
-console.log("data 1")
-console.log(dataGraphOne)
-console.log("data 2")
-console.log(dataGraphTwo)
 
   }
 }
@@ -256,100 +259,7 @@ group=e.value
 }
 
 
-{/** 
-  //Cambiar por las combinaciones de los json falta ya que son dos graficas en el json 
-  switch (state.select.GraficaType) {
-    case 'group':
-      switch (state.select.Iteration) {
-        case 'before':
-          if (state.select.scenathon_id === "6") {
-            dataGraphOne = data.graphOne_combinationTwo;
-            dataGraphTwo = data.graphTwo_combinationTwo;
-          } else {
-            dataGraphOne = data.graphOne_combinationFour;
-            dataGraphTwo = data.graphTwo_combinationFour;
-          }
-           dataGraphOneAux = convertir(dataGraphOne);
-           dataGraphTwoAux = convertir_data(dataGraphTwo);
-          break;
-        case 'after':
-          if (state.select.scenathon_id === "6") {
-            dataGraphOne = data.graphOne_combinationOne
-            dataGraphTwo = data.graphTwo_combinationOne
-          } else {
-            dataGraphOne = data.graphOne_combinationThree
-            dataGraphTwo = data.graphTwo_combinationThree
-          }
-           dataGraphOneAux = convertir(dataGraphOne);
-           dataGraphTwoAux = convertir_data(dataGraphTwo);
-          break;
-          default:dataGraphOne = data.graphOne_combinationTwo;
-          dataGraphTwo = data.graphTwo_combinationTwo;
-      }
-      break;
-    case 'regions':
-      switch (state.select.Iteration) {
-        case 'before':
-          if (state.select.scenathon_id === "6") {
-            dataGraphOne = data.graphOne_combinationSix
-            dataGraphTwo = data.graphTwo_combinationSix
-          } else {
-            dataGraphOne = data.graphOne_combinationEight
-            dataGraphTwo = data.graphTwo_combinationSeven
-          }
-           dataGraphOneAux = convertir(dataGraphOne);
-           dataGraphTwoAux = convertir_data(dataGraphTwo);
-          break;
-         
-        case 'after':
-          if (state.select.scenathon_id === "6") {
-            dataGraphOne = data.graphOne_combinationFive
-            dataGraphTwo = data.graphTwo_combinationEight
-          } else {
-            dataGraphOne = data.graphOne_combinationSeven
-            dataGraphTwo = data.Greengraph_Two__combination_Seven
-          }
-           dataGraphOneAux = convertir(dataGraphOne);
-           dataGraphTwoAux = convertir_data(dataGraphTwo);
-          break;
-          default:dataGraphOne = data.graphOne_combinationTwo;
-          dataGraphTwo = data.graphTwo_combinationTwo;
 
-      }
-      break;
-    
-    case 'countries':
-      switch (state.select.Iteration) {
-        case 'before':
-          if (state.select.scenathon_id === "6") {
-            dataGraphOne = data.graphOne_combinationTen
-            dataGraphTwo = data.graphTwo_combinationTen
-          } else {
-            dataGraphOne = data.graphOne_combinationTwelve
-            dataGraphTwo = data.graphTwo_combinationTwelve
-          }
-           dataGraphOneAux = convertir(dataGraphOne);
-           dataGraphTwoAux = convertir_data(dataGraphTwo);
-          break;
-
-        case 'after':
-          if (state.select.scenathon_id === "6") {
-            dataGraphOne = data.graphOne_combinationNine
-            dataGraphTwo = data.graphTwo_combinationNine
-          } else {
-            dataGraphOne = data.graphOne_combinationEleven
-            dataGraphTwo = data.graphTwo_combinationEleven
-          }
-           dataGraphOneAux = convertir(dataGraphOne);
-           dataGraphTwoAux = convertir_data(dataGraphTwo);
-          break;
-          default:dataGraphOne = data.graphOne_combinationTwo;
-          dataGraphTwo = data.graphTwo_combinationTwo;
-      }
-      break;
-      default:dataGraphOne = data.graphOne_combinationTwo;
-      dataGraphTwo = data.graphTwo_combinationTwo;
-  }*/}
   const steps = [
     {
       target: ".graph",
