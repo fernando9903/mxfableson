@@ -6,7 +6,8 @@ import '../css/ComboBox.css';
 function ComboBoxFoodEnergy2 (props) {
 
     
-        const{onChange}=props
+        const{onChange}=props;
+      
         return (
            
 
@@ -41,6 +42,7 @@ function ComboBoxFoodEnergy2 (props) {
 
                 </select>
                 <br></br>
+               
             </div>
   
 

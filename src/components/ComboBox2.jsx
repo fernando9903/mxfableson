@@ -7,7 +7,8 @@ import '../css/ComboBox.css';
 function ComboBox(props) {
 
 
-  const { onChange } = props
+  const { onChange } = props;
+ 
   return (
 
 
@@ -45,6 +46,7 @@ function ComboBox(props) {
 
     
       <br></br>
+
     </div>
 
 

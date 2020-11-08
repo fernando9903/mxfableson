@@ -77,11 +77,7 @@ const App = (props) => {
           <JumbotronFin/>
         </div>
 
-        {/*<div>
-          <SwipeableDrawe/>
-          <Sidebar/>
-        </div>*/}
-
+      
 
 
     </React.Fragment>
