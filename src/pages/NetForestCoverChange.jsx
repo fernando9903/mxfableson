@@ -9,31 +9,6 @@ import NetForestCoverService from '../services/NetForestCoverService';
 const DrawNfch = () => {
   
 
-{/**
-  function NetForesOne(ChartCharacteristics, data) {
-    this.data = data;
-    this.type = ChartCharacteristics[0]["type"];
-    this.label = ChartCharacteristics[0]["label"];
-    this.borderColor = ChartCharacteristics[0]["borderColor"];
-    this.backgroundColor = ChartCharacteristics[0]["backgroundColor"];
-
-  }
-  function NetForesTarget(ChartCharacteristics, data) {
-    this.data = data;
-    this.type = ChartCharacteristics[0]["type"];
-    this.label = ChartCharacteristics[0]["label"];
-    this.fill = ChartCharacteristics[0]["fill"];
-    this.radius = ChartCharacteristics[0]["radius"];
-    this.borderColor = ChartCharacteristics[0]["borderColor"];
-    this.backgroundColor = ChartCharacteristics[0]["backgroundColor"];
-    this.pointBorderColor = ChartCharacteristics[0]["pointBorderColor"];
-    this.pointBackgroundColor = ChartCharacteristics[0]["pointBackgroundColor"];
-    this.pointHoverBackgroundColor = ChartCharacteristics[0]["pointHoverBackgroundColor"];
-    this.pointHoverBorderColor = ChartCharacteristics[0]["pointHoverBorderColor"];
-    this.yAxisID = ChartCharacteristics[0]["yAxisID"];
-   
-  }
- */}
 
 
 
