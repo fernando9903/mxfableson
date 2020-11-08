@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import SuperGraph from "../components/SuperGraph";
-import data from '../data/Greenhouse1.json';
 import ComboBox from '../components/ComboBox';
 import { Container, Row, Col } from "react-bootstrap";
 import Tour from '../components/Tour'
