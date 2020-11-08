@@ -23,33 +23,18 @@ function ComboBox (props) {
                   </select>
                 </Form>
 
-               {/*<select  name="Scenario" onChange={onChange}>
-                    <option value="Sustainaible">Sustainaible</option>
-                    <option value="Current_trend">Current trend</option>
-                    
-                  </select>*/}
+              
                 <br></br>
                 <Form>
                   <select  class="selectBox" name="Iteration" onChange={onChange} >
                   <option value="" disabled selected hidden>Iteration</option>
-                    <option  value="iteration_4">Iteration:4</option>
-                    <option  value="iteration_3">Iteration:3</option>
+                    <option  value="iteration_4">after</option>
+                    <option  value="iteration_3">before</option>
                   </select>
                 </Form>
 
-                {/*<select  name="Iteration" onChange={onChange}>
-                    <option value="iteration_4">iteration:4</option>
-                    <option value="iteration_3">iteration:3</option>
-                </select>*/}
-                <br></br>
-                <Form>
-                  <select  class="selectBox"name="GraficaType" onChange={onChange} >
-                  <option value="" disabled selected hidden>Group</option>
-                  <option  value="group">Group</option>
-                    <option value="regions">ALL ROW regions</option>
-                    <option value="countries">ALL FABLE countries</option>
-                  </select>
-                </Form>
+               
+              
 
                <CheckBoxes/>
             </div>

@@ -138,13 +138,12 @@ class Scenathon extends Component {
             case 'Net Forest Cover Change 1':
                 document.getElementById('container-fluid').style.background="transparent";
                 document.getElementById("banner").src = BannerLifeOnLand;
-                this.combobox = <ComboBox onChange={this.handleChange} />
+                this.combobox = null;
                 this.dash = <NetForestCoverChange combinacion={this.state} />;
                 break;
             case 'Net Forest Cover Change 2':
                 document.getElementById('container-fluid').style.background="transparent";
                 document.getElementById("banner").src = BannerLifeOnLand;
-                // this.combobox=<ComboBox3 onChange={this.handleChange}/>
                 this.combobox = null;
                 this.dash = <NetForestCoverChange2 />;
                 break;

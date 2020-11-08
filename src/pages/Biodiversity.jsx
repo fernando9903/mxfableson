@@ -28,7 +28,6 @@ const DrawBiodiversity = () =>
 
 
   useEffect(() => {
-    console.log(state)
 BiodiversityService(state).then(setJson);
  
  

@@ -346,7 +346,7 @@
         "pointBackgroundColor": "Black",
         "pointHoverBackgroundColor": "Black",
         "pointHoverBorderColor": "Black",
-        "yAxisID":" y-axis-1"
+        "yAxisID":"y-axis-1"
     }],
     "Forest_target":[{
         "label": "forest_target",
@@ -359,7 +359,7 @@
         "pointBackgroundColor": "Red",
         "pointHoverBackgroundColor": "Red",
         "pointHoverBorderColor": "Red",
-        "yAxisID":" y-axis-1" 
+        "yAxisID":"y-axis-1" 
     }],
     "ForestLoss":[{
         "label": "Forest loss",
