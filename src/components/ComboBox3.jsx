@@ -18,7 +18,7 @@ function ComboBox (props) {
                 <Form>
                   <select class="selectBox" name="Scenario" onChange={onChange} >
                   <option value="" disabled selected hidden>Scenario</option>
-                    <option  value="Sustainaible">Sustainaible</option>
+                    <option  value="Sustainaible">Sustainable</option>
                     <option  value="Current_trend">Current trend</option>
                   </select>
                 </Form>
