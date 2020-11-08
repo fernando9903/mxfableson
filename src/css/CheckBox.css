@@ -3,7 +3,7 @@
 
     position: relative;
     padding-left: 55px;
-
+    margin-top: 5px;
    
     cursor: pointer;
     font-size: 15px;
@@ -12,6 +12,8 @@
     -ms-user-select: none;
     user-select: none;
   margin-left:5px;
+  margin-top:5px;
+  
   }
 
   p{

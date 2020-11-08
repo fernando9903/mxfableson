@@ -70,17 +70,17 @@ select:hover {
   right: 0;
   top: 0;
   bottom: 0;
-  background-color:#72a5ad; 
+
 
 }
 
 #checkboxes {
   display: none;
   border: 1px #dadada solid;
-  background-color:#72a5ad; 
+    background-color:#72a5ad; 
   position: absolute;
   z-index: 20;
-  margin-left: 5px;
+
   padding:0 .5%;
  
 }
