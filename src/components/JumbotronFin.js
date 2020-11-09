@@ -41,8 +41,7 @@ const Styles = styled.div`
     align-items:center;
     margin: 0;
     margin-top:25px;
-    max-width:100%;
-    max-height:100%;
+    
     
 
 
@@ -86,7 +85,7 @@ const Styles = styled.div`
    `;
 
 
-const  JumbotronFin = () => {
+const JumbotronFin = () => {
   return (
     <Styles>
       <div class="footer-container">
