@@ -22,7 +22,7 @@ const DrawNfch2 = () => {
 
   const [state, setState] = useState({
     select: {
-      GraficaType: 'group',
+      GraficaType: 'regions',
       scenathon_id: '6',
       Iteration: '4',
     }
@@ -36,6 +36,7 @@ const DrawNfch2 = () => {
 
 
   useEffect(() => {
+   
     NetForesTwoService(state).then(setJson);
      
      
@@ -49,6 +50,7 @@ const DrawNfch2 = () => {
         var graficaType = state.select.GraficaType;
         var scenathon = state.select.scenathon_id;
         var iteration = state.select.Iteration;
+        
     if(e.name === "GraficaType")
     {
       graficaType=e.value 
@@ -81,7 +83,7 @@ const DrawNfch2 = () => {
     
         });
     
-       
+        console.log(state)
       }
 
 

@@ -30,7 +30,7 @@ const check = (nameComboBox) => {
             break;
         case "countries":
             checkbox=countriescheckbox;
-            countriescheckbox.current.checked =true;
+           
           
             if(countriescheckbox.current.checked && regionscheckbox.current.checked)
             {
@@ -52,13 +52,13 @@ const check = (nameComboBox) => {
            
 
             <label class="container">
-                <input onClick={() => { check("regions") }} ref={regionscheckbox} value="regions" type="checkbox" />
+                <input onClick={() => { check("regions") }} ref={regionscheckbox} value="regions" type="checkbox"  name="GraficaType" />
                 <p>ALL ROW regions</p>
                 <span class="checkmark"></span>
             </label>
 
             <label class="container">
-                <input onClick={() => { check("countries") }} ref={countriescheckbox} value="countries" type="checkbox" />
+                <input onClick={() => { check("countries") }} ref={countriescheckbox} value="countries" type="checkbox"  name="GraficaType"/>
                 <p>ALL FABLE countries</p>
                 <span class="checkmark"></span>
             </label>
