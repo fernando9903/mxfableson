@@ -13,14 +13,13 @@ import TW_Logo from '../assets/logotwitter_green.png';
 
 const Styles = styled.div`
   .logo{
-      width:200px;
+      width:200px;    
     }
 
     #instagram-logo{
       margin-top:4px;
       width:40px;
     }
-
 
     #twitter-logo{
       margin-top:1px;
@@ -78,6 +77,24 @@ const Styles = styled.div`
         color:#4E4E4E;
         font-size:15px;
       }
+  }
+}
+
+@media(max-width 1200px){
+
+}
+
+@media(max-width 992px){
+   
+}
+
+
+@media( max-width: 768px){
+   
+}
+@media (max-width 576px){
+  .logo-container{
+    width:25px;
   }
 }
 
