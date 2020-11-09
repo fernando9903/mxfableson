@@ -11,7 +11,7 @@ const DrawGreenhouse1 = (props) => {
   var dataGraphOne=null;
   var dataGraphTwo=null;
   var datasetsGraphTwo = [];
-
+var dataGraphOneAux, dataGraphTwoAux;
  
   function GreenHouseBartChart(ChartCharacteristics, data) {
     this.data = data;

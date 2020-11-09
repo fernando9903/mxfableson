@@ -4,12 +4,26 @@ import { Form } from 'react-bootstrap';
 import '../css/CheckBox.css';
 
 
-
+var expanded = false;
 const CheckBoxes =(props)=> {  
 const{onChange}=props
 
 const regionscheckbox = React.createRef();
 const countriescheckbox = React.createRef();
+
+//This method shows/hides the checkboxes "inside" the combobox
+const showCheckboxes = (nameComboBox) => {
+    var checkboxes = document.getElementById("checkboxes");
+    if (!expanded) {
+      checkboxes.style.display = "block";
+      expanded = true;
+     
+    } else {
+      checkboxes.style.display = "none";
+      expanded = false;
+ 
+    }
+  }
 
 const check = (nameComboBox) => {
     let checkbox=null;
@@ -48,21 +62,27 @@ const check = (nameComboBox) => {
 }
         return (
             <div id="checkBoxContainer" className="checkBoxContainer">
-
-           
-
-            <label class="container">
-                <input onClick={() => { check("regions") }} ref={regionscheckbox} value="regions" type="checkbox" />
-                <p>ALL ROW regions</p>
-                <span class="checkmark"></span>
-            </label>
-
-            <label class="container">
-                <input onClick={() => { check("countries") }} ref={countriescheckbox} value="countries" type="checkbox" />
-                <p>ALL FABLE countries</p>
-                <span class="checkmark"></span>
-            </label>
-        </div>
+            <div  onClick={() => { showCheckboxes() }}>
+              <select id="comboboxcheckboxes">
+              <option value="" disabled selected hidden>Group</option>
+              </select>
+              <div class="overSelect"></div>
+            </div>
+            <div id="checkboxes">
+        
+                <label class="container">
+                  <input onClick={() => { check("regions") }} ref={regionscheckbox} value="regions" type="checkbox" name="GraficaType" />
+                  <p>ALL ROW regions</p>
+                  <span class="checkmark"></span>
+                </label>
+        
+                <label class="container">
+                  <input onClick={() => { check("countries") }} ref={countriescheckbox} value="countries" type="checkbox" name="GraficaType" />
+                  <p>ALL FABLE countries</p>
+                  <span class="checkmark"></span>
+                </label>
+            </div>
+          </div>
         )       
 }
 
