@@ -16,10 +16,11 @@ function ComboBox (props) {
             <div className="contenedor-selects">
                 <br></br>
                 <Form>
-                  <select class="selectBox" name="Scenario" onChange={onChange} >
+                  <select class="selectBox" name="scenathon_id" onChange={onChange} >
                   <option value="" disabled selected hidden>Scenario</option>
-                    <option  value="Sustainaible">Sustainable</option>
-                    <option  value="Current_trend">Current trend</option>
+                    <option  value="6">Sustainaible</option>
+                    <option  value="5">Current trend</option>
+
                   </select>
                 </Form>
 
@@ -28,15 +29,15 @@ function ComboBox (props) {
                 <Form>
                   <select  class="selectBox" name="Iteration" onChange={onChange} >
                   <option value="" disabled selected hidden>Iteration</option>
-                    <option  value="iteration_4">after</option>
-                    <option  value="iteration_3">before</option>
+                    <option  value="after">after</option>
+                    <option  value="before">before</option>
                   </select>
                 </Form>
 
                
               
 
-               <CheckBoxes/>
+               <CheckBoxes  onChange={onChange} />
             </div>
 
 
