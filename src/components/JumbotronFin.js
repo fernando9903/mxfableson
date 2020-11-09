@@ -13,14 +13,13 @@ import TW_Logo from '../assets/logotwitter_green.png';
 
 const Styles = styled.div`
   .logo{
-      width:200px;
+      width:200px;    
     }
 
     #instagram-logo{
       margin-top:4px;
       width:40px;
     }
-
 
     #twitter-logo{
       margin-top:1px;
@@ -41,8 +40,7 @@ const Styles = styled.div`
     align-items:center;
     margin: 0;
     margin-top:25px;
-    max-width:100%;
-    max-height:100%;
+    
     
 
 
@@ -82,11 +80,29 @@ const Styles = styled.div`
   }
 }
 
+@media(max-width 1200px){
+
+}
+
+@media(max-width 992px){
+   
+}
+
+
+@media( max-width: 768px){
+   
+}
+@media (max-width 576px){
+  .logo-container{
+    width:25px;
+  }
+}
+
   
    `;
 
 
-const  JumbotronFin = () => {
+const JumbotronFin = () => {
   return (
     <Styles>
       <div class="footer-container">
