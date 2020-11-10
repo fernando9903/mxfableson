@@ -244,7 +244,13 @@ const TradeReportMap = (props) => {
         var i = 0
         for (const currentValue in years) {
  
-            htmlCode = htmlCode + '<li>' + '<strong>' + years[i] + '</strong>' + ': ' + data[index][i] + '</li>'
+            htmlCode = htmlCode + '<li>' + '<strong>' + years[i] + '</strong>' + ': ' + data[index][i]
+
+            if(props.graphType == 'Biodiversity') {
+                htmlCode = htmlCode + '%';        
+            }
+
+            htmlCode = htmlCode + '</li>';
 
             i++;
         }
