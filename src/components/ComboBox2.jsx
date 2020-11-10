@@ -7,7 +7,8 @@ import '../css/ComboBox.css';
 function ComboBox(props) {
 
 
-  const { onChange } = props
+  const { onChange } = props;
+ 
   return (
 
 
@@ -15,7 +16,7 @@ function ComboBox(props) {
       <br></br>
       <select class="selectBox" name="scenathon_id" onChange={onChange}>
       <option value="" disabled selected hidden>Scenario</option>
-        <option  value="6">Sustainaible</option>
+        <option  value="6">Sustainable</option>
         <option  value="5">Current trend</option>
 
       </select>
@@ -45,6 +46,7 @@ function ComboBox(props) {
 
     
       <br></br>
+
     </div>
 
 
